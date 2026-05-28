@@ -9,6 +9,7 @@ import { Cases } from './Cases';
 import { ResourcesBlock } from './ResourcesBlock';
 import { BehindLensSection } from './BehindLensSection';
 import { ROICalculator } from './ROICalculator';
+import { RevealOnScroll } from '../RevealOnScroll';
 
 export function PlaybookPanel({
   playbook,
@@ -48,12 +49,12 @@ export function PlaybookPanel({
   return (
     <main>
       <Hero playbook={playbook} />
-      <MathBlock playbook={playbook} />
+      <RevealOnScroll><MathBlock playbook={playbook} /></RevealOnScroll>
       <Stack playbook={playbook} />
-      <Workflow playbook={playbook} />
+      <RevealOnScroll><Workflow playbook={playbook} /></RevealOnScroll>
       <Prompts playbook={playbook} itemsById={itemsById} />
-      <Cases playbook={playbook} />
-      <ResourcesBlock playbook={playbook} />
+      <RevealOnScroll><Cases playbook={playbook} /></RevealOnScroll>
+      <RevealOnScroll><ResourcesBlock playbook={playbook} /></RevealOnScroll>
       <BehindLensSection playbook={playbook} />
       <ROICalculator playbook={playbook} />
       <section className="px-6 md:px-10 py-16">

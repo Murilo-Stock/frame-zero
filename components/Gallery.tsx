@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import type { Item, UseCase } from '@/lib/types';
 import { useFilter } from '@/lib/useFilter';
 import { UseCaseRail } from './UseCaseRail';
@@ -32,13 +33,27 @@ export function Gallery({ items }: { items: Item[] }) {
           const bucket = filtered.filter((i) => i.useCase === uc);
           if (bucket.length === 0) return null;
           return (
-            <section key={uc} id={`section-${uc}`} className="py-16">
-              <header className="max-w-7xl mx-auto px-6 mb-8 flex items-baseline gap-4 border-b border-rule pb-4">
+            <motion.section
+              key={uc}
+              id={`section-${uc}`}
+              className="py-16"
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <motion.header
+                className="max-w-7xl mx-auto px-6 mb-8 flex items-baseline gap-4 border-b border-rule pb-4"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              >
                 <h2 className="font-display text-4xl text-ink capitalize">{uc}</h2>
                 <span className="font-mono text-xs uppercase tracking-caps text-amber">{bucket.length} frames</span>
-              </header>
+              </motion.header>
               <Masonry items={bucket} onOpen={setOpen} />
-            </section>
+            </motion.section>
           );
         })
       ) : (

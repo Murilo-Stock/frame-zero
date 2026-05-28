@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import type { Item } from '@/lib/types';
 import { Card } from './Card';
 import { Lightbox } from './Lightbox';
@@ -8,7 +9,14 @@ export function BehindLens({ items }: { items: Item[] }) {
   const [open, setOpen] = useState<Item | null>(null);
   if (items.length === 0) return null;
   return (
-    <section id="behind-lens" className="bg-[#f4ede0] text-canvas py-24 px-8 my-24">
+    <motion.section
+      id="behind-lens"
+      className="bg-[#f4ede0] text-canvas py-24 px-8 my-24"
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
       <div className="max-w-5xl mx-auto">
         <p className="font-mono text-xs uppercase tracking-caps text-canvas/60 mb-4">Behind the lens · Murilo Stock</p>
         <h2 className="font-display text-5xl md:text-7xl tracking-tight mb-8 leading-none">
@@ -26,6 +34,6 @@ export function BehindLens({ items }: { items: Item[] }) {
         </div>
       </div>
       <Lightbox item={open} onClose={() => setOpen(null)} />
-    </section>
+    </motion.section>
   );
 }
