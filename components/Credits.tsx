@@ -13,7 +13,7 @@ export function Credits() {
           <ul className="space-y-2 text-sm">
             {SOURCES.map((s) => (
               <li key={s.repo}>
-                <a href={`https://github.com/${s.repo}`} target="_blank" rel="noopener" className="text-ink hover:text-amber font-mono">
+                <a href={`https://github.com/${s.repo}`} target="_blank" rel="noopener" className="text-ink hover:text-amber font-mono focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas rounded">
                   {s.repo}
                 </a>
                 <div className="text-ink-mute text-xs">{s.label}</div>

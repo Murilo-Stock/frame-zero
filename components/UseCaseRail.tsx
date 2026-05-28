@@ -33,8 +33,9 @@ export function UseCaseRail({
           <button
             key={uc}
             onClick={() => onChange({ useCase: useCase === uc ? null : uc })}
+            aria-pressed={useCase === uc}
             className={clsx(
-              'px-3 py-1.5 rounded-full font-mono text-xs uppercase tracking-caps border transition',
+              'px-3 py-1.5 rounded-full font-mono text-xs uppercase tracking-caps border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas',
               useCase === uc
                 ? 'bg-amber text-canvas border-amber'
                 : 'text-ink-mute border-rule hover:text-ink hover:border-ink-mute',
@@ -49,8 +50,9 @@ export function UseCaseRail({
           <button
             key={m.id}
             onClick={() => onChange({ model: model === m.id ? null : m.id })}
+            aria-pressed={model === m.id}
             className={clsx(
-              'px-3 py-1.5 rounded-full font-mono text-xs uppercase tracking-caps border transition',
+              'px-3 py-1.5 rounded-full font-mono text-xs uppercase tracking-caps border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas',
               model === m.id
                 ? 'bg-ink text-canvas border-ink'
                 : 'text-ink-mute border-rule hover:text-ink hover:border-ink-mute',
@@ -63,7 +65,8 @@ export function UseCaseRail({
           value={query}
           onChange={(e) => onChange({ query: e.target.value })}
           placeholder="search prompts…"
-          className="ml-auto bg-canvas-2 border border-rule rounded-full px-4 py-1.5 text-sm text-ink placeholder:text-ink-mute focus:outline-none focus:border-amber w-64"
+          aria-label="search prompts"
+          className="ml-auto bg-canvas-2 border border-rule rounded-full px-4 py-1.5 text-sm text-ink placeholder:text-ink-mute focus:outline-none focus:border-amber focus-visible:ring-2 focus-visible:ring-amber w-64"
         />
       </div>
     </div>

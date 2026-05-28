@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Frame Zero — Curated AI cinema · 2026',
-  description: 'Six use-cases. Three models. Two hundred and ninety frames. One arsenal.',
+  description: 'Six use-cases. Three models. 282 frames. One arsenal.',
   openGraph: {
     title: 'Frame Zero',
     description: 'Curated AI cinema · GPT Image 2 · Nano Banana Pro · Seedance 2',

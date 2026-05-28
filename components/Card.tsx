@@ -13,7 +13,8 @@ export function Card({ item, onOpen }: { item: Item; onOpen: () => void }) {
       onClick={onOpen}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className="group block w-full mb-4 relative overflow-hidden bg-canvas-2 border border-rule hover:border-amber transition rounded-sm text-left"
+      aria-label={`Open ${item.title}`}
+      className="group block w-full mb-4 relative overflow-hidden bg-canvas-2 border border-rule hover:border-amber transition rounded-sm text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
       style={{ aspectRatio: ratio }}
     >
       {isMurilo ? (
@@ -22,12 +23,22 @@ export function Card({ item, onOpen }: { item: Item; onOpen: () => void }) {
         <video
           src={item.mediaUrl}
           poster={item.posterUrl}
+          aria-label={item.title}
           autoPlay={hover}
           muted loop playsInline preload="metadata"
+          width={item.width}
+          height={item.height}
           className="w-full h-full object-cover"
         />
       ) : (
-        <img src={item.mediaUrl} alt={item.title} loading="lazy" className="w-full h-full object-cover" />
+        <img
+          src={item.mediaUrl}
+          alt={item.title}
+          loading="lazy"
+          width={item.width}
+          height={item.height}
+          className="w-full h-full object-cover"
+        />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-canvas/95 via-canvas/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       <div className="absolute inset-x-0 bottom-0 p-4 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">

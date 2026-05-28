@@ -9,13 +9,18 @@ export function Hero({ featured, total }: { featured: Item[]; total: number }) {
       {hero?.kind === 'video' ? (
         <video
           src={hero.mediaUrl}
+          aria-label={hero.title}
           autoPlay muted loop playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover opacity-50"
         />
       ) : hero ? (
         <motion.img
           src={hero.mediaUrl}
-          alt=""
+          alt={hero.title}
+          fetchPriority="high"
+          width={hero.width}
+          height={hero.height}
           initial={{ scale: 1.05 }}
           animate={{ scale: 1.15 }}
           transition={{ duration: 12, ease: 'linear', repeat: Infinity, repeatType: 'reverse' }}
