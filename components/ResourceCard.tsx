@@ -1,20 +1,24 @@
 'use client';
 import { useState } from 'react';
-import type { Repo, Video, Course, Tool } from '@/lib/types';
+import type { Repo, Video, Course, Tool, Paper, Agency } from '@/lib/types';
 
-type Kind = 'repos' | 'videos' | 'courses' | 'tools';
+type Kind = 'repos' | 'videos' | 'courses' | 'tools' | 'papers' | 'agencies';
 
 type Props =
   | { kind: 'repos'; items: Repo[] }
   | { kind: 'videos'; items: Video[] }
   | { kind: 'courses'; items: Course[] }
-  | { kind: 'tools'; items: Tool[] };
+  | { kind: 'tools'; items: Tool[] }
+  | { kind: 'papers'; items: Paper[] }
+  | { kind: 'agencies'; items: Agency[] };
 
 const HEADERS: Record<Kind, string> = {
   repos: 'Repositories',
   videos: 'Videos',
   courses: 'Courses',
   tools: 'Tools',
+  papers: 'Papers',
+  agencies: 'Agencies',
 };
 
 const PREVIEW_LIMIT = 5;
@@ -127,6 +131,53 @@ export function ResourceCard(props: Props) {
                   </span>
                 </div>
                 <div className="text-xs text-ink-mute line-clamp-2 pl-1">{t.description}</div>
+              </a>
+            </li>
+          ))}
+        {props.kind === 'papers' &&
+          props.items.slice(0, visible).map((p) => (
+            <li key={p.arxivId}>
+              <a
+                href={`https://arxiv.org/abs/${p.arxivId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas-2 rounded-sm p-1 -m-1"
+              >
+                <div className="flex items-center gap-2 font-mono text-xs text-ink">
+                  <span className="text-amber whitespace-nowrap">arXiv:{p.arxivId}</span>
+                  <span className="text-ink-mute">·</span>
+                  <span className="text-ink-mute">{p.year}</span>
+                  <span className="text-amber opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                </div>
+                <div className="text-sm text-ink group-hover:underline group-hover:decoration-amber group-hover:underline-offset-2 line-clamp-2">
+                  {p.title}
+                </div>
+                {p.relevance && (
+                  <div className="text-xs text-ink-mute line-clamp-2 pl-1">{p.relevance}</div>
+                )}
+              </a>
+            </li>
+          ))}
+        {props.kind === 'agencies' &&
+          props.items.slice(0, visible).map((a) => (
+            <li key={a.url}>
+              <a
+                href={a.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas-2 rounded-sm p-1 -m-1"
+              >
+                <div className="flex items-center gap-2 font-mono text-xs text-ink">
+                  <span className="text-ink group-hover:underline group-hover:decoration-amber group-hover:underline-offset-2">
+                    {a.name}
+                  </span>
+                  <span className="text-ink-mute">·</span>
+                  <span className="text-ink-mute truncate">{a.specialty}</span>
+                  <span className="text-amber opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                </div>
+                {a.notable && (
+                  <div className="text-xs text-ink-mute line-clamp-2 pl-1">{a.notable}</div>
+                )}
               </a>
             </li>
           ))}

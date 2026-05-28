@@ -61,6 +61,18 @@ export function ModelPanel({
               <span><span className="text-amber">{model.courses.length}</span> courses</span>
               <span className="text-rule">·</span>
               <span><span className="text-amber">{model.tools.length}</span> tools</span>
+              {model.papers && model.papers.length > 0 && (
+                <>
+                  <span className="text-rule">·</span>
+                  <span><span className="text-amber">{model.papers.length}</span> papers</span>
+                </>
+              )}
+              {model.agencies && model.agencies.length > 0 && (
+                <>
+                  <span className="text-rule">·</span>
+                  <span><span className="text-amber">{model.agencies.length}</span> agencies</span>
+                </>
+              )}
             </div>
           </motion.div>
 
@@ -88,6 +100,12 @@ export function ModelPanel({
           <ResourceCard kind="videos" items={model.videos} />
           <ResourceCard kind="courses" items={model.courses} />
           <ResourceCard kind="tools" items={model.tools} />
+          {model.papers && model.papers.length > 0 && (
+            <ResourceCard kind="papers" items={model.papers} />
+          )}
+          {model.agencies && model.agencies.length > 0 && (
+            <ResourceCard kind="agencies" items={model.agencies} />
+          )}
         </div>
       </div>
       <Lightbox item={open} onClose={() => setOpen(null)} />

@@ -85,6 +85,9 @@ export type Tool = {
   free: boolean;
 };
 
+export type Paper = { title: string; arxivId: string; year: number; relevance: string };
+export type Agency = { name: string; url: string; specialty: string; notable: string };
+
 export type ModelResource = {
   id: ModelId;
   name: string;
@@ -97,6 +100,8 @@ export type ModelResource = {
   videos: Video[];
   courses: Course[];
   tools: Tool[];
+  papers?: Paper[];
+  agencies?: Agency[];
 };
 
 export type ResourcesIndex = { models: ModelResource[]; generated?: string };
@@ -121,9 +126,6 @@ export type CaseEntry = {
   whatsBrilliant: string;
   metric?: string;
 };
-
-export type Paper = { title: string; arxivId: string; year: number; relevance: string };
-export type Agency = { name: string; url: string; specialty: string; notable: string };
 
 export type StackEntry = { moment: string; model: string; rationale: string };
 export type WorkflowSpec = { mermaid: string };
