@@ -3,5 +3,7 @@
   "framework": null,
   "buildCommand": "pnpm build",
   "outputDirectory": "out",
-  "installCommand": "pnpm install --frozen-lockfile"
+  "installCommand": "pnpm install --frozen-lockfile",
+  "cleanUrls": true,
+  "trailingSlash": false
 }
