@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import type { Item, ModelResource } from '@/lib/types';
 import { Card } from './Card';
 import { Lightbox } from './Lightbox';
@@ -14,13 +15,28 @@ export function ModelPanel({
 }) {
   const [open, setOpen] = useState<Item | null>(null);
   const thumbs = items.slice(0, 6);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  // Subtle parallax on the strengths-chips column · keep 8-12px max.
+  const chipsY = useTransform(scrollYProgress, [0, 1], [10, -10]);
 
   return (
-    <section id={`model-${model.id}`} className="py-24 px-6 border-t border-rule scroll-mt-20">
+    <motion.section
+      ref={sectionRef}
+      id={`model-${model.id}`}
+      className="py-24 px-6 border-t border-rule scroll-mt-20"
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-100px' }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* LEFT 60% */}
-          <div className="lg:col-span-3 flex flex-col gap-6">
+          <motion.div style={{ y: chipsY }} className="lg:col-span-3 flex flex-col gap-6">
             <div className="font-mono text-[10px] uppercase tracking-caps text-amber">{model.vendor}</div>
             <h2 className="font-display text-5xl md:text-7xl text-ink leading-none">{model.name}</h2>
             <p className="text-xl text-ink-mute leading-relaxed max-w-2xl">{model.tagline}</p>
@@ -46,7 +62,7 @@ export function ModelPanel({
               <span className="text-rule">·</span>
               <span><span className="text-amber">{model.tools.length}</span> tools</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT 40% */}
           <div className="lg:col-span-2">
@@ -75,6 +91,6 @@ export function ModelPanel({
         </div>
       </div>
       <Lightbox item={open} onClose={() => setOpen(null)} />
-    </section>
+    </motion.section>
   );
 }
