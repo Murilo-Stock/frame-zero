@@ -7,6 +7,7 @@ import { ScrollProgress } from '@/components/ScrollProgress';
 import { PersistentPlayer } from '@/components/PersistentPlayer';
 import { LoadingSequence } from '@/components/LoadingSequence';
 import { ConsoleEgg } from '@/components/ConsoleEgg';
+import { AudioToggle } from '@/components/AudioToggle';
 import { buildSearchIndex } from '@/lib/build-search-index';
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <AmberCursor />
           <PageTransition>{children}</PageTransition>
           <PersistentPlayer />
+          <AudioToggle />
         </CommandPaletteProvider>
       </body>
     </html>
