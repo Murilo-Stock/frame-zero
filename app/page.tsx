@@ -7,6 +7,7 @@ import { ModelHub } from '@/components/ModelHub';
 import { Gallery } from '@/components/Gallery';
 import { BehindLens } from '@/components/BehindLens';
 import { Credits } from '@/components/Credits';
+import { TopNav } from '@/components/TopNav';
 
 function curateMurilo(items: Item[]): Item[] {
   const murilo = items.filter((i) => i.model === 'murilo');
@@ -40,10 +41,15 @@ export default function Page() {
   const muriloItems = curateMurilo(items);
   return (
     <main>
+      <TopNav />
       <Hero featured={featured} total={items.length} />
       <ManifestoStrip total={items.length} />
-      <ModelHub resources={resources.models} items={items} />
-      <Gallery items={items} />
+      <div id="models">
+        <ModelHub resources={resources.models} items={items} />
+      </div>
+      <div id="gallery">
+        <Gallery items={items} />
+      </div>
       <BehindLens items={muriloItems} />
       <Credits />
     </main>
