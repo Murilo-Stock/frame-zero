@@ -1029,52 +1029,1009 @@
     {
       "id": "empresa-junior",
       "name": "Empresa Junior",
-      "tagline": "Pitch decks + deliverables visuais consultoria de elite",
+      "tagline": "Pitch decks MBB-grade + cover visuals + case-study reels sem designer",
       "icon": "🎓",
       "color": "#9d8cbf",
-      "icp": "EJs federadas + Skema BBA + estudantes de consultoria (Murilo direct ICP)",
-      "status": "stub",
-      "comingPhase": "γ"
+      "icp": "EJs federadas (BR-Junior · Skema EJ · GV Junior · FEA Jr · Insper Jr) · Skema BBA students rodando capstone · MBA students preparando case interview · founders pre-seed que precisam de pitch-deck que pareça consultoria de R$200/h sem pagar designer",
+      "math": {
+        "ticketMedio": 1800,
+        "timeToDeliver": "48h",
+        "costPerAsset": 65,
+        "suggestedMargin": 78
+      },
+      "stack": [
+        { "moment": "Cover slide + section dividers (deck hero visuals)", "model": "gpt-image-2", "rationale": "Melhor text-rendering nativo para slide covers com client name + project title em layout MBB-grade. 16:9 nativo. Cinematic abstract backgrounds que não competem com conteúdo." },
+        { "moment": "Diagram + framework illustrations (pyramid · matrix · org-chart)", "model": "nano-banana-pro", "rationale": "Gemini 3 Pro Image edita SVG-like diagrams com label-precision · iteração rápida em frameworks (BCG matrix · 4-quadrant · Porter Five Forces · MECE issue trees). Preserva geometria entre revisões." },
+        { "moment": "Industry / context photography (sector imagery for case studies)", "model": "gpt-image-2", "rationale": "Stock-replacement: gera imagens de sector (manufacturing floor · trading desk · retail store · clinic) on-brand sem licença Getty. Editorial photography quality." },
+        { "moment": "Case-study reel 30-60s para portfolio EJ", "model": "seedance-2", "rationale": "Cinematic montage 30-60s usando hero stills + motion · workhorse para portfolio-piece de EJ federada (recruitment + pitch B2B). Multimodal aceita slides como input." },
+        { "moment": "Slide composition · chart finalization · PDF export", "model": "ffmpeg", "rationale": "Local · zero custo · concatena reels de case-study. Para deck final: Gamma/Pitch/PowerPoint nativos (covered no resources)." }
+      ],
+      "workflow": {
+        "mermaid": "graph LR;\n A[Client brief<br/>+ project data<br/>+ EJ brand kit] --> B[Pyramid Principle<br/>structure 26 slides];\n B --> C[gpt-image-2<br/>cover + 3 dividers];\n B --> D[nano-banana-pro<br/>5 frameworks + diagrams];\n B --> E[gpt-image-2<br/>industry photos 4x];\n C --> F[Deck assembly<br/>Gamma / Pitch / PPT];\n D --> F;\n E --> F;\n F --> G[seedance-2<br/>30s case-study reel];\n G --> H[Deliverable<br/>26-slide PPT + PDF + reel];"
+      },
+      "prompts": [
+        {
+          "title": "MBB Cover Slide — Strategy Project Hero",
+          "body": "16:9 consulting deck cover slide. Abstract cinematic geometric composition in deep navy (#0A2540) and warm gold (#D4A574) gradient. Subtle isometric grid lines suggesting strategy/architecture. Top-left: small client logo placeholder square. Center: bold serif title 'Operational Excellence Transformation' (Inter Bold 56pt) on 2 lines. Below in caps lettered: 'STRATEGIC ROADMAP · Q1 2026 · CONFIDENTIAL'. Bottom-right: small consultancy wordmark placeholder. Editorial / McKinsey-style restrained palette. No people, no clip-art.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["cover", "deck", "mbb", "strategy"]
+        },
+        {
+          "title": "Pyramid Principle Diagram — 3-Tier Argument",
+          "body": "Minimalist consulting-style pyramid diagram. White background, 16:9. Three horizontal tiers stacked: top tier (narrow) labeled 'KEY MESSAGE: Modernize the customer journey to lift retention 22%' in navy bold. Middle tier (wider) split in 3 supporting arguments: 'Digital onboarding gap', 'Friction at renewal', 'Underused loyalty program'. Bottom tier (widest) split in 9 sub-evidence boxes with placeholder data. Connector lines navy. Inter font. McKinsey/Barbara Minto style. No decorative elements.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["framework", "pyramid", "minto", "structure"]
+        },
+        {
+          "title": "BCG Matrix Custom — 4-Quadrant Strategic Positioning",
+          "body": "Consulting 4-quadrant matrix slide, 16:9, white background. X-axis labeled 'Market Growth' (low → high), Y-axis 'Competitive Strength' (low → high). Four quadrants softly tinted: top-right green ('Invest'), top-left gold ('Defend'), bottom-right blue ('Selective grow'), bottom-left grey ('Exit/Harvest'). Place 6 labeled bubbles of different sizes (revenue weight): 'Product A · R$45M', 'Product B · R$12M', etc. Inter font, slim lines. McKinsey/BCG visual style.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["framework", "bcg", "matrix", "positioning"]
+        },
+        {
+          "title": "Process Map — Customer Journey Flowchart",
+          "body": "Clean horizontal process flow diagram for consulting slide, 16:9. White background. Five circular stages connected by thick navy arrows: 'Awareness → Consideration → Trial → Onboard → Retain'. Below each stage: 2 sub-bullets in small caps with placeholder pain-points. Above each stage: small icon (eye / scale / hand / gear / heart) in flat-line style. McKinsey neutral palette. Inter font. No 3D, no shadows.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["framework", "process-map", "customer-journey"]
+        },
+        {
+          "title": "Industry Hero — Manufacturing Floor Editorial",
+          "body": "Editorial photograph of a modern automotive manufacturing floor for a consulting case-study slide. Wide-angle 24mm, eye-level, golden warehouse light from skylights above. Robotic arms in foreground motion-blur slightly, workers in safety vests far background. Hyper-detailed metal textures, polished concrete floor. Cinematic teal-orange grade, slight DOF. No identifiable brand logos. Architectural Digest / FT Weekend editorial tone. 16:9.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["industry", "manufacturing", "case-study", "hero"]
+        },
+        {
+          "title": "Benchmarking Quadrant — Competitive Landscape",
+          "body": "Consulting benchmarking slide, 16:9. White background. 2x2 quadrant with axes 'Price Premium' (low → high) and 'Brand Strength' (low → high). 8 competitor logos (placeholder neutral grey circles labeled A-H) positioned across the quadrants. Top-right quadrant highlighted with subtle gold tint labeled 'Leader Cluster'. Right sidebar with 4 takeaway bullets. Slim navy lines, Inter font. McKinsey style.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["benchmarking", "competitive", "quadrant"]
+        },
+        {
+          "title": "Before / After Comparison Slide",
+          "body": "Consulting before-after slide, 16:9, white background. Two vertical columns side-by-side separated by thin navy line. LEFT (grey-tinted) titled 'BEFORE · Today' with 4 friction-point bullets in muted grey. RIGHT (gold-tinted) titled 'AFTER · Q4 2026' with 4 improvement bullets in navy bold. Bottom bar: arrow pointing right with bold metric '22% retention lift · 6 months'. Inter font. McKinsey restrained style.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["before-after", "comparison", "narrative"]
+        },
+        {
+          "title": "Case Study Cinematic Intro — Section Divider",
+          "body": "16:9 deck section-divider slide, full-bleed cinematic. Half-frame photo of a modern São Paulo office tower at dusk shot from low angle, glass facade with warm interior lights. Right half: solid navy with bold serif text 'CASE STUDY 02' (Inter Bold 72pt) and below in caps 'Reinventing Customer Onboarding'. Subtle vertical gold line separating the halves. McKinsey editorial tone.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["divider", "case-study", "cinematic"]
+        },
+        {
+          "title": "Team Org-Chart Stylized — Senior Leadership",
+          "body": "Consulting-style org-chart slide, 16:9, white background. Top: single navy box 'CEO · Maria Souza'. Below: 4 boxes connected by slim navy lines (COO · CMO · CTO · CFO) each with placeholder name. Below each: 2-3 reports boxes in lighter grey. Headshots replaced by initials in colored circles (navy/gold rotation). Inter font. Slim lines, no 3D. Right sidebar: short org-design rationale 3 bullets. McKinsey clean style.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["org-chart", "leadership", "design"]
+        },
+        {
+          "title": "Capstone Presentation Reel — 30-Second Sizzle",
+          "body": "Cinematic 30-second consulting case-study reel. Sequence: 1) Wide aerial of São Paulo skyline at golden hour 4s · 2) Slow zoom into a modern office floor with team meeting silhouettes 4s · 3) Close-up of hand annotating a strategy whiteboard 3s · 4) Dolly-forward through a clean office hallway 4s · 5) Mid-shot of presenter at podium delivering keynote 5s · 6) Final logo reveal on solid navy 10s with text 'Strategic Roadmap · Q1 2026'. Smooth gimbal motion. Cinematic teal-orange grade. 16:9 1080p, no audio (will be added in post).",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["reel", "case-study", "portfolio", "cinematic"]
+        }
+      ],
+      "cases": [
+        {
+          "brand": "Klarna · AI marketing factory (Sandström playbook)",
+          "url": "https://www.marketingdive.com/news/klarna-gen-ai-openai-cut-marketing-spend-efficiency/717332/",
+          "credit": "Marketing Dive · Klarna Q1 reporting + Forbes Sandström interview May 2024",
+          "whatsBrilliant": "Klarna's CMO publicly documented $10M/year savings from using genAI for marketing — 1,000+ images generated in Q1 alone, 80% of copywriting AI-assisted, 25% reduction in external agency spend. The proof case that 'AI deck/visual factory' is a real budget line, transferable directly to EJ portfolios pitching modernization.",
+          "metric": "$10M/year saved · 25% external agency spend cut · 1,000+ AI images in Q1 2024"
+        },
+        {
+          "brand": "Gamma · AI presentation tool",
+          "url": "https://gamma.app/",
+          "credit": "Gamma testimonials + Reddit r/ThinkingDeeplyAI long-form review",
+          "whatsBrilliant": "Reviewers report 90% reduction in time-to-deck for marketing executives — from days to under an hour for a 20-slide presentation. Validates the 48h SLA EJ promise: a 2-person EJ team can ship MBB-quality decks at scale by combining Gamma + gpt-image-2 + nano-banana-pro.",
+          "metric": "[unverified exact %] reported 90% time reduction · 400 free AI credits/month entry"
+        },
+        {
+          "brand": "Slideworks · ex-MBB consulting templates",
+          "url": "https://slideworks.io/resources/47-real-mckinsey-presentations",
+          "credit": "Slideworks · founders ex-McKinsey + ex-BCG + ex-Bain · 750+ deck library",
+          "whatsBrilliant": "Curated 750+ real consulting decks from McKinsey/BCG/Bain/Deloitte to study patterns. Direct training set for EJ teams learning MBB visual grammar — what to copy, what to build. Reference base for the 'consulting visual fingerprint' AI gen must hit.",
+          "metric": "750+ deck library · 160+ McKinsey-specific decks deconstructed"
+        },
+        {
+          "brand": "kgraph57/mckinsey-style-visualization-skill · open-source Claude Skill",
+          "url": "https://github.com/kgraph57/mckinsey-style-visualization-skill",
+          "credit": "Open-source Claude Code Skill · prompt templates for MBB-style charts",
+          "whatsBrilliant": "Open-source skill that codifies McKinsey/BCG/Bain chart prompt patterns into reusable templates — type 11 cover slide, time-series growth, competitive benchmarking table. Direct integration with the Frame Zero gpt-image-2 + nano-banana-pro stack.",
+          "metric": "Open-source · v1.1 Feb 2026 · 11 visualization types codified"
+        },
+        {
+          "brand": "Deckary · 150+ McKinsey slide library + AI slide builder",
+          "url": "https://deckary.com/blog/mckinsey-slides-download",
+          "credit": "Deckary · founder ex-McKinsey + ex-Deloitte · 140+ consulting layouts library",
+          "whatsBrilliant": "Codifies the MBB visual grammar: every slide title is a full sentence stating the answer, one chart per page, action-driven titles. Methodology layer EJ teams can apply on top of Gamma/Pitch + AI image gen to ship MBB-grade decks without the 6-year consulting apprenticeship.",
+          "metric": "150+ real McKinsey slides catalogued · 140+ consulting layouts · AI slide builder integrated"
+        }
+      ],
+      "resources": {
+        "repos": [
+          { "name": "kgraph57/mckinsey-style-visualization-skill", "url": "https://github.com/kgraph57/mckinsey-style-visualization-skill", "stars": 42, "description": "MBB-style data visualization Claude Skill · 11 chart types · cover slide prompts (v1.1 Feb 2026)" },
+          { "name": "oba2311/analyst_agent", "url": "https://github.com/oba2311/analyst_agent", "stars": 89, "description": "LangChain agent that drafts McKinsey-grade strategy briefs · open-source consulting workflow" },
+          { "name": "YouMind-OpenLab/awesome-gpt-image-2", "url": "https://github.com/YouMind-OpenLab/awesome-gpt-image-2", "stars": 8060, "description": "10,000+ gpt-image-2 prompts incl. infographics + slide hero categories" },
+          { "name": "YouMind-OpenLab/awesome-nano-banana-pro-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts", "stars": 12248, "description": "10,000+ Nano Banana Pro prompts incl. diagrams + framework illustrations" },
+          { "name": "github.com/topics/mckinsey", "url": "https://github.com/topics/mckinsey", "stars": 0, "description": "Curated topic page · multiple MBB framework skills + agents + slide tooling repos" },
+          { "name": "github.com/topics/bcg", "url": "https://github.com/topics/bcg", "stars": 0, "description": "BCG-tagged repos · MECE issue-trees · Pareto · hypothesis-driven prompt libraries" }
+        ],
+        "videos": [
+          { "title": "I spent 25 years in PowerPoint hell · An AI tool called Gamma gave me thousands of hours back", "url": "https://www.reddit.com/r/ThinkingDeeplyAI/comments/1mcr3qk/i_spent_25_years_in_powerpoint_hell_as_marketing/", "duration": "long-form post", "channel": "r/ThinkingDeeplyAI" },
+          { "title": "How to Create McKinsey Style Presentations — Piktochart guide + video", "url": "https://piktochart.com/blog/mckinsey-style-presentation/", "duration": "guide", "channel": "Piktochart" },
+          { "title": "Gamma AI Presentation Maker Demo", "url": "https://gamma.app/", "duration": "homepage demo", "channel": "Gamma" },
+          { "title": "Pyramid Principle Explained Slide-by-Slide (Barbara Minto / McKinsey)", "url": "https://winningpresentations.com/pyramid-principle-presentations/", "duration": "long-form guide", "channel": "Winning Presentations / Mary Beth Hazeldine" },
+          { "title": "Beautiful.AI vs Traditional Decks Comparison", "url": "https://www.youtube.com/results?search_query=beautiful.ai+vs+powerpoint+comparison", "duration": "varies", "channel": "[YouTube search]" }
+        ],
+        "courses": [
+          { "title": "Coursera · McKinsey-style Strategy & Consulting [search]", "url": "https://www.coursera.org/search?query=mckinsey%20strategy", "platform": "Coursera", "note": "Multiple instructors · filter by ratings · pair with Slideworks deck library for visual practice" },
+          { "title": "Udemy · MBA / Consulting Case Interview Prep", "url": "https://www.udemy.com/courses/search/?q=consulting+case+interview", "platform": "Udemy", "note": "Cases reinforce Pyramid Principle muscle · pair with deck-builder workflow" },
+          { "title": "Slideworks · Consulting Toolbox + templates", "url": "https://slideworks.io", "platform": "Slideworks", "note": "Premium MBB template library by ex-McKinsey/BCG/Bain founders · reference for visual style" }
+        ],
+        "tools": [
+          { "name": "Gamma", "url": "https://gamma.app", "category": "ai-deck-builder", "note": "Generate full decks from a prompt · 400 free credits/month · best for first-draft speed" },
+          { "name": "Beautiful.AI", "url": "https://www.beautiful.ai", "category": "ai-deck-builder", "note": "Smart slide templates that auto-layout · alternative to Gamma · stronger brand control" },
+          { "name": "Tome", "url": "https://tome.app", "category": "ai-deck-builder", "note": "Narrative-first AI presentations · best for case-study storytelling format" },
+          { "name": "Pitch", "url": "https://pitch.com", "category": "collab-deck", "note": "Collaborative deck builder · pre-AI · still excellent for team finalization layer" },
+          { "name": "Canva Magic Design (Presentations)", "url": "https://www.canva.com/magic-design/", "category": "ai-design", "note": "Mass-market AI design · weakest MBB-fingerprint but fastest non-designer ramp" },
+          { "name": "ChatGPT Data Analyst + DALL-E", "url": "https://chat.openai.com", "category": "analysis + image", "note": "Run client data through Code Interpreter for chart prep · pair with image gen for slide visuals" },
+          { "name": "Deckary AI Slide Builder", "url": "https://deckary.com", "category": "ai-deck-builder", "note": "MBB-style waterfall + Mekko + Gantt PowerPoint add-in · 140+ pre-built consulting layouts" },
+          { "name": "Higgsfield Cinema Studio (case-study reels)", "url": "https://higgsfield.ai", "category": "video-gen", "note": "Murilo's primary stack for 30-60s case-study reels · cinematic compositing layer" }
+        ],
+        "papers": [],
+        "agencies": [
+          { "name": "Slideworks (ex-McKinsey/BCG/Bain founders)", "url": "https://slideworks.io", "specialty": "Premium consulting deck templates + custom slide services", "notable": "750+ deck library deconstructed · founders 20+ years MBB experience" },
+          { "name": "Deckary (ex-McKinsey · ex-Deloitte)", "url": "https://deckary.com", "specialty": "MBB-style PowerPoint add-in + AI slide builder", "notable": "150+ real McKinsey slides catalogued · waterfall/Mekko/Gantt automation" },
+          { "name": "Prezent (enterprise presentation OS)", "url": "https://www.prezent.ai", "specialty": "Brand-governance + scalable AI presentations for enterprise teams", "notable": "Enterprise-tier alternative to Gamma · PowerPoint-native with governance layer" }
+        ]
+      },
+      "behindTheLens": [
+        { "step": 1, "title": "Brief intake + Pyramid Principle structure", "body": "Client gives raw problem + data dump. Map it to MECE issue tree → Pyramid Principle (top: 1 key message · middle: 3 supporting args · bottom: 9 evidence units). Sketch the 26-slide skeleton in plain text BEFORE touching any tool. This is the consulting work — visuals come after structure." },
+        { "step": 2, "title": "First-draft via Gamma / Pitch / PowerPoint", "body": "Feed the slide outline into Gamma for a 60-second first-draft of all 26 slides with placeholder visuals. Apply EJ brand kit (logo · navy + gold + accent · Inter font). Get the narrative validated by client BEFORE investing in cover + framework visuals." },
+        { "step": 3, "title": "gpt-image-2 cover + dividers + industry photos", "body": "Generate cover slide + 3 section dividers in 16:9 with bold serif typography + cinematic abstract background. Replace stock photography with 4-6 industry-specific hero images via gpt-image-2 (manufacturing · trading · retail · clinic — whatever the case demands). Cost: ~R$25 in API credits." },
+        { "step": 4, "title": "nano-banana-pro frameworks + diagrams (5-8 custom)", "body": "Generate the BCG matrix · pyramid · process-map · benchmarking quadrant · before-after slides via nano-banana-pro with precise label content. Iterate 2-3 rounds until labels are pixel-clean (this is where nano-banana-pro beats gpt-image-2 for text-precise diagrams). Drop generated PNGs into Gamma/Pitch as full-bleed slide backgrounds." },
+        { "step": 5, "title": "Optional case-study reel + delivery", "body": "For premium tier: generate a 30-60s cinematic case-study reel via seedance-2 from the hero stills for client portfolio + LinkedIn post. ffmpeg adds music + lower-third title. Deliver: 26-slide PPT + PDF export + reel + 1 iteration round bundled. Invoice R$1.8k (EJ rate) or R$3.5k (founder pitch-deck tier)." }
+      ],
+      "roi": {
+        "inputs": [
+          { "id": "decks_per_month", "label": "Decks / mês", "type": "number", "default": 6 },
+          { "id": "avg_deck_brl", "label": "Deck médio (R$)", "type": "number", "default": 1800 },
+          { "id": "cost_per_deck_brl", "label": "Custo por deck (R$)", "type": "number", "default": 65 }
+        ],
+        "formula": "revenue = decks_per_month * avg_deck_brl; cost = decks_per_month * cost_per_deck_brl; margin_brl = revenue - cost; margin_pct = (margin_brl / revenue) * 100;",
+        "outputs": [
+          { "id": "revenue", "label": "Receita mensal", "format": "BRL" },
+          { "id": "cost", "label": "Custo mensal", "format": "BRL" },
+          { "id": "margin_brl", "label": "Margem mensal", "format": "BRL" },
+          { "id": "margin_pct", "label": "Margem %", "format": "%" }
+        ]
+      }
     },
     {
       "id": "ecommerce-saas",
       "name": "E-commerce · SaaS",
-      "tagline": "Founder content + product hero + landing visuals",
+      "tagline": "Founder content + product hero + landing visuals · Klarna playbook em $0",
       "icon": "🛒",
       "color": "#cd6155",
-      "icp": "DTC brands + SaaS founders + indie hackers + Shopify stores",
-      "status": "stub",
-      "comingPhase": "γ"
+      "icp": "DTC brands (Shopify · Hotmart · Kiwify · WooCommerce) pre-PMF · SaaS founders 0-$10M ARR · indie hackers solo · Substack creators · brand-owners gastando R$5-15k/mês com agency criativa que poderia ser R$500/mês de API + workflow",
+      "math": {
+        "ticketMedio": 4200,
+        "timeToDeliver": "5 dias",
+        "costPerAsset": 140,
+        "suggestedMargin": 72
+      },
+      "stack": [
+        { "moment": "SaaS dashboard hero + landing page screenshots", "model": "gpt-image-2", "rationale": "Best-in-class para UI/UX mockup generation 16:9 com text-rendering nativo. Crítico para landing hero shots de SaaS pre-screenshot real (ainda em building) ou stylized polish do app screenshot existente." },
+        { "moment": "DTC product hero · lifestyle · packshot variations", "model": "nano-banana-pro", "rationale": "Gemini 3 Pro Image preserva geometria + branding do produto enquanto varia BG/light/season — workhorse para gerar 30+ thumbnails de A/B teste com mesmo SKU. Klarna AI-factory playbook." },
+        { "moment": "Founder avatar · CEO portrait · 'as seen in' grid", "model": "higgsfield", "rationale": "Marketing Studio + Soul Character preset gera founder avatares para Twitter/LinkedIn polish, talking-head + UGC selfie. 1000+ presets pre-built · feed-native authenticity." },
+        { "moment": "Product demo loop + founder talking head (8-12s)", "model": "seedance-2", "rationale": "Multimodal aceita product still + script para gerar demo loop · workhorse para landing page video header + Twitter/LinkedIn post." },
+        { "moment": "Cut + caption + export multi-format", "model": "ffmpeg", "rationale": "Local · zero custo · concatena demo loops + adiciona caption auto + exports 9:16 + 16:9 + 1:1 simultaneamente. Reusável em batch." }
+      ],
+      "workflow": {
+        "mermaid": "graph LR;\n A[Brand brief<br/>+ product photos<br/>+ ICP profile] --> B[Founder portrait<br/>higgsfield Soul];\n A --> C[gpt-image-2<br/>landing hero + dashboard];\n A --> D[nano-banana-pro<br/>30x product variants];\n C --> E[seedance-2<br/>demo loop 8-12s];\n B --> F[seedance-2<br/>founder talking head];\n D --> G[Static asset pack<br/>landing + ads + email];\n E --> G;\n F --> G;\n G --> H[Deliverable<br/>10 hero stills + 4 reels + 30 variants];"
+      },
+      "prompts": [
+        {
+          "title": "SaaS Dashboard Hero — Landing Above-The-Fold",
+          "body": "Photorealistic 16:9 mockup of a modern SaaS analytics dashboard on a MacBook Pro Liquid Retina screen, slight 3-degree angle. Dashboard UI: dark mode, navy + emerald accent, large KPI cards top ('$847k MRR · +18%'), line chart center-frame trending up, sidebar with feature icons. MacBook on a clean walnut desk, soft window light from camera-left, blurred plant in BG. Apple keynote aesthetic. Sharp text rendering on the dashboard. No people.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["saas", "dashboard", "landing", "hero"]
+        },
+        {
+          "title": "DTC Product Hero — Skincare Editorial",
+          "body": "Editorial product photograph of a premium skincare amber dropper bottle (30ml) centered on a cracked travertine surface. Soft beauty light from camera-left, single golden water droplet falling toward the bottle cap with motion blur. Eucalyptus leaves out of focus left side. Hyper-detailed glass refraction, condensation on bottle. Brand-agnostic placeholder label 'SERUM 01'. Editorial cosmetic aesthetic. 4:5 portrait, 2048px.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["dtc", "product", "hero", "skincare"]
+        },
+        {
+          "title": "Founder Portrait — Twitter / LinkedIn Avatar Polish",
+          "body": "Editorial portrait of a young Brazilian SaaS founder 28-32 years old in a softly-lit modern office, half-smile, looking confidently at camera. Wearing a charcoal merino sweater. Soft window light from camera-left, blurred bookshelf BG. 50mm lens equivalent, f/2.8, eye-level. Professional but warm, NOT corporate stiff. Suitable for high-res Twitter/LinkedIn avatar + speaker bio. 4:5 portrait, 4096px square crop ready.",
+          "model": "higgsfield",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["founder", "portrait", "avatar"]
+        },
+        {
+          "title": "'As Seen In' Press Grid — Landing Page Social Proof",
+          "body": "Landing-page social-proof grid 16:9. White background. 5 placeholder press logos in greyscale evenly spaced: 'TECHCRUNCH', 'WIRED', 'FORBES', 'PRODUCT HUNT', 'THE VERGE' in their characteristic typefaces (no real logos, only typographic feel). Above the grid: small caps text 'AS FEATURED IN'. Below: thin navy divider line. Minimalist editorial style. Inter font for the caption.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["social-proof", "landing", "press"]
+        },
+        {
+          "title": "Landing Testimonial Block — Customer Quote",
+          "body": "Landing-page testimonial section 16:9. Off-white background. Left: large photorealistic portrait of a smiling Brazilian woman 35-40, casual blazer, soft warm light, looking off-camera. Right column: bold pull-quote 'Cut my onboarding time from 3 weeks to 4 days — completely changed our hiring math' in Inter Medium 36pt navy. Below quote: small 'Camila Ferreira · Head of People · Volpe Tech' + 5-star rating row. Clean editorial layout.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["testimonial", "landing", "social-proof"]
+        },
+        {
+          "title": "Retargeting Static — Cart Abandonment Ad",
+          "body": "9:16 vertical Meta retargeting ad creative. Top 30%: photo of an open Amazon-style brown box on a wood desk with the previously-viewed product (placeholder cosmetic jar) inside, soft window light. Middle 40%: bold text overlay 'Still thinking about it?' (Inter Bold 56pt navy). Below in smaller: 'Free shipping ends tonight · use code REMEMBER15'. Bottom 30%: rounded primary CTA button '→ Resume my order' in brand gold. Clean DTC ad aesthetic.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "9:16",
+          "tags": ["retargeting", "ad", "dtc", "cart-abandonment"]
+        },
+        {
+          "title": "Feature Explainer 9:16 — SaaS Onboarding",
+          "body": "Vertical 9:16 SaaS feature-explainer video, 8 seconds. Sequence: 1) Animated cursor opens the app onboarding screen 2s · 2) Cursor clicks 'Connect Stripe' button, smooth fly-in modal 2s · 3) Modal shows green checkmark + 'Connected in 12 seconds' text 2s · 4) Cuts to KPI card animating from $0 to $4,847 MRR 2s. Modern dark-mode UI, clean motion. 1080x1920, soft ambient electronic music ready. Apple WWDC-style restraint.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["saas", "explainer", "vertical", "onboarding"]
+        },
+        {
+          "title": "Product Demo Loop — Hero Section Background",
+          "body": "Cinematic product demo loop, 10 seconds, 16:9. Subject: premium wireless earbuds case rotating slowly on a polished concrete surface, soft directional light from camera-left, subtle reflection. Slow zoom-in over 10 seconds reveals the AirPods-style case opens to show earbuds glowing softly. Black BG, dramatic Apple keynote aesthetic. Ready for landing-page video header. 1080p, looped seamlessly.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["dtc", "product", "loop", "landing"]
+        },
+        {
+          "title": "Founder Talking Head — 9:16 Pitch Snippet",
+          "body": "Vertical 9:16 talking-head founder shot, 12 seconds. Brazilian founder 30s in casual sweater facing camera, mid-shot, soft window light from camera-left, blurred office BG. Speaks confidently — natural micro-expressions, occasional hand gesture. Smartphone-shot aesthetic NOT polished commercial. Reads authentic. Ready for TikTok/Reels/LinkedIn founder-post. Space top for hook text overlay.",
+          "model": "higgsfield",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["founder", "ugc", "talking-head", "vertical"]
+        },
+        {
+          "title": "Launch Announcement Banner — Email + Twitter",
+          "body": "Email/Twitter launch announcement banner 16:9. Centered: bold serif headline 'Introducing Coordinate 2.0' (Inter Bold 64pt navy) with thin gold underline. Subtitle below 'The fastest onboarding ever shipped · live today'. Right side: photorealistic floating MacBook with product UI visible, slight 3D tilt, soft shadow. Left side: ambient particle field gold gradient. Clean SaaS launch aesthetic.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["launch", "announcement", "banner", "saas"]
+        }
+      ],
+      "cases": [
+        {
+          "brand": "Klarna · AI marketing factory ($10M/year saved)",
+          "url": "https://www.forbes.com/sites/meganpoinski/2024/05/29/inside-klarnas-marketing-ai-factory-which-could-save-10m-in-2024/",
+          "credit": "Forbes / Marketing Dive / Klarna press · CMO David Sandström interview",
+          "whatsBrilliant": "Klarna publicly documented $10M/year saved by replacing the traditional image-production stack (Midjourney + DALL-E + Firefly + Topaz + Photoroom) — 1,000+ images in Q1 alone, 80% of copywriting AI-assisted, 25% external agency spend cut. The foundational proof case that AI-augmented creative production is fully operational at fintech scale.",
+          "metric": "$10M/year saved · $6M just in image production · 1,000+ AI images Q1 2024 · 25% agency spend cut"
+        },
+        {
+          "brand": "Mango · first major retailer replacing PDP product photos with AI",
+          "url": "https://www.arcadian.ai/blogs/news/mango-becomes-first-major-fashion-brand-to-replace-product-photos-with-ai-generated-imagery",
+          "credit": "ArcadianAI + BusinessOfFashion + Mango Fashion Group press",
+          "whatsBrilliant": "Mango went beyond stylized marketing shots — they replaced CORE on-model product detail page imagery with AI-generated visuals trained on real garment photos. Validates DTC + Shopify operators following the same playbook: train a small image-model per SKU, generate unlimited on-brand variants.",
+          "metric": "Industry-first PDP replacement · operational rollout 2025 · trained per-collection model"
+        },
+        {
+          "brand": "H&M · digital twin model campaign (July 2025)",
+          "url": "https://ww.fashionnetwork.com/news/Ai-expands-in-fashion-as-h-m-and-mango-launch-digital-first-initiatives,1745741.html",
+          "credit": "FashionNetwork / H&M digital twin launch July 2025",
+          "whatsBrilliant": "H&M launched AI-generated 'digital twins' of contracted top models — placing them in stylized settings of fashion capitals worldwide, reducing the cost of travel + traditional shoots. Transparent 'digital twin' label appears bottom-right. Validates the path for DTC brands to do global campaign asset gen from one base model.",
+          "metric": "Industry rollout July 2025 · global campaign assets at sub-shoot cost"
+        },
+        {
+          "brand": "Pebblely · AI product photography for Shopify ($0.99/img tier)",
+          "url": "https://apps.shopify.com/pebblely-ai",
+          "credit": "Pebblely Shopify App Store + Rewarx comparison review",
+          "whatsBrilliant": "Commodity-pricing AI product photography on Shopify — Pebblely starts at sub-$1/image, generates unlimited backgrounds from one product photo. Validates the price floor: DTC shops should NOT pay R$200/shot for a packshot, that pricing is dead. Premium-tier Frame Zero positioning lives on cinematic + brand consistency, not single packshots.",
+          "metric": "$0.99-tier entry · 1600x1600 standard export · Shopify-native integration"
+        },
+        {
+          "brand": "Higgsfield Sora 2 Trends · viral product ad pipeline",
+          "url": "https://higgsfield.ai/blog/How-to-Make-Your-Product-Go-Viral-in-2025-with-Sora-2",
+          "credit": "Higgsfield blog · Sora 2 Trends presets launch",
+          "whatsBrilliant": "Higgsfield wrapped Sora 2 with pre-built trend presets (unboxing · cinematic product reveal · pattern interrupt) — drops the time from 'product image' to 'TikTok-ready 1080p vertical ad' to under 5 minutes. Direct workflow for the Murilo's Fábrica de Vídeo + Frame Zero stack to add ad-creative to a DTC client engagement.",
+          "metric": "Sub-5min product → vertical ad · 720p free testing · 1080p Pro for winners"
+        }
+      ],
+      "resources": {
+        "repos": [
+          { "name": "YouMind-OpenLab/awesome-gpt-image-2", "url": "https://github.com/YouMind-OpenLab/awesome-gpt-image-2", "stars": 8060, "description": "10,000+ gpt-image-2 prompts incl. SaaS dashboard + landing hero + product packshot categories" },
+          { "name": "YouMind-OpenLab/awesome-nano-banana-pro-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts", "stars": 12248, "description": "10,000+ Nano Banana Pro prompts incl. product staging + landing + ad creative" },
+          { "name": "YouMind-OpenLab/awesome-seedance-2-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts", "stars": 1200, "description": "2000+ Seedance 2.0 prompts incl. UGC · ads · cinematic product · founder talking head" },
+          { "name": "ZeroLu/awesome-gpt-image", "url": "https://github.com/ZeroLu/awesome-gpt-image", "stars": 380, "description": "Curated gpt-image-2 prompts from X/Twitter top creators · typography + UI/UX + consistency focus" },
+          { "name": "ImgEdify/Awesome-GPT4o-Image-Prompts", "url": "https://github.com/ImgEdify/Awesome-GPT4o-Image-Prompts", "stars": 561, "description": "GPT4o Prompts Dictionary · ecommerce + product photography + ad categories" }
+        ],
+        "videos": [
+          { "title": "How Klarna Saved $10M Using AI in Marketing", "url": "https://www.getcrux.ai/blog/how-ai-helped-klarna-save-37-of-marketing-costs", "duration": "long-read", "channel": "GetCrux / Klarna case writeup" },
+          { "title": "How to Make Your Product Go Viral with Sora 2 Trends (Higgsfield)", "url": "https://higgsfield.ai/blog/How-to-Make-Your-Product-Go-Viral-in-2025-with-Sora-2", "duration": "guide", "channel": "Higgsfield blog" },
+          { "title": "Best AI UGC Video Generators 2026 (Seedance 2.0 vs Kling 3.0 vs VEO 3.1)", "url": "https://www.youtube.com/watch?v=aRakxUzGsd8", "duration": "15:54", "channel": "Codingem" },
+          { "title": "Top 10 Viral TikTok/Reels Ideas with Higgsfield Presets", "url": "https://higgsfield.ai/blog/Top-10-viral-TikTok-Reels-Ideas-to-Generate-with-Higgsfield", "duration": "guide", "channel": "Higgsfield blog" },
+          { "title": "Mango Replaces Product Photos with AI (industry shift breakdown)", "url": "https://www.arcadian.ai/blogs/news/mango-becomes-first-major-fashion-brand-to-replace-product-photos-with-ai-generated-imagery", "duration": "long-read", "channel": "ArcadianAI" }
+        ],
+        "courses": [
+          { "title": "Udemy · DTC Marketing + AI Ads [search]", "url": "https://www.udemy.com/courses/search/?q=dtc+marketing+ai+ads", "platform": "Udemy", "note": "Filter by reviews · pair with Klarna case + Pebblely workflow" },
+          { "title": "Maven Course · Growth Marketing for Founders", "url": "https://maven.com/courses?q=growth+marketing", "platform": "Maven", "note": "Premium cohort-based · Reforge / Lenny adjacent · usable case material" },
+          { "title": "Shopify Academy · Product Photography + Marketing", "url": "https://www.shopify.com/learn", "platform": "Shopify Academy", "note": "Free · official Shopify ecosystem foundations · pair with AI gen for modern pipeline" }
+        ],
+        "tools": [
+          { "name": "Higgsfield · Marketing Studio + Sora 2 Trends + UGC", "url": "https://higgsfield.ai", "category": "video-gen", "note": "Murilo's primary stack · founder avatars + product viral pipeline + UGC presets" },
+          { "name": "Seedance 2.0 (via fal.ai / Runway)", "url": "https://fal.ai/models/fal-ai/seedance-pro", "category": "video-gen", "note": "Workhorse for SaaS demo loops + landing-page video headers · 8-12s sweet spot" },
+          { "name": "RunwayML Gen-4", "url": "https://runwayml.com", "category": "video-gen-platform", "note": "Hosts Seedance 2.0 + Aleph modify · unlimited plan for founders shipping daily" },
+          { "name": "Pebblely AI", "url": "https://pebblely.com", "category": "product-photography-saas", "note": "$0.99/img DTC product photography · Shopify-native · price-floor reference" },
+          { "name": "Photoroom", "url": "https://www.photoroom.com", "category": "product-photo-edit", "note": "Klarna stack ingredient · BG removal + on-brand templates" },
+          { "name": "ProductScope · AI product photography", "url": "https://productscope.ai", "category": "product-photo-ai", "note": "Lifestyle scene generation from packshot · DTC focus" },
+          { "name": "KIE.AI · multi-model gateway", "url": "https://kie.ai", "category": "model-gateway", "note": "Unified API for Kling/Seedance/Higgsfield · simplifies the production stack" },
+          { "name": "Topaz Gigapixel · upscale", "url": "https://www.topazlabs.com/gigapixel-ai", "category": "upscale", "note": "Klarna stack ingredient · upscale AI-gen outputs to print-resolution" }
+        ],
+        "papers": [],
+        "agencies": [
+          { "name": "Maison Meta (gen-AI fashion + beauty agency)", "url": "https://maisonmeta.io", "specialty": "AI campaign creation for fashion/beauty/luxury brands", "notable": "Vogue Business top-100 innovators · proprietary Seeed platform · DTC-adjacent workflow transferable" },
+          { "name": "Mutiny (AI-augmented growth shop)", "url": "https://www.mutinyhq.com", "specialty": "AI personalization for SaaS landing pages", "notable": "Premium B2B SaaS clients · uses generative AI for landing variants at scale" },
+          { "name": "Fábrica de Vídeo (Murilo Stock)", "url": "https://murilostock.com", "specialty": "B2B cinematic content pipeline · DTC + SaaS expansion", "notable": "Pipeline-as-a-service · Higgsfield + Seedance + nano-banana-pro stack · 5-day SLA" }
+        ]
+      },
+      "behindTheLens": [
+        { "step": 1, "title": "Brand brief + product photo + ICP intake", "body": "Client provides: brand kit (logos · palette · fonts) · 5-10 raw product photos · ICP profile (who buys · price point · channel mix). Map asset needs to channel: landing hero · email · Meta/Google ads · TikTok organic · founder LinkedIn. 30-asset typical scope." },
+        { "step": 2, "title": "gpt-image-2 hero stills + landing screenshots", "body": "Generate 10 hero stills covering: 3 product shots (clean BG · lifestyle · in-context) · 2 dashboard/SaaS UI mockups · 2 founder-portrait variants · 2 'as seen in' grids · 1 launch announcement banner. 16:9 + 4:5 + 1:1 ratios per channel. Cost: ~R$60 in API credits." },
+        { "step": 3, "title": "nano-banana-pro variant batch (30+)", "body": "Klarna playbook: from each hero still, generate 5-10 variants via nano-banana-pro changing BG/light/season/CTA copy. 30+ total static assets for A/B testing. This is the cost-collapse moment — what was R$3k of agency time is now R$15 in API credits." },
+        { "step": 4, "title": "seedance-2 + higgsfield demo + founder reels", "body": "Generate 4 video assets: 1 product demo loop 10s 16:9 (landing header) · 1 feature explainer 8s 9:16 (TikTok/Reels) · 1 founder talking-head 12s 9:16 (LinkedIn/Twitter) · 1 retargeting ad 6s 9:16 (Meta). Re-roll 1-2 on artifacts. ffmpeg multi-format export (16:9 + 9:16 + 1:1 from masters)." },
+        { "step": 5, "title": "Deliver + 2-round iteration + analytics tag", "body": "WhatsApp/Notion deliverable: 10 hero stills + 30 variants + 4 video assets + landing page mockup spec. Tag every asset with UTM-ready filename. Invoice R$4.2k for the bundle (R$140/asset blended). Offer 2 iteration rounds bundled — typically used after first ad-spend data to lean into winners." }
+      ],
+      "roi": {
+        "inputs": [
+          { "id": "clients_per_month", "label": "Clients / mês", "type": "number", "default": 4 },
+          { "id": "avg_engagement_brl", "label": "Engagement médio (R$)", "type": "number", "default": 4200 },
+          { "id": "cost_per_engagement_brl", "label": "Custo por engagement (R$)", "type": "number", "default": 140 }
+        ],
+        "formula": "revenue = clients_per_month * avg_engagement_brl; cost = clients_per_month * cost_per_engagement_brl; margin_brl = revenue - cost; margin_pct = (margin_brl / revenue) * 100;",
+        "outputs": [
+          { "id": "revenue", "label": "Receita mensal", "format": "BRL" },
+          { "id": "cost", "label": "Custo mensal", "format": "BRL" },
+          { "id": "margin_brl", "label": "Margem mensal", "format": "BRL" },
+          { "id": "margin_pct", "label": "Margem %", "format": "%" }
+        ]
+      }
     },
     {
       "id": "fashion",
       "name": "Fashion · Beleza",
-      "tagline": "Editorial AI lookbook + social viral",
+      "tagline": "Editorial lookbook AI · Mango playbook · virtual try-on · runway gen-AI",
       "icon": "👗",
       "color": "#e8b4b8",
-      "icp": "Indie fashion brands + beauty founders + photographers expanding",
-      "status": "stub",
-      "comingPhase": "γ"
+      "icp": "Indie fashion brands (BR + LATAM) lançando 4-12 coleções/ano · beauty founders DTC · stylists diversificando renda · photographers rampando portfolio · pequenos studios de moda querendo competir visualmente com Mango/H&M sem capex de produção",
+      "math": {
+        "ticketMedio": 3800,
+        "timeToDeliver": "5 dias",
+        "costPerAsset": 135,
+        "suggestedMargin": 73
+      },
+      "stack": [
+        { "moment": "Editorial campaign hero · magazine cover · runway recreation", "model": "gpt-image-2", "rationale": "Best-in-class para editorial fashion photography — texture rendering on fabrics + skin + makeup + jewelry simultaneously. 4:5 nativo para Vogue-style hero shots." },
+        { "moment": "Virtual try-on · model swap · garment placement on body", "model": "nano-banana-pro", "rationale": "Gemini 3 Pro Image preserva geometria do garment + identidade do modelo · Mango operational playbook em scale individual. Iteração rápida em pose/light/BG mantendo SKU." },
+        { "moment": "Motion lookbook · runway loop · ambient garment movement", "model": "seedance-2", "rationale": "Workhorse para 8-15s motion lookbook · cinematic anamorphic feel · multimodal aceita hero still + motion prompt para preservar consistency entre lookbook frames." },
+        { "moment": "Multi-shot runway · model walks · keyframe continuity", "model": "kling-3", "rationale": "Multi-shot continuity superior para runway walks 12-15s com keyframe control · mantém model identity + outfit consistency entre frames de uma sequência longa." },
+        { "moment": "Color grading · LUT · final export multi-format", "model": "ffmpeg", "rationale": "Local · zero custo · concat lookbook + apply Vogue-style LUT + export 16:9 + 9:16 + 1:1 ratios para campaign distribution. Reusável em batch." }
+      ],
+      "workflow": {
+        "mermaid": "graph LR;\n A[Collection brief<br/>+ garment photos<br/>+ mood board] --> B[gpt-image-2<br/>10 editorial heros];\n B --> C[nano-banana-pro<br/>virtual try-on 20x];\n B --> D[seedance-2<br/>motion lookbook 4x];\n B --> E[kling-3<br/>runway walks 2x];\n C --> F[ffmpeg<br/>LUT + concat + export];\n D --> F;\n E --> F;\n F --> G[Deliverable<br/>10 stills + 6 motion + 20 try-on];"
+      },
+      "prompts": [
+        {
+          "title": "Editorial Campaign Hero — Sunset Dream Mood",
+          "body": "Editorial fashion campaign hero shot, 4:5 portrait. Half-body of a striking Brazilian model 25 in a flowing silk slip dress in pale rose, walking on a deserted dune at golden hour. Wind animating the dress fabric, hair catching warm light, slight motion blur on dress hem. Background: vast empty pale-orange dune horizon, soft sky gradient orange-to-violet. Camera at eye-level, 85mm lens equivalent, shallow DOF f/2.0. Vogue cover aesthetic. No watermarks.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["editorial", "hero", "campaign", "fashion"]
+        },
+        {
+          "title": "Vintage Fashion Magazine Cover — 1970s Vogue Style",
+          "body": "Editorial magazine cover 4:5. Centered portrait of an elegant model 30 with bold 1970s makeup (dramatic eyeshadow + glossy lips), shoulder-length hair side-swept, wearing a high-collar emerald velvet blouse. Soft studio lighting. Background: vintage warm beige paper texture. Top: large serif masthead 'ECLIPSE' (Bodoni 96pt cream). Bottom corners: small placeholder cover lines in caps. 1970s Vogue Italia aesthetic. Slight film grain.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["magazine-cover", "vintage", "editorial"]
+        },
+        {
+          "title": "Virtual Try-On — Garment Swap Flat-Lay",
+          "body": "Use uploaded reference image of a model in a basic white t-shirt. Replace the t-shirt with a tailored oversized blazer in deep navy with brass buttons and notched lapels, preserving the model's pose, face, hands, hair, and BG exactly. The blazer should drape naturally over the shoulders, fall to mid-thigh, slightly open at the front showing a thin gold necklace. Match the existing light direction. Photorealistic, no morphing of body or face.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["try-on", "garment-swap", "edit", "reference"]
+        },
+        {
+          "title": "Runway Slow-Mo — Model Walk Loop",
+          "body": "Cinematic 10-second slow-motion runway walk, 16:9. Model in a structured black tailored suit walking confidently down a minimal white runway with soft top-light. Camera at floor level, slight wide-angle, model walks directly toward camera at 0.4 m/s. Dress fabric subtly catches the light, hair flows naturally. Audience BG completely blurred to black. End frame: model stops, slight pose, holds. 1080p, anamorphic feel.",
+          "model": "kling-3",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["runway", "slow-mo", "walk", "fashion"]
+        },
+        {
+          "title": "Beauty Closeup — Skincare Product Reveal",
+          "body": "Beauty editorial closeup, 4:5. Macro shot of a model's bare shoulder + jawline with a single drop of glossy serum being applied by a polished fingertip. Soft beauty light from camera-left creating subtle skin glow. Light freckles visible, no heavy makeup. Slightly out-of-focus amber serum bottle in the foreground right corner. Cinematic skin-tone-true color grade. Vogue beauty aesthetic. Ultra-detailed skin texture.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["beauty", "closeup", "skincare", "editorial"]
+        },
+        {
+          "title": "Streetwear Lookbook — Urban Backdrop",
+          "body": "Streetwear lookbook editorial 4:5. Full-body shot of a model 22 in oversized cream hoodie, baggy cargo pants in olive, chunky white sneakers, leaning against a brutalist concrete wall in São Paulo. Overcast soft light, slight backlight rim. Model gazes off-camera left, hands in pockets. Camera at chest height, 35mm equivalent, slight wide angle. Editorial streetwear aesthetic. Concrete texture detail.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["streetwear", "lookbook", "urban", "editorial"]
+        },
+        {
+          "title": "Luxury Fragrance Still — Product Hero",
+          "body": "Luxury fragrance editorial still, 4:5. Faceted clear glass perfume bottle (100ml) centered on a polished black marble surface, gold cap reflecting the light. Single drop of liquid suspended mid-air about to land on the marble. Soft directional light from camera-right creating dramatic chiaroscuro. BG: gradient from deep black to deep navy. Ultra-detailed glass refraction + condensation. Tom Ford / Le Labo editorial style. No brand name visible.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["fragrance", "luxury", "product", "editorial"]
+        },
+        {
+          "title": "Color Story 4-Panel — Lookbook Mood Board",
+          "body": "4-panel lookbook layout 16:9. Four equal squares arranged 2x2. TOP-LEFT: macro fabric detail (linen weave, pale ochre). TOP-RIGHT: half-body model shot in flowy ochre dress. BOTTOM-LEFT: ochre Pantone color chip with label '14-1051 Sunburst Yellow'. BOTTOM-RIGHT: still life of dried wildflowers + leather notebook + brass scissors. Cream BG behind the grid. Slim navy hairline borders between panels. Editorial mood-board aesthetic.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["color-story", "mood-board", "lookbook"]
+        },
+        {
+          "title": "Lookbook Ambient — Soft Motion Garment Loop",
+          "body": "Cinematic 8-second motion lookbook clip, 4:5. Model 27 stands still in a flowing silk midi-dress in soft sage green, in a sunlit Parisian apartment with sheer linen curtains. Soft breeze animates the dress fabric and curtains throughout the 8 seconds. Camera completely static, slight zoom-in over time. Warm golden hour light streams from window left. Vogue motion-lookbook aesthetic. 1080p, no audio.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "4:5",
+          "tags": ["lookbook", "motion", "ambient", "editorial"]
+        },
+        {
+          "title": "TikTok Beauty Reveal — 9:16 Product Hook",
+          "body": "Vertical 9:16 beauty reveal clip, 8 seconds. Tight close-up of model's hand placing a glass beauty product (placeholder cream jar) on a marble surface with slow deliberate motion. Camera at counter level, soft natural window light, slight steam from a coffee cup blurred in BG. Hand lifts the lid, reveals creamy white texture. Pull back slightly to reveal full product. TikTok beauty aesthetic — clean, ASMR-feel, no text overlay (added in post).",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["beauty", "tiktok", "vertical", "product-reveal"]
+        }
+      ],
+      "cases": [
+        {
+          "brand": "Mango · first major retailer replacing PDP product photos with AI",
+          "url": "https://www.arcadian.ai/blogs/news/mango-becomes-first-major-fashion-brand-to-replace-product-photos-with-ai-generated-imagery",
+          "credit": "ArcadianAI / BusinessOfFashion / Mango Fashion Group press May 2025",
+          "whatsBrilliant": "Mango trained generative models per-collection on real garment photos + replaced core PDP imagery with on-model AI visuals. Industry-first operational rollout for a major fashion brand. Validates the indie-brand path: train small model per drop, ship unlimited variants.",
+          "metric": "Industry-first PDP AI replacement · Sunset Dream collection AI campaign 2024 · operational PDP 2025"
+        },
+        {
+          "brand": "H&M · digital twin model campaign (July 2025)",
+          "url": "https://ww.fashionnetwork.com/news/Ai-expands-in-fashion-as-h-m-and-mango-launch-digital-first-initiatives,1745741.html",
+          "credit": "FashionNetwork · H&M digital twin launch July 2025",
+          "whatsBrilliant": "H&M launched AI 'digital twins' of contracted top models — placing them in stylized fashion-capital settings worldwide. Transparent 'digital twin' label bottom-right. Reduces travel/shoot costs while preserving brand contractual relationships. Direct template for indie brands hiring 1 model + spawning campaign-level variant volume.",
+          "metric": "Industry rollout July 2025 · global multi-city campaign at single-shoot cost"
+        },
+        {
+          "brand": "Maison Meta · first generative AI agency for fashion",
+          "url": "https://maisonmeta.io",
+          "credit": "Vogue Singapore + Vogue Business top-100 innovators · Maison Meta interviews",
+          "whatsBrilliant": "First dedicated gen-AI agency for fashion + beauty + luxury. Built proprietary Seeed platform (AI Twins · Fashion Editorial · Virtual Try-On · Faceswap) + launched AI Fashion Week competition. Defines the agency-tier benchmark Frame Zero ships at indie-brand pricing.",
+          "metric": "Vogue Business top-100 · Seeed platform · AI Fashion Week competition launch"
+        },
+        {
+          "brand": "Mango · Sunset Dream AI campaign (first AI-generated youth-line)",
+          "url": "https://mangofashiongroup.com/en/w/mango-crea-la-primera-campa%C3%B1a-generada-con-inteligencia-artificial-para-su-l%C3%ADnea-teen",
+          "credit": "Mango Fashion Group press · Mango Teen Sunset Dream collection launch",
+          "whatsBrilliant": "Mango Teen's first FULL campaign generated entirely with generative AI (trained on real garment photos + AI-positioned on models). Internal collab: design + art + AI training + photo studio teams. Reference workflow for indie brands replicating at smaller scale.",
+          "metric": "First full-AI campaign · trained per-collection · Strategic Plan 2024-2026 'Earn' lever"
+        },
+        {
+          "brand": "Klarna AI marketing factory (image-gen $6M saved)",
+          "url": "https://www.klarna.com/international/press/ai-helps-klarna-cut-marketing-agency-spend-by-25-and-run-more-campaigns/",
+          "credit": "Klarna press May 2024 · stack: Midjourney + DALL-E + Firefly + Topaz + Photoroom",
+          "whatsBrilliant": "Klarna documented $6M saved on image production alone Q1 2024 — fashion-adjacent BNPL brand fully operationalizing the AI image stack. Transferable directly to indie fashion brands running e-commerce + paid social with similar production budgets.",
+          "metric": "$6M image-production saved Q1 2024 · 1,000+ images generated · 25% agency-spend cut"
+        }
+      ],
+      "resources": {
+        "repos": [
+          { "name": "YouMind-OpenLab/awesome-nano-banana-pro-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts", "stars": 12248, "description": "10,000+ Nano Banana Pro prompts incl. fashion · virtual try-on · garment swap categories" },
+          { "name": "YouMind-OpenLab/awesome-gpt-image-2", "url": "https://github.com/YouMind-OpenLab/awesome-gpt-image-2", "stars": 8060, "description": "10,000+ gpt-image-2 prompts incl. editorial fashion + beauty + magazine cover" },
+          { "name": "YouMind-OpenLab/awesome-seedance-2-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts", "stars": 1200, "description": "2000+ Seedance 2.0 prompts · fashion · runway · lookbook ambient categories" },
+          { "name": "ZeroLu/awesome-seedance", "url": "https://github.com/ZeroLu/awesome-seedance", "stars": 320, "description": "Ultimate Seedance prompt collection · cinematic + fashion + character consistency" },
+          { "name": "ZeroLu/awesome-gpt-image", "url": "https://github.com/ZeroLu/awesome-gpt-image", "stars": 380, "description": "GPT Image 2 prompts · consistency + style replication + editorial categories" }
+        ],
+        "videos": [
+          { "title": "Mango Replaces Product Photos with AI (industry breakdown)", "url": "https://www.arcadian.ai/blogs/news/mango-becomes-first-major-fashion-brand-to-replace-product-photos-with-ai-generated-imagery", "duration": "long-read", "channel": "ArcadianAI" },
+          { "title": "Maison Meta — Fashion's AI Evolution (Vogue Singapore interview)", "url": "https://vogue.sg/maison-meta/", "duration": "interview", "channel": "Vogue Singapore" },
+          { "title": "AI Models Replace Real People in Mango's Fast-Fashion Ads (BoF)", "url": "https://www.businessoffashion.com/news/technology/ai-models-replace-real-people-in-mangos-fast-fashion-ads/", "duration": "long-read", "channel": "BusinessOfFashion" },
+          { "title": "How to Make Your Product Go Viral with Sora 2 Trends (Higgsfield)", "url": "https://higgsfield.ai/blog/How-to-Make-Your-Product-Go-Viral-in-2025-with-Sora-2", "duration": "guide", "channel": "Higgsfield blog" },
+          { "title": "Top 10 Viral TikTok/Reels Ideas with Higgsfield (beauty + fashion examples)", "url": "https://higgsfield.ai/blog/Top-10-viral-TikTok-Reels-Ideas-to-Generate-with-Higgsfield", "duration": "guide", "channel": "Higgsfield blog" }
+        ],
+        "courses": [
+          { "title": "Domestika · Fashion Editorial Photography [search]", "url": "https://www.domestika.org/en/courses/area/8-photography-and-video/category/47-fashion", "platform": "Domestika", "note": "Editorial fashion fundamentals · pair with AI gen for hybrid workflow" },
+          { "title": "Skillshare · Fashion Design + Brand Building [search]", "url": "https://www.skillshare.com/en/search?query=fashion+brand", "platform": "Skillshare", "note": "Indie brand fundamentals · ESG · DTC · supply chain awareness" },
+          { "title": "MasterClass · Anna Wintour Teaches Creativity & Leadership", "url": "https://www.masterclass.com/classes/anna-wintour-teaches-creativity-and-leadership", "platform": "MasterClass", "note": "Editorial taste-making framework · Vogue lens on creative direction" }
+        ],
+        "tools": [
+          { "name": "Higgsfield · Cinema Studio + Soul Character + Marketing Studio", "url": "https://higgsfield.ai", "category": "video-gen", "note": "Murilo's primary stack · model identity preservation via Soul · fashion-aesthetic compositing" },
+          { "name": "Seedance 2.0 (via fal.ai / Runway)", "url": "https://fal.ai/models/fal-ai/seedance-pro", "category": "video-gen", "note": "Workhorse para motion lookbook + ambient garment loops · 8-15s sweet spot" },
+          { "name": "Kling 3.0 (via fal.ai / KIE.AI)", "url": "https://fal.ai/models/fal-ai/kling-video", "category": "video-gen", "note": "Multi-shot runway walks + model continuity · keyframe control · 12-15s" },
+          { "name": "Maison Meta Seeed · proprietary fashion AI platform", "url": "https://maisonmeta.io", "category": "fashion-ai-platform", "note": "Premium-tier · AI Twins + Fashion Editorial + Virtual Try-On + Faceswap" },
+          { "name": "Magnific AI · upscale + creative enhance", "url": "https://magnific.ai", "category": "upscale-enhance", "note": "Editorial-grade upscale + style transfer · used by fashion AI creators globally" },
+          { "name": "Krea AI", "url": "https://www.krea.ai", "category": "ai-image-platform", "note": "Real-time AI creative platform · prototyping editorial moods" },
+          { "name": "Phototune · color grading AI", "url": "https://phototune.ai", "category": "color-grade", "note": "Vogue-style color grading automation · LUT generation" },
+          { "name": "Vmake AI · fashion + virtual try-on", "url": "https://vmake.ai", "category": "fashion-ai", "note": "Fashion-specific AI tooling · virtual try-on + model swap workflows" }
+        ],
+        "papers": [],
+        "agencies": [
+          { "name": "Maison Meta (first gen-AI agency for fashion + beauty)", "url": "https://maisonmeta.io", "specialty": "End-to-end AI campaign creation for fashion/beauty/luxury", "notable": "Vogue Business top-100 · proprietary Seeed platform · AI Fashion Week" },
+          { "name": "Imagene AI · fashion creative studio", "url": "https://imagene.ai", "specialty": "AI-powered fashion creative production", "notable": "Adjacent peer to Maison Meta · brand-side AI campaign delivery" },
+          { "name": "Synthesia (for fashion video AI · brand explainers)", "url": "https://www.synthesia.io", "specialty": "AI avatar + video generation for brand content", "notable": "Used by fashion brands for explainer + UGC-style video · multi-language" }
+        ]
+      },
+      "behindTheLens": [
+        { "step": 1, "title": "Collection brief + garment photos + mood board", "body": "Brand provides: 10-15 garment flatlay photos (clean BG) · 1-2 fit models for try-on reference · mood board (5-10 inspirations · color story · aesthetic descriptors). Map deliverable to channel: lookbook PDF · campaign hero · PDP variants · social cuts." },
+        { "step": 2, "title": "gpt-image-2 editorial heros (10 stills)", "body": "Generate 10 editorial hero shots covering the collection narrative: 3 campaign-cover stills (golden hour mood) · 3 in-context lifestyle stills (urban / nature / interior) · 2 beauty closeups · 2 magazine-cover-style frontals. 4:5 portrait native. Cost: ~R$80 in API credits." },
+        { "step": 3, "title": "nano-banana-pro virtual try-on batch (20+)", "body": "Mango playbook: from each fit-model reference photo + garment flatlay, generate 20+ on-model PDP-ready variants via nano-banana-pro. Iterate 2-3 rounds for pose/light variation. Cost-collapse moment — what was R$5k of model+photographer day is now R$30 in API credits." },
+        { "step": 4, "title": "seedance-2 + kling-3 motion (6 clips)", "body": "Generate 6 motion assets: 4 ambient lookbook loops 8s 4:5 (lookbook PDF + Instagram) · 2 runway walk loops 12s 16:9 via kling-3 for keyframe continuity. ffmpeg LUT (Vogue warm-grade) + multi-format export (16:9 + 9:16 + 4:5 + 1:1)." },
+        { "step": 5, "title": "Deliver lookbook PDF + asset pack + 2 rounds", "body": "Notion + WeTransfer deliverable: 10 editorial stills · 20 on-model PDP variants · 6 motion clips · lookbook PDF (designed) · social pack (Instagram + TikTok + Pinterest cuts). Invoice R$3.8k for indie-brand tier (R$135/asset blended). 2 iteration rounds bundled — typically used for color-grade fine-tune + 1-2 garment-swap reshoots." }
+      ],
+      "roi": {
+        "inputs": [
+          { "id": "collections_per_month", "label": "Coleções / mês", "type": "number", "default": 4 },
+          { "id": "avg_collection_brl", "label": "Coleção média (R$)", "type": "number", "default": 3800 },
+          { "id": "cost_per_collection_brl", "label": "Custo por coleção (R$)", "type": "number", "default": 135 }
+        ],
+        "formula": "revenue = collections_per_month * avg_collection_brl; cost = collections_per_month * cost_per_collection_brl; margin_brl = revenue - cost; margin_pct = (margin_brl / revenue) * 100;",
+        "outputs": [
+          { "id": "revenue", "label": "Receita mensal", "format": "BRL" },
+          { "id": "cost", "label": "Custo mensal", "format": "BRL" },
+          { "id": "margin_brl", "label": "Margem mensal", "format": "BRL" },
+          { "id": "margin_pct", "label": "Margem %", "format": "%" }
+        ]
+      }
     },
     {
       "id": "eventos-hoteis",
       "name": "Eventos · Hotéis",
-      "tagline": "Venue immersive + highlight reel + ambient bg",
+      "tagline": "Venue cinematic · wedding reel · hotel ambient · invitations hero · sem filmagem",
       "icon": "🏨",
       "color": "#b8a380",
-      "icp": "Hotel managers + event agencies + wedding planners + venue marketing",
-      "status": "stub",
-      "comingPhase": "γ"
+      "icp": "Hotel marketing managers (boutique 4-5 estrelas) · wedding planners alto-padrão · corporate event agencies (BH/SP/Rio) · venue owners (fazendas · vinícolas · salões) · DMC tour operators · marriage venues que precisam social-first content sem 2-day shoot",
+      "math": {
+        "ticketMedio": 5200,
+        "timeToDeliver": "5 dias",
+        "costPerAsset": 170,
+        "suggestedMargin": 71
+      },
+      "stack": [
+        { "moment": "Venue exterior · ballroom · interior hero stills", "model": "gpt-image-2", "rationale": "Best-in-class para hotel interior + venue exterior photorealistic — preserva materiais (mármore · madeira · luxo decor) com light direction correta. 16:9 + 4:5 hero ratios." },
+        { "moment": "Wedding invitation · gala save-the-date · event poster", "model": "nano-banana-pro", "rationale": "Gemini 3 Pro Image text-rendering preciso para invitations · iteração rápida em copy/typography/date sem regerar BG. Crítico para event-decor templates." },
+        { "moment": "Highlight reel 30-60s · venue showcase · ambient walkthrough", "model": "seedance-2", "rationale": "Workhorse para cinematic venue walkthrough · multimodal aceita interior still + motion (dolly · orbit · reveal). Sweet spot 8-15s clips concatenados em reel 45s." },
+        { "moment": "Drone orbit · ballroom reveal · venue establishing", "model": "higgsfield", "rationale": "Higgsfield Cinema Studio + Seedance image-to-video presets purpose-built para venue establishing shots · cinematic LUT preset + composite layer." },
+        { "moment": "Concat · LUT · ambient music · export", "model": "ffmpeg", "rationale": "Local · zero custo · concat reel + ambient cinematic music · multi-format export (16:9 sale-reel + 9:16 Instagram + 1:1 grid)." }
+      ],
+      "workflow": {
+        "mermaid": "graph LR;\n A[Venue brief<br/>+ floor plan<br/>+ existing photos] --> B[gpt-image-2<br/>8 hero stills];\n B --> C[seedance-2<br/>cinematic walkthroughs 6x];\n B --> D[higgsfield<br/>drone establishing 2x];\n B --> E[nano-banana-pro<br/>4 invitation variants];\n C --> F[ffmpeg<br/>concat + LUT + music];\n D --> F;\n E --> G[Print + digital<br/>invitation pack];\n F --> H[Deliverable<br/>45s reel + 8 stills + invitations];"
+      },
+      "prompts": [
+        {
+          "title": "Luxury Hotel Exterior — Dusk Establishing",
+          "body": "Architectural photograph of a 5-star luxury boutique hotel exterior at dusk. Travertine stone facade, warm interior lights glowing through floor-to-ceiling windows on 4 floors. Manicured front garden with 3 illuminated palmeiras imperiais. Reflecting pool in foreground with hotel mirrored. Camera at street level slight 3/4 angle. Soft purple-pink dusk sky gradient. No cars, no people. Ultra-detailed materials. 16:9, Architectural Digest tone.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["hotel", "exterior", "dusk", "establishing"]
+        },
+        {
+          "title": "Wedding Venue Reveal — Hilltop Vineyard Ceremony",
+          "body": "Editorial photograph of an outdoor wedding ceremony setup at a hilltop vineyard at golden hour. Rustic stone chapel center-back. Ceremony arc: 60 white folding chairs arranged in 6 rows facing a wooden archway draped with eucalyptus + ivory garden roses. Aisle: white runner with rose petals scattered. Background: panoramic vineyard valley + warm sky. No people, ceremony pre-arrival. 16:9, romantic warm grade.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["wedding", "venue", "ceremony", "vineyard"]
+        },
+        {
+          "title": "Corporate Stage — Cinematic Conference Setup",
+          "body": "Cinematic photograph of an empty corporate conference stage pre-event. Wide LED backdrop with subtle abstract animation (paused frame). Single tall podium center-stage. 4 modern leather lounge chairs on either side. Audience seating: empty rows fade to black. Stage uplighting in soft blue + amber. Camera from back of room, wide-angle. Tech conference aesthetic (TED/SXSW). 16:9, dramatic mood.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["corporate", "stage", "conference", "venue"]
+        },
+        {
+          "title": "Conference Highlight — Aerial Establishing 16:9",
+          "body": "Cinematic 10-second aerial establishing shot of a corporate conference center exterior at morning. Drone at 40m altitude orbits 90 degrees clockwise around the glass + steel building, revealing the entrance plaza with branded signage banner 'INNOVATE 2026'. Soft morning light. Slight crowd silhouettes entering BG. Smooth gimbal feel. 16:9, 1080p, corporate cinematic grade.",
+          "model": "higgsfield",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["conference", "aerial", "establishing", "corporate"]
+        },
+        {
+          "title": "Gala Invitation Hero — Save-the-Date",
+          "body": "Editorial save-the-date invitation design, 4:5 portrait. Cream textured paper background with subtle deboss texture. Center: bold serif headline 'GALA ENCANTO' (Bodoni 72pt deep navy). Below: 'SATURDAY · MARCH 14 · 2026' in small caps. Bottom: 'BLACK TIE · 19H · GRAND BALLROOM PALÁCIO TANGARÁ'. Top: thin gold foil hairline border. Bottom corner: small gold monogram '✦E✦'. Ultra-luxe save-the-date aesthetic.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["invitation", "gala", "save-the-date", "luxury"]
+        },
+        {
+          "title": "Destination Wedding Cinematic — Tulum Reveal",
+          "body": "Cinematic 15-second wedding establishing reel, 16:9. Sequence: 1) Aerial drone slow descent over turquoise Tulum coastline 4s · 2) Reveal beachfront wedding setup: white linen arch on sand, cluster of bohemian chairs 4s · 3) Pull back to wide showing the whole beach venue with palm trees framing 4s · 4) Final hold: golden hour light flares, gentle wave sound 3s. Romantic warm grade. 1080p.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["destination-wedding", "cinematic", "beach", "reveal"]
+        },
+        {
+          "title": "Cocktail Moment — Editorial Portrait at Reception",
+          "body": "Editorial photograph of an elegant cocktail reception moment. Mid-shot of a single champagne glass held by a manicured hand against a soft-focus backdrop of warm string lights + blurred guests. Slight bubble motion in the glass. Soft warm light from camera-left. Hyper-detailed reflections on the glass. 4:5 portrait, Vogue editorial wedding tone.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["cocktail", "reception", "editorial", "portrait"]
+        },
+        {
+          "title": "Ballroom Drone Orbit — Pre-Event Reveal",
+          "body": "Cinematic 12-second drone orbit interior of an empty luxury ballroom pre-event, 16:9. Drone at 4m altitude orbits 180 degrees, revealing: round banquet tables set with white linen + crystal stemware + tall floral centerpieces + chiavari chairs. Chandeliers visible above. Soft amber uplighting on walls. Camera locked on the room center. Smooth motion. 1080p, anamorphic feel.",
+          "model": "higgsfield",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["ballroom", "drone", "orbit", "venue"]
+        },
+        {
+          "title": "Bridal Portrait — Editorial Window Light",
+          "body": "Editorial bridal portrait, 4:5. Bride 28 in sleek ivory satin gown standing in a sunlit bridal suite window. Soft window light pours from camera-right creating ethereal halo on hair + dress. Bride looks down at a small bouquet of garden roses. Background: blurred period architectural details. Vogue Brides editorial aesthetic. Slight skin glow, subtle makeup. Ultra-detailed fabric.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["bridal", "portrait", "editorial", "wedding"]
+        },
+        {
+          "title": "Destination Hotel Ambient Loop — Pool Deck Twilight",
+          "body": "Cinematic 10-second ambient loop, 16:9. Infinity pool deck of a tropical luxury resort at twilight. Pool water glowing turquoise from underwater lights, gentle ripples animating. Two empty teak loungers + low fire-pit center-frame with small dancing flame. Palm trees gently swaying in BG. Distant ocean horizon. Soft warm-cool contrast. No people. Ready as ambient website hero loop. 1080p, seamlessly loopable.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["hotel", "ambient", "twilight", "pool", "loop"]
+        }
+      ],
+      "cases": [
+        {
+          "brand": "Marriott Hotels · 'Wonderful Hospitality' social rebrand (Shorty Awards)",
+          "url": "https://shortyawards.com/16th/premiumselect",
+          "credit": "Shorty Awards 16th · Premium Select · Marriott Hotels case",
+          "whatsBrilliant": "Social-first influencer + evergreen content campaign that took Marriott Hotels from the lowest-performing brand in the Bonvoy portfolio (2022) to the top-performing brand (2023). Avg IG Reel viewership beat benchmark by 1,028%. Validates that venue content drives revenue — playbook transferable to boutique hotels.",
+          "metric": "Lowest → top-performing in Bonvoy portfolio · +1,028% reel viewership · +1,618% static viewership"
+        },
+        {
+          "brand": "Marriott · AI strategy + cloud-native marketing platform 2025",
+          "url": "https://www.klover.ai/marriott-ai-strategy-analysis-of-dominance-in-lodging-hospitality-ai/",
+          "credit": "Klover AI + Skift + HotelTechnologyNews 2025 coverage",
+          "whatsBrilliant": "Marriott deployed AI chatbot, Automated Complimentary Upgrade (ACU), and cloud-native marketing infrastructure 2025 — embedding AI across guest experience + ops. CEO Anthony Capuano publicly framed AI as 'opportunity to redefine customer acquisition'. Defines the floor for hospitality-tier AI engagement.",
+          "metric": "ACU rollout July 2025 · prototype AI chatbot Sept 2025 · 271M Bonvoy members exposed"
+        },
+        {
+          "brand": "Cendyn · hospitality AI marketing agency (Fontainebleau Miami Beach)",
+          "url": "https://www.cendyn.com/digital-marketing/",
+          "credit": "Cendyn + Fontainebleau Miami Beach testimonial",
+          "whatsBrilliant": "Cendyn ships AI-augmented campaigns for premium hotels — performance marketing, real-time budget reallocation, AI Connect to push ARI into ChatGPT search results. Reference hospitality marketing agency Frame Zero competes with at venue-tier (not enterprise-tier).",
+          "metric": "Fontainebleau Miami Beach client · AI-driven budget optimization · ChatGPT-result ARI integration"
+        },
+        {
+          "brand": "TravelBoom · 30-year hotel marketing agency",
+          "url": "https://www.travelboommarketing.com/",
+          "credit": "TravelBoom + #1 hotel marketing podcast",
+          "whatsBrilliant": "30-year hotel marketing agency specialized in driving direct bookings + outsmarting OTAs. Hosts industry-leading podcast. Reference for the marketing playbook hospitality clients respond to — content + RevPAR + direct-booking optimization frames Frame Zero deliverables.",
+          "metric": "30+ years operating · #1 hotel marketing podcast globally · direct-booking specialist"
+        },
+        {
+          "brand": "Wedding videographer Higgsfield AI tutorial (YouTube)",
+          "url": "https://www.youtube.com/watch?v=ZsWN3kdU3g0",
+          "credit": "YouTube tutorial · I Tested AI On Real Wedding Footage (Higgsfield-sponsored)",
+          "whatsBrilliant": "Working wedding videographer documents AI integration into real wedding workflow — using Higgsfield to extend/enhance shoot footage. Validates the wedding-vertical workflow Frame Zero ships: hybrid AI-generated venue establishing + real ceremony footage + cinematic AI walkthroughs.",
+          "metric": "[unverified view count] · Higgsfield-sponsored tutorial · workflow validated by working wedding pro"
+        }
+      ],
+      "resources": {
+        "repos": [
+          { "name": "YouMind-OpenLab/awesome-gpt-image-2", "url": "https://github.com/YouMind-OpenLab/awesome-gpt-image-2", "stars": 8060, "description": "10,000+ gpt-image-2 prompts incl. hotel + venue + wedding + corporate event categories" },
+          { "name": "YouMind-OpenLab/awesome-nano-banana-pro-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts", "stars": 12248, "description": "10,000+ Nano Banana Pro prompts incl. invitation + event poster + branding categories" },
+          { "name": "YouMind-OpenLab/awesome-seedance-2-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts", "stars": 1200, "description": "2000+ Seedance 2.0 prompts · wedding · venue walkthrough · ambient cinematic categories" },
+          { "name": "ZeroLu/awesome-seedance", "url": "https://github.com/ZeroLu/awesome-seedance", "stars": 320, "description": "Curated Seedance 2.0 prompts · hospitality cinematic + product showcase + brand storytelling" },
+          { "name": "EvoLinkAI/awesome-seedance-2-guide", "url": "https://github.com/EvoLinkAI/awesome-seedance-2-guide", "stars": 370, "description": "Seedance 2.0 guide · includes venue walkthrough + drone establishing patterns" }
+        ],
+        "videos": [
+          { "title": "I Tested AI On Real Wedding Footage (Higgsfield workflow)", "url": "https://www.youtube.com/watch?v=ZsWN3kdU3g0", "duration": "tutorial", "channel": "[YouTube wedding videographer · Higgsfield-sponsored]" },
+          { "title": "Top 10 Viral TikTok/Reels Ideas with Higgsfield (event + venue examples)", "url": "https://higgsfield.ai/blog/Top-10-viral-TikTok-Reels-Ideas-to-Generate-with-Higgsfield", "duration": "guide", "channel": "Higgsfield blog" },
+          { "title": "How to Create a Cinematic AI Real Estate Video From Images Only (transferable to venue)", "url": "https://www.youtube.com/watch?v=TJPjbuhD75Y", "duration": "3:00", "channel": "[unverified author]" },
+          { "title": "Marriott AI Strategy + Hospitality Tech Analysis", "url": "https://www.klover.ai/marriott-ai-strategy-analysis-of-dominance-in-lodging-hospitality-ai/", "duration": "long-read", "channel": "Klover AI" },
+          { "title": "Seedance 2.0 Now Available in Runway (cinematic showcase)", "url": "https://www.youtube.com/watch?v=3gdgoC98nQ0", "duration": "1:41", "channel": "Runway" }
+        ],
+        "courses": [
+          { "title": "Cornell · Hospitality Marketing + AI (eCornell)", "url": "https://ecornell.cornell.edu/certificates/hospitality-and-foodservice-management/hospitality-marketing/", "platform": "eCornell", "note": "Industry-respected hospitality marketing fundamentals · pair with AI gen for modern stack" },
+          { "title": "Coursera · Hotel Management + Marketing [search]", "url": "https://www.coursera.org/search?query=hospitality%20marketing", "platform": "Coursera", "note": "Multiple instructors · venue/hotel ops + marketing foundations" },
+          { "title": "Wedding MBA · annual industry conference (recorded sessions)", "url": "https://www.weddingmba.com", "platform": "Wedding MBA", "note": "Wedding industry conference · pricing + sales + content strategy for venues + planners" }
+        ],
+        "tools": [
+          { "name": "Higgsfield · Cinema Studio + Marketing Studio", "url": "https://higgsfield.ai", "category": "video-gen", "note": "Murilo's primary stack · cinematic venue establishing + reveal presets" },
+          { "name": "Seedance 2.0 (via fal.ai / Runway)", "url": "https://fal.ai/models/fal-ai/seedance-pro", "category": "video-gen", "note": "Workhorse for venue walkthrough + wedding establishing · 8-15s sweet spot" },
+          { "name": "Kling 3.0 (via fal.ai / KIE.AI)", "url": "https://fal.ai/models/fal-ai/kling-video", "category": "video-gen", "note": "Multi-shot venue continuity · ballroom orbit + reveal sequences" },
+          { "name": "RunwayML Gen-4 (hosts Seedance)", "url": "https://runwayml.com", "category": "video-gen-platform", "note": "Unlimited plan · hosts Seedance + Aleph modify for hospitality clients" },
+          { "name": "DaVinci Resolve", "url": "https://www.blackmagicdesign.com/products/davinciresolve", "category": "post-production", "note": "Free professional color grading · LUT for wedding/hospitality warm romantic grade" },
+          { "name": "DJI Mavic 4 Pro / Mini 4 Pro", "url": "https://www.dji.com", "category": "drone-hardware", "note": "When real drone needed for legal compliance · DJI Mini 4 Pro = R$5k entry cinematic" },
+          { "name": "Splice / CapCut", "url": "https://www.capcut.com", "category": "mobile-edit", "note": "Quick mobile-first edits for Instagram Reels distribution · auto-caption + subtitle" },
+          { "name": "Cendyn AI marketing platform (reference)", "url": "https://www.cendyn.com/digital-marketing-platform/", "category": "hospitality-marketing", "note": "Enterprise hospitality marketing OS · benchmark + integration target" }
+        ],
+        "papers": [],
+        "agencies": [
+          { "name": "Cendyn (hospitality digital marketing)", "url": "https://www.cendyn.com", "specialty": "AI-augmented hotel digital marketing · performance + direct bookings", "notable": "Fontainebleau Miami Beach client · AI Connect for ChatGPT search · 150+ ARI providers" },
+          { "name": "TravelBoom Marketing", "url": "https://www.travelboommarketing.com", "specialty": "30-year hotel marketing agency · direct booking + RevPAR optimization", "notable": "#1 hotel marketing podcast globally · industry thought-leader" },
+          { "name": "Fábrica de Vídeo (Murilo Stock)", "url": "https://murilostock.com", "specialty": "B2B cinematic content pipeline · hospitality + wedding + venue expansion", "notable": "Pipeline-as-a-service · Higgsfield + Seedance + Kling stack · 5-day SLA · BR ICP" }
+        ]
+      },
+      "behindTheLens": [
+        { "step": 1, "title": "Venue brief + floor plan + existing photos", "body": "Client provides: venue floor plan · 8-12 reference photos covering all key areas (lobby · ballroom · pool deck · suite · exterior) · brand kit · target use (sales reel · website hero · social campaign · wedding portfolio). Map deliverable to channel: 45s sale-reel + 8 hero stills + invitation pack." },
+        { "step": 2, "title": "gpt-image-2 hero stills (8 venue areas)", "body": "Generate 8 hero stills covering venue narrative: 2 exterior shots (dusk + day) · 2 ballroom/main-space configurations · 2 suite/room interiors · 1 pool deck/outdoor · 1 culinary/restaurant. 16:9 + 4:5 ratios. Cost: ~R$60 in API credits. These anchor the visual contract with client + seed video step." },
+        { "step": 3, "title": "seedance-2 + higgsfield cinematic walkthroughs (6 clips)", "body": "From the picked stills: 4 seedance-2 walkthrough loops 8-12s (interior dolly + reveal · ambient pool · ballroom orbit · suite tour) + 2 higgsfield drone establishing 10s (venue exterior orbit · aerial approach). Re-roll 1-2 on motion artifacts. Pre-event venues need NO people · live-event venues can include blurred-silhouette crowd." },
+        { "step": 4, "title": "nano-banana-pro invitation pack (4 variants)", "body": "For events (gala · wedding · corporate): generate 4 invitation/save-the-date variants via nano-banana-pro — cream/luxury · modern/minimal · botanical/wedding · corporate/clean. Each with precise typography for date/venue/dress-code/RSVP. Print-ready 4:5 + 1:1 cuts." },
+        { "step": 5, "title": "ffmpeg concat + delivery + 2 rounds", "body": "Concat 6 clips into 45s cinematic reel with ambient music (Premiumbeat/Epidemic) + apply warm Vogue/Bridal LUT. Multi-format export: 45s 16:9 sale-reel + 30s 9:16 vertical + 1:1 grid posts + 8 standalone stills (PNG 2048px) + 4 invitations (PDF print + PNG digital). WhatsApp deliverable. Invoice R$5.2k. 2 iteration rounds bundled." }
+      ],
+      "roi": {
+        "inputs": [
+          { "id": "venues_per_month", "label": "Venues / mês", "type": "number", "default": 3 },
+          { "id": "avg_venue_brl", "label": "Venue médio (R$)", "type": "number", "default": 5200 },
+          { "id": "cost_per_venue_brl", "label": "Custo por venue (R$)", "type": "number", "default": 170 }
+        ],
+        "formula": "revenue = venues_per_month * avg_venue_brl; cost = venues_per_month * cost_per_venue_brl; margin_brl = revenue - cost; margin_pct = (margin_brl / revenue) * 100;",
+        "outputs": [
+          { "id": "revenue", "label": "Receita mensal", "format": "BRL" },
+          { "id": "cost", "label": "Custo mensal", "format": "BRL" },
+          { "id": "margin_brl", "label": "Margem mensal", "format": "BRL" },
+          { "id": "margin_pct", "label": "Margem %", "format": "%" }
+        ]
+      }
     },
     {
       "id": "animation",
       "name": "Animation",
-      "tagline": "Short film + character motion + multi-shot continuity",
+      "tagline": "Short film · character continuity · multi-shot dialogue · Kling + Sora playbook",
       "icon": "🎬",
       "color": "#c4a574",
-      "icp": "Indie animators + storytellers + marketing teams + edu-content",
-      "status": "stub",
-      "comingPhase": "γ"
+      "icp": "Indie animators solo · YouTube storytellers · explainer agencies (B2B SaaS) · marketing teams criando branded shorts · solo filmmakers rodando AI-first short films · educators criando edu-animation cartoon/explainer · creators que querem competir com Pixar visualmente em budget R$5k em vez de R$5M",
+      "math": {
+        "ticketMedio": 6800,
+        "timeToDeliver": "10 dias",
+        "costPerAsset": 320,
+        "suggestedMargin": 68
+      },
+      "stack": [
+        { "moment": "Character sheet · turnaround · storyboard panels", "model": "gpt-image-2", "rationale": "Best-in-class para character sheet generation (turnaround 8-direction · expression sheets) + storyboard panels. Text-rendering nativo para frame numbers + dialogue blocking notes. 16:9 storyboard format." },
+        { "moment": "Character identity preservation across shots", "model": "higgsfield", "rationale": "Higgsfield Soul Character training · upload 5-10 character references → persistent identity reference_id que carrega entre shots no Seedance/Kling. Resolve o gap #1 do AI animation: character consistency entre clips." },
+        { "moment": "Multi-shot character dialogue + continuity 8-15s", "model": "kling-3", "rationale": "Multi-shot continuity superior + keyframe control para dialogue scenes · workhorse para character-driven sequences 2-shot/3-shot. Mantém identity e outfit entre keyframes." },
+        { "moment": "Motion · ambient scene · cinematic loop 8-12s", "model": "seedance-2", "rationale": "Workhorse para motion + cinematic scene loops · multimodal aceita character sheet still + motion prompt. Sweet spot 8-12s para single-action shots no short film." },
+        { "moment": "Concat · sound · color · upscale · export", "model": "ffmpeg", "rationale": "Local · zero custo · concat shots em sequência · adiciona dialogue + foley + music · LUT cinematic · multi-format export. Optional Topaz Video AI para upscale 4K." }
+      ],
+      "workflow": {
+        "mermaid": "graph LR;\n A[Script + character bio<br/>+ visual mood board] --> B[higgsfield Soul<br/>character train];\n A --> C[gpt-image-2<br/>character sheet + storyboard];\n B --> D[kling-3<br/>dialogue scenes 4x];\n B --> E[seedance-2<br/>ambient scenes 6x];\n C --> D;\n C --> E;\n D --> F[ffmpeg<br/>concat + dialogue + foley];\n E --> F;\n F --> G[Optional<br/>Topaz Video upscale 4K];\n G --> H[Deliverable<br/>3-5min short film + assets];"
+      },
+      "prompts": [
+        {
+          "title": "Character Turnaround Sheet — 8 Directions",
+          "body": "Character turnaround reference sheet 16:9, white BG. Same character (animated young female protagonist, mid-20s, short copper bob hair, freckles, oversized denim jacket over white tee, dark jeans, scuffed canvas sneakers) shown in 8 positions arranged in a horizontal strip: front · 3/4 front-right · right profile · 3/4 right-back · back · 3/4 left-back · left profile · 3/4 front-left. Consistent height + proportions + outfit + lighting across all 8. Pixar-meets-anime art style. Small height/proportion markers at left.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["character", "turnaround", "reference"]
+        },
+        {
+          "title": "3-Act Storyboard Panel — Cinematic Sequence",
+          "body": "Cinematic storyboard 16:9, 6-panel grid (2 rows × 3 cols) sketched in soft pencil + light watercolor. Sequence: PANEL 1 wide establishing of a small town main street at dawn · PANEL 2 medium of protagonist walking toward camera · PANEL 3 close-up of her hand pushing open a cafe door · PANEL 4 interior reveal of empty cafe with single barista · PANEL 5 medium two-shot of her ordering coffee · PANEL 6 close-up of steam rising from cup. Each panel has frame number + shot type label + camera direction arrow.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["storyboard", "sequence", "narrative"]
+        },
+        {
+          "title": "Talking Head Character Loop — Cinematic Mid-Shot",
+          "body": "Cinematic 8-second mid-shot of an animated character (use trained Soul ID reference — young female with copper bob), Pixar-meets-anime style. She speaks naturally — subtle mouth movement, occasional blink, slight head turn. Soft golden hour window light from camera-right. Warm coffee shop BG soft blur. Camera fully static. 1080p, 16:9, no audio (will be dubbed in post). Maintain perfect character identity throughout.",
+          "model": "kling-3",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["character", "talking-head", "dialogue", "consistency"]
+        },
+        {
+          "title": "Pixar-Style Hero — Establishing Character Reveal",
+          "body": "Photorealistic Pixar-meets-anime style hero shot 16:9. Young female character (copper bob, freckles, denim jacket) stands at the edge of a misty forest cliff at golden hour, looking out at the valley below. Wind gently animates her hair + jacket hem. Camera at chest-height behind her, slight slow zoom-in over 6 seconds. Soft warm light catches her hair. Painterly textures + cinematic depth. 1080p.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["pixar", "hero", "character", "establishing"]
+        },
+        {
+          "title": "Anime Keyframe — Dynamic Action Pose",
+          "body": "Anime-style keyframe illustration 16:9. Young female character mid-action — running forward through a neon-lit Tokyo alley at night, jacket flowing behind her, rain reflections on the wet pavement. Sharp anime line art, vibrant chromatic colors (cyan + magenta neon signs). Dynamic foreshortened pose, slight motion blur on extremities. Camera at low angle 3/4 view. Studio Ghibli meets cyberpunk aesthetic.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["anime", "keyframe", "action", "cyberpunk"]
+        },
+        {
+          "title": "Gritty Noir Character — Detective Closeup",
+          "body": "Cinematic noir closeup 4:5 of a hard-boiled detective character mid-40s in trench coat + fedora, lighting a cigarette in a rain-soaked alley at night. Single overhead streetlamp creates dramatic chiaroscuro. Cigarette smoke curls upward. Hard shadows across face. Black-and-white plus selective amber color (flame + cigarette tip). Hyper-detailed face textures + coat fabric. Sin City meets classic film noir.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["noir", "character", "closeup", "cinematic"]
+        },
+        {
+          "title": "Cartoon vs Realism A/B Reference",
+          "body": "Split-frame 16:9 reference image showing the same character side-by-side: LEFT half rendered in Pixar/Cartoon style (soft volumetric, big eyes, exaggerated proportions). RIGHT half same character rendered in photorealistic cinema (35mm lens equivalent, hyper-detailed skin, naturalistic lighting). Both halves have identical pose + outfit + framing. Thin vertical white divider between halves. Useful for client style direction decisions.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["style-comparison", "cartoon-vs-realism", "reference"]
+        },
+        {
+          "title": "Multi-Shot Dialogue Scene — 2-Shot Conversation",
+          "body": "Cinematic 12-second 2-shot dialogue scene 16:9. Two characters facing each other across a small wooden cafe table (use Soul IDs — female with copper bob + male with dark curls). Camera over-shoulder of female looking at male. Male speaks first (3s), reaction cut to female (3s), back to male (3s), final hold on female reaction (3s). Soft window light. Cafe ambient BG. Maintain perfect identity + outfit consistency through all cuts. 1080p, no audio.",
+          "model": "kling-3",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["dialogue", "multi-shot", "cafe", "character"]
+        },
+        {
+          "title": "Explainer Cartoon — Friendly Educational Loop",
+          "body": "8-second educational cartoon loop 16:9, flat-design vibrant illustration style. Friendly character (rounded shapes, warm color palette) gestures explaining a concept — smooth limb motion, expressive face. Sequence: looks at viewer, points to floating UI element (placeholder icon), nods reassuringly. White BG with subtle floating decoration shapes. Smooth animation curves. Suitable for B2B SaaS explainer or edu-content. 1080p.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["explainer", "educational", "cartoon", "saas"]
+        },
+        {
+          "title": "30-Second Film Trailer Cinematic",
+          "body": "Cinematic 30-second short film trailer 16:9. Sequence: 1) Slow fade-in from black to character silhouette against dawn sky 4s · 2) Quick cuts: character running, hand reaching, door slamming 6s · 3) Wide establishing of mysterious forest 4s · 4) Closeup of character's determined face 4s · 5) Action burst: character leaping across chasm 6s · 6) Title card 'THE WITNESS' reveal over black 6s. Cinematic teal-orange grade, anamorphic feel. 1080p, beat-cut ready for music score.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["trailer", "cinematic", "short-film", "title-reveal"]
+        }
+      ],
+      "cases": [
+        {
+          "brand": "Disney + OpenAI $1B Sora partnership (Dec 2025)",
+          "url": "https://en.wikipedia.org/wiki/Sora_(text-to-video_model)",
+          "credit": "Wikipedia Sora · Walt Disney Company announcement Dec 11 2025",
+          "whatsBrilliant": "Disney committed $1B to OpenAI to allow users to generate 200+ copyrighted characters (Disney Animation + Pixar) on Sora 2. Industry-defining moment: the biggest animation studio in history validates AI animation as production-grade. Direct upstream signal for indie animators adopting the same stack.",
+          "metric": "$1B Disney investment · 200+ characters licensed · Dec 2025 Sora 2 production deployment"
+        },
+        {
+          "brand": "Kling + Nano Banana 2 'God Mode' AI filmmaking",
+          "url": "https://www.reddit.com/r/generativeAI/comments/1ruwece/i_made_an_ai_short_film_using_kling_as_the_main/",
+          "credit": "r/generativeAI · indie creators stack reporting",
+          "whatsBrilliant": "Indie creator community consensus: Kling 3.0 (motion + camera control) + Nano Banana 2 (character consistency) is the current 'God Mode' AI filmmaking stack — proves multi-shot character-driven shorts are now production-grade. Direct Frame Zero animation stack template.",
+          "metric": "Community-consensus stack · 'we made an indie short for $500 that would have cost $100k+'"
+        },
+        {
+          "brand": "Frostbite · first short film fully created with OpenAI Sora 2",
+          "url": "https://www.reddit.com/r/GenAI4all/comments/1odvxsb/frostbite_is_the_first_short_film_fully_created/",
+          "credit": "r/GenAI4all · Frostbite Sora 2 production",
+          "whatsBrilliant": "First full short film created entirely with Sora 2 — proof of production-grade AI short film output. Indie animators using Kling 2.1 + Veo 3.1 + WAN 2.5 + SeeDream 4 for character-consistent frames as the working stack. Direct validation of the multi-model approach.",
+          "metric": "First Sora 2 full short film · multi-model stack reported standard for production"
+        },
+        {
+          "brand": "Promise Studios · GenAI entertainment studio (YouTube veterans)",
+          "url": "https://www.promise.ai/about",
+          "credit": "Promise Studios · founded by George Strompolos (YouTube) + Jamie Byrne + Dave Clark",
+          "whatsBrilliant": "First full entertainment studio built for the GenAI era — combines YouTube creator-economy veterans with Hollywood execs (Netflix, Imagine, DreamWorks). Operates Curious Refuge (170+ country AI film school) + The Generation Company (AI VFX production). Defines the agency-tier model Frame Zero competes with at indie pricing.",
+          "metric": "Hollywood-backed AI studio · Curious Refuge: 170+ country AI film school · production-services arm"
+        },
+        {
+          "brand": "When I Sleep I Leave My Body · indie AI movie (Sora + Kling + ElevenLabs + Udio)",
+          "url": "https://www.youtube.com/watch?v=hr94TfuakhY",
+          "credit": "YouTube tutorial · indie director full AI workflow breakdown",
+          "whatsBrilliant": "Indie creator documented a full AI-generated narrative film made with the full modern stack: Sora (visuals) + Kling (motion continuity) + ElevenLabs (voice) + Udio (music). Provides the operational template Frame Zero animation pipeline follows.",
+          "metric": "Full-AI narrative short · multi-tool stack workflow documented · operational template"
+        }
+      ],
+      "resources": {
+        "repos": [
+          { "name": "YouMind-OpenLab/awesome-seedance-2-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts", "stars": 1200, "description": "2000+ Seedance 2.0 prompts · cinematic + anime + character consistency + advanced workflows" },
+          { "name": "ZeroLu/awesome-seedance", "url": "https://github.com/ZeroLu/awesome-seedance", "stars": 320, "description": "Ultimate Seedance 2.0 prompt collection · cinematic transitions + character consistency + complex motion" },
+          { "name": "HuyLe82US/awesome-seedance-prompts", "url": "https://github.com/HuyLe82US/awesome-seedance-prompts", "stars": 180, "description": "Seedance 2.0 prompt vault · cinematic film + anime + character consistency templates" },
+          { "name": "YouMind-OpenLab/awesome-gpt-image-2", "url": "https://github.com/YouMind-OpenLab/awesome-gpt-image-2", "stars": 8060, "description": "10,000+ gpt-image-2 prompts · character sheets + storyboards + anime keyframe categories" },
+          { "name": "ZeroLu/awesome-gpt-image", "url": "https://github.com/ZeroLu/awesome-gpt-image", "stars": 380, "description": "GPT Image 2 prompts · character consistency (16-panel expression grids) + style replication" },
+          { "name": "YouMind-OpenLab/awesome-nano-banana-pro-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts", "stars": 12248, "description": "10,000+ Nano Banana Pro prompts incl. character + style transfer + animation reference categories" }
+        ],
+        "videos": [
+          { "title": "How I Made a Movie with Sora, Kling, ElevenLabs & Udio — Full AI Workflow", "url": "https://www.youtube.com/watch?v=hr94TfuakhY", "duration": "long-form", "channel": "[indie AI director]" },
+          { "title": "Runway and SORA Can't Touch this short film made w/ Kling AI", "url": "https://www.youtube.com/watch?v=tUXAKbcQLIQ", "duration": "varies", "channel": "[indie AI creator]" },
+          { "title": "Kling AI's Storytelling Potential — Indie Filmmaker Workflow (Reddit thread)", "url": "https://www.reddit.com/r/KlingAI_Videos/comments/1oahqga/kling_ais_storytelling_potential_do_you_think/", "duration": "discussion", "channel": "r/KlingAI_Videos" },
+          { "title": "I Made an AI Short Film Using Kling as the Main Engine (Reddit)", "url": "https://www.reddit.com/r/generativeAI/comments/1ruwece/i_made_an_ai_short_film_using_kling_as_the_main/", "duration": "long-form discussion", "channel": "r/generativeAI" },
+          { "title": "Frostbite — First short film fully created with OpenAI Sora 2 (Reddit)", "url": "https://www.reddit.com/r/GenAI4all/comments/1odvxsb/frostbite_is_the_first_short_film_fully_created/", "duration": "discussion", "channel": "r/GenAI4all" }
+        ],
+        "courses": [
+          { "title": "Curious Refuge · AI Filmmaking School (Promise Studios)", "url": "https://www.curiousrefuge.com", "platform": "Curious Refuge", "note": "World's largest AI film school · 170+ countries · backed by Promise Studios + Hollywood execs" },
+          { "title": "Domestika · Animation + Character Design [search]", "url": "https://www.domestika.org/en/courses/area/8-photography-and-video/category/15-animation", "platform": "Domestika", "note": "Classical animation fundamentals · transferable to AI animation pipeline · style + storytelling" },
+          { "title": "Udemy · AI Animation + Short Film Production [search]", "url": "https://www.udemy.com/courses/search/?q=AI+animation+short+film", "platform": "Udemy", "note": "Multiple instructors · filter by 2025+ recency · AI tool walkthroughs" }
+        ],
+        "tools": [
+          { "name": "Sora 2 (OpenAI)", "url": "https://openai.com/sora", "category": "video-gen", "note": "Industry-leading text-to-video · Disney $1B partnership Dec 2025 · primary AI-animation tool" },
+          { "name": "Kling 3.0 Pro (via fal.ai / KIE.AI)", "url": "https://fal.ai/models/fal-ai/kling-video", "category": "video-gen", "note": "Multi-shot continuity + keyframe control · 'God Mode' for character-driven scenes" },
+          { "name": "Seedance 2.0 (via fal.ai / Runway)", "url": "https://fal.ai/models/fal-ai/seedance-pro", "category": "video-gen", "note": "Workhorse for cinematic motion + ambient scenes · 8-12s sweet spot" },
+          { "name": "Higgsfield Soul Character", "url": "https://higgsfield.ai", "category": "character-identity", "note": "Train persistent character identity (reference_id) · passes to Kling/Seedance for consistency" },
+          { "name": "Runway Act-One", "url": "https://runwayml.com/research/introducing-act-one", "category": "character-performance", "note": "Performance-capture-to-character · transfer facial performance from video to AI character" },
+          { "name": "Pika Labs", "url": "https://pika.art", "category": "video-gen", "note": "Indie-creator-friendly video gen · alternative motion engine to Kling/Seedance" },
+          { "name": "Luma AI Dream Machine", "url": "https://lumalabs.ai/dream-machine", "category": "video-gen", "note": "Photo-to-video + cinematic ambient · alternative motion + ambient scene tool" },
+          { "name": "Topaz Video AI", "url": "https://www.topazlabs.com/topaz-video-ai", "category": "upscale", "note": "4K upscale + frame interpolation for AI video output · production-quality final pass" }
+        ],
+        "papers": [],
+        "agencies": [
+          { "name": "Promise Studios (GenAI entertainment studio)", "url": "https://www.promise.ai", "specialty": "AI-first entertainment studio · IP + custom AI VFX + Curious Refuge school", "notable": "Founded by YouTube + Hollywood veterans · Netflix/DreamWorks/Imagine alumni · production services arm" },
+          { "name": "Curious Refuge (AI film school + creator network)", "url": "https://www.curiousrefuge.com", "specialty": "AI filmmaking education + creator community", "notable": "World's largest AI film school · 170+ countries · part of Promise Studios" },
+          { "name": "Wonder Studio (Wonder Dynamics by Autodesk)", "url": "https://wonderdynamics.com", "specialty": "AI-driven 3D character + VFX automation", "notable": "Acquired by Autodesk · automated 3D character animation from video · industry-grade" }
+        ]
+      },
+      "behindTheLens": [
+        { "step": 1, "title": "Script + character bio + visual mood board", "body": "Client provides: short film script (3-5 min) or explainer brief · character bios + visual references · mood board (5-10 inspirations · art style · color palette). Map deliverable: 3-5 min short film OR 60-90s explainer + character sheet pack + storyboard PDF." },
+        { "step": 2, "title": "higgsfield Soul training + character sheet generation", "body": "For each main character: train Soul Character reference_id from 5-10 reference images. Generate gpt-image-2 character turnaround sheet (8 directions) + expression sheet (16-panel emotions) + outfit variations. This is the consistency contract that anchors every subsequent shot." },
+        { "step": 3, "title": "gpt-image-2 storyboard panels + key frames", "body": "Generate 6-panel storyboard sequence covering 3-act structure + 10-15 individual keyframe stills for major story beats. 16:9 cinematic ratio. Cost: ~R$80 in API credits. Get script + storyboard approval BEFORE burning video credits." },
+        { "step": 4, "title": "kling-3 + seedance-2 shot batch (8-15 clips)", "body": "From storyboard: kling-3 for character dialogue scenes (8-15s with continuity) + seedance-2 for ambient scenes + transitions (8-12s). Use Soul reference_id in every shot for character consistency. Plan 8-15 shots total for a 3-min short. Re-roll 20-30% on artifacts (consistency is the hardest variable)." },
+        { "step": 5, "title": "ffmpeg concat + ElevenLabs voice + Udio music + optional Topaz 4K upscale", "body": "Concat shots in storyboard order. Add ElevenLabs voice-over for dialogue. Add Udio-generated music score + foley sound. Apply cinematic LUT (teal-orange or anime). Optional Topaz Video AI 4K upscale + frame interpolation for production-quality final pass. Deliver: 3-5 min short film MP4 + character sheet pack PDF + storyboard PDF + asset pack. Invoice R$6.8k. 2 iteration rounds bundled." }
+      ],
+      "roi": {
+        "inputs": [
+          { "id": "projects_per_month", "label": "Projetos / mês", "type": "number", "default": 3 },
+          { "id": "avg_project_brl", "label": "Projeto médio (R$)", "type": "number", "default": 6800 },
+          { "id": "cost_per_project_brl", "label": "Custo por projeto (R$)", "type": "number", "default": 320 }
+        ],
+        "formula": "revenue = projects_per_month * avg_project_brl; cost = projects_per_month * cost_per_project_brl; margin_brl = revenue - cost; margin_pct = (margin_brl / revenue) * 100;",
+        "outputs": [
+          { "id": "revenue", "label": "Receita mensal", "format": "BRL" },
+          { "id": "cost", "label": "Custo mensal", "format": "BRL" },
+          { "id": "margin_brl", "label": "Margem mensal", "format": "BRL" },
+          { "id": "margin_pct", "label": "Margem %", "format": "%" }
+        ]
+      }
     },
     {
       "id": "tiktok",
