@@ -13,7 +13,7 @@
         {
           "name": "EvoLinkAI/awesome-gpt-image-2-API-and-Prompts",
           "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-API-and-Prompts",
-          "stars": 15671,
+          "stars": 15685,
           "description": "Curated GPT-Image-2 API references and prompts",
           "language": "Python",
           "topic": "awesome-list"
@@ -21,7 +21,7 @@
         {
           "name": "YouMind-OpenLab/awesome-gpt-image-2",
           "url": "https://github.com/YouMind-OpenLab/awesome-gpt-image-2",
-          "stars": 6811,
+          "stars": 6823,
           "description": "World's largest GPT Image 2 prompt library — 2000+ curated prompts with preview images, 16 languages",
           "language": "TypeScript",
           "topic": "prompt-library"
@@ -51,18 +51,119 @@
           "topic": "api-gateway"
         },
         {
+          "name": "wuyoscar/GPT-Image2-Skill",
+          "url": "https://github.com/wuyoscar/GPT-Image2-Skill",
+          "stars": 2469,
+          "description": "GPT Image 2 prompt gallery, image prompt library, agentic skill and CLI for OpenAI image generation/editing",
+          "language": "Python",
+          "topic": "skills"
+        },
+        {
+          "name": "Anil-matcha/Awesome-GPT-Image-2-API-Prompts",
+          "url": "https://github.com/Anil-matcha/Awesome-GPT-Image-2-API-Prompts",
+          "stars": 2055,
+          "description": "Curated GPT-Image-2 prompts — portraits, posters, UI mockups, game screenshots, character sheets",
+          "topic": "prompt-library"
+        },
+        {
+          "name": "ZeroLu/awesome-gpt-image",
+          "url": "https://github.com/ZeroLu/awesome-gpt-image",
+          "stars": 1528,
+          "description": "Curated collection of the best GPT Image 2 prompts and examples sourced from top creators on X",
+          "language": "Python",
+          "topic": "awesome-list"
+        },
+        {
+          "name": "dongyubin/Awesome-AI-Images-Prompts",
+          "url": "https://github.com/dongyubin/Awesome-AI-Images-Prompts",
+          "stars": 166,
+          "description": "Multi-model prompt library — GPT Image 2, Nano Banana Pro, Seedream 4.0, Midjourney, FLUX, Imagen",
+          "topic": "prompt-library"
+        },
+        {
+          "name": "lansespirit/image-gen-mcp",
+          "url": "https://github.com/lansespirit/image-gen-mcp",
+          "stars": 59,
+          "description": "MCP server integrating gpt-image-1/gpt-image-2 + Gemini imagen4 for text-to-image generation",
+          "language": "Python",
+          "topic": "mcp"
+        },
+        {
           "name": "treylom/prompt-engineering-skills",
           "url": "https://github.com/treylom/prompt-engineering-skills",
           "stars": 105,
-          "description": "Claude/GPT/Gemini prompt-engineering skills with gpt-image-2 patterns",
+          "description": "Claude/GPT/Gemini prompt-engineering skills with explicit gpt-image-2 patterns + GPT-5.5 outcome-first templates",
           "topic": "skills"
         },
         {
           "name": "smixs/visual-skills",
           "url": "https://github.com/smixs/visual-skills",
           "stars": 43,
-          "description": "Professional Claude Skills for image/video prompting — includes GPT Image 2",
+          "description": "Professional Claude Skills for image/video prompting — includes GPT Image 2 patterns",
           "topic": "skills"
+        },
+        {
+          "name": "openai/openai-python",
+          "url": "https://github.com/openai/openai-python",
+          "stars": 28000,
+          "description": "Official OpenAI Python SDK — images.generate / images.edit for gpt-image-2",
+          "language": "Python",
+          "topic": "sdk"
+        },
+        {
+          "name": "openai/openai-node",
+          "url": "https://github.com/openai/openai-node",
+          "stars": 9500,
+          "description": "Official OpenAI JS/TS SDK — supports gpt-image-2 generate + edit endpoints",
+          "language": "TypeScript",
+          "topic": "sdk"
+        },
+        {
+          "name": "openai/openai-cookbook",
+          "url": "https://github.com/openai/openai-cookbook",
+          "stars": 65000,
+          "description": "Official OpenAI cookbook — recipes for image generation, editing, and multi-turn workflows",
+          "language": "Jupyter Notebook",
+          "topic": "cookbook"
+        },
+        {
+          "name": "transitive-bullshit/agentic",
+          "url": "https://github.com/transitive-bullshit/agentic",
+          "stars": 18000,
+          "description": "AI agent stdlib that works with any LLM and TS toolchain — includes OpenAI image tools",
+          "language": "TypeScript",
+          "topic": "agents"
+        },
+        {
+          "name": "Hainrixz/claude-banana",
+          "url": "https://github.com/Hainrixz/claude-banana",
+          "stars": 76,
+          "description": "Cross-model image prompt agent — 7-component formula, 70+ creative techniques (supports GPT-Image-2)",
+          "language": "Python",
+          "topic": "agent"
+        },
+        {
+          "name": "shinpr/mcp-image",
+          "url": "https://github.com/shinpr/mcp-image",
+          "stars": 115,
+          "description": "MCP server for AI image generation/editing — Gemini Nano Banana + optional OpenAI GPT Image",
+          "language": "TypeScript",
+          "topic": "mcp"
+        },
+        {
+          "name": "f/prompts.chat",
+          "url": "https://github.com/f/prompts.chat",
+          "stars": 162968,
+          "description": "Massive community-curated prompt library (formerly Awesome ChatGPT Prompts) — image and text prompts",
+          "language": "HTML",
+          "topic": "prompt-library"
+        },
+        {
+          "name": "asgeirtj/system_prompts_leaks",
+          "url": "https://github.com/asgeirtj/system_prompts_leaks",
+          "stars": 40868,
+          "description": "Extracted system prompts from frontier models — OpenAI GPT 5.5/Codex, Anthropic Opus 4.7, Gemini 3.1 Pro",
+          "topic": "reverse-engineering"
         }
       ],
       "videos": [
@@ -121,6 +222,83 @@
           "channel": "AI Automation Society",
           "durationMin": 14,
           "topic": "showcase"
+        },
+        {
+          "title": "I Created a Prompt That Unlocks ChatGPT Images 2.0",
+          "url": "https://www.youtube.com/watch?v=APaj_XE7Uuk",
+          "channel": "The AI Advantage",
+          "durationMin": 4,
+          "topic": "tutorial"
+        },
+        {
+          "title": "How to Use GPT Image 2 for AI Content Creation Workflow",
+          "url": "https://www.youtube.com/watch?v=zL6K6JGCWBo",
+          "channel": "Lovart",
+          "durationMin": 11,
+          "topic": "workflow"
+        },
+        {
+          "title": "GPT Image 2 Just Got 10x Better With This FREE Prompt Trick",
+          "url": "https://www.youtube.com/watch?v=FVe-FFrsXVc",
+          "channel": "Rangy",
+          "durationMin": 13,
+          "topic": "tutorial"
+        },
+        {
+          "title": "ChatGPT Image 2.0 Tutorial & Best Use Cases",
+          "url": "https://www.youtube.com/watch?v=pJWjSBx9i3I",
+          "channel": "Cutting Edge School",
+          "durationMin": 15,
+          "topic": "tutorial"
+        },
+        {
+          "title": "ChatGPT Images 2 Tutorial For Beginners (With New Tips And Tricks)",
+          "url": "https://www.youtube.com/watch?v=0BMUI061vAQ",
+          "channel": "The AI Grid",
+          "durationMin": 8,
+          "topic": "tutorial"
+        },
+        {
+          "title": "Seedance 2.0 + GPT-Image2 = Full Motion Control With Multiple Characters",
+          "url": "https://www.youtube.com/watch?v=ZdMWTHMS6vQ",
+          "channel": "AI Foundations",
+          "durationMin": 8,
+          "topic": "workflow"
+        },
+        {
+          "title": "This AI is a Layout & Design Cheat Code! (GPT Image 2.0)",
+          "url": "https://www.youtube.com/watch?v=jBdjhXYzJHY",
+          "channel": "LYH Studio",
+          "durationMin": 8,
+          "topic": "review"
+        },
+        {
+          "title": "Thinking & Intelligence with ChatGPT Images 2.0 (OpenAI researcher walkthrough)",
+          "url": "https://www.youtube.com/watch?v=JJgwiuu-Axw",
+          "channel": "OpenAI",
+          "durationMin": 3,
+          "topic": "deep-dive"
+        },
+        {
+          "title": "The ADVANCED 2026 Guide to Prompt Engineering",
+          "url": "https://www.youtube.com/watch?v=qBlX6FhDm2E",
+          "channel": "iAmAIMaster",
+          "durationMin": 22,
+          "topic": "deep-dive"
+        },
+        {
+          "title": "ULTIMATE GPT IMAGE 1.5 TUTORIAL: 15 PROMPT TECHNIQUES",
+          "url": "https://www.youtube.com/watch?v=QT1nMo-QMDQ",
+          "channel": "AI Master",
+          "durationMin": 26,
+          "topic": "tutorial"
+        },
+        {
+          "title": "GPT Image 2 Deep-Dive — Architecture & Why Thinking Mode Matters",
+          "url": "https://www.youtube.com/watch?v=Yp4nRScy45c",
+          "channel": "iAmAIMaster",
+          "durationMin": 22,
+          "topic": "deep-dive"
         }
       ],
       "courses": [
@@ -128,6 +306,7 @@
           "title": "Generative AI and ChatGPT Master Course with 20 AI Tools",
           "url": "https://www.udemy.com/course/generative-ai-and-chatgpt-master-course-with-20-ai-tools/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "beginner",
           "topic": "generalist suite covering ChatGPT image generation"
         },
@@ -135,6 +314,7 @@
           "title": "ChatGPT: Complete Master ChatGPT Course For Work 2026 (includes GPT Image 1.5/2)",
           "url": "https://www.udemy.com/course/all-about-chatgpt-a-complete-beginners-start-to-end-guide/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "beginner",
           "topic": "ChatGPT productivity incl. image gen"
         },
@@ -142,8 +322,49 @@
           "title": "ChatGPT 4o AI Image Generator for Beginners — 20 Use Cases",
           "url": "https://www.udemy.com/course/chatgpt-4o-ai-image-generator-for-beginners-use-cases/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "beginner",
           "topic": "image generation foundations transferable to GPT Image 2"
+        },
+        {
+          "title": "OpenAI Cookbook — Images Recipes",
+          "url": "https://cookbook.openai.com/topic/images",
+          "provider": "OpenAI",
+          "price": "free",
+          "level": "intermediate",
+          "topic": "official recipes for images.generate / images.edit / batch workflows"
+        },
+        {
+          "title": "DeepLearning.AI — How Diffusion Models Work",
+          "url": "https://www.deeplearning.ai/short-courses/how-diffusion-models-work/",
+          "provider": "DeepLearning.AI",
+          "price": "free",
+          "level": "intermediate",
+          "topic": "diffusion fundamentals — applies to gpt-image-2 understanding"
+        },
+        {
+          "title": "Coursera — Generative AI with Large Language Models",
+          "url": "https://www.coursera.org/learn/generative-ai-with-llms",
+          "provider": "Coursera (DeepLearning.AI)",
+          "price": "paid",
+          "level": "intermediate",
+          "topic": "LLM + multimodal generation context for understanding GPT Image 2"
+        },
+        {
+          "title": "Cutting Edge School — GPT Image 2 Prompt Bank & Workshop",
+          "url": "https://cuttingedge.school/resources/gpt-image-2",
+          "provider": "Cutting Edge School",
+          "price": "free",
+          "level": "beginner",
+          "topic": "ready-to-paste prompt bank + workshop replays"
+        },
+        {
+          "title": "Skool — AI Automation Society (GPT Image 2 module)",
+          "url": "https://www.skool.com/ai-automation-society-plus/about",
+          "provider": "Skool",
+          "price": "paid",
+          "level": "beginner",
+          "topic": "10 use cases + automated content workflows with GPT Image 2"
         }
       ],
       "tools": [
@@ -188,6 +409,125 @@
           "kind": "API gateway",
           "description": "Multi-model gateway including gpt-image-2 with fallback routing",
           "free": false
+        },
+        {
+          "name": "KIE.AI — GPT Image 2",
+          "url": "https://kie.ai/",
+          "kind": "API gateway",
+          "description": "Multi-model API gateway with GPT Image 2 access — pay-as-you-go credits",
+          "free": false
+        },
+        {
+          "name": "Lovart",
+          "url": "https://www.lovart.ai/",
+          "kind": "SaaS",
+          "description": "Design canvas supporting GPT Image 2 for layout/poster/branding workflows",
+          "free": false
+        },
+        {
+          "name": "Higgsfield — GPT Image 2",
+          "url": "https://higgsfield.ai/",
+          "kind": "SaaS",
+          "description": "Creative platform integrating GPT Image 2 for marketing studio + product shots",
+          "free": false
+        },
+        {
+          "name": "Rangy — GPT Image 2 prompt LLM",
+          "url": "https://www.rangy.ai/",
+          "kind": "SaaS",
+          "description": "Free prompt-engineering layer that turns natural language into GPT Image 2 system prompts",
+          "free": true
+        },
+        {
+          "name": "Magnific AI",
+          "url": "https://magnific.ai/",
+          "kind": "SaaS",
+          "description": "AI image upscaler + enhancer — pairs with GPT Image 2 for production-grade output",
+          "free": false
+        },
+        {
+          "name": "Krea AI",
+          "url": "https://www.krea.ai/",
+          "kind": "SaaS",
+          "description": "Real-time AI creative suite — supports gpt-image-2 via model routing",
+          "free": false
+        },
+        {
+          "name": "ChatGPT — Images 2.0 (default)",
+          "url": "https://chatgpt.com/",
+          "kind": "SaaS",
+          "description": "Consumer ChatGPT app — gpt-image-2 is the default image engine",
+          "free": false
+        }
+      ],
+      "papers": [
+        {
+          "title": "GPT-4o System Card",
+          "arxivId": "2410.21276",
+          "year": 2024,
+          "relevance": "Foundational OpenAI system card documenting multimodal image-generation behavior — base lineage for gpt-image-2"
+        },
+        {
+          "title": "ShareGPT-4o-Image: Aligning Multimodal Models with GPT-4o-Level Image Generation",
+          "arxivId": "2506.18095",
+          "year": 2025,
+          "relevance": "45K dataset distilling GPT-4o image-gen behavior — benchmark + training corpus for downstream gpt-image-2 evaluations"
+        },
+        {
+          "title": "Have we unified image generation and understanding yet? An empirical study of GPT-4o's image generation ability",
+          "arxivId": "2504.08003",
+          "year": 2025,
+          "relevance": "Empirical evaluation of OpenAI image-gen lineage on world-knowledge synthesis — key reference for understanding gpt-image-2 limits"
+        },
+        {
+          "title": "Echo-4o: Harnessing the Power of GPT-4o Synthetic Images for Improved Image Generation",
+          "arxivId": "2508.09987",
+          "year": 2025,
+          "relevance": "180K synthetic dataset from GPT-4o — shows blind-spot patterns inherited by gpt-image-2"
+        },
+        {
+          "title": "OpenGPT-4o-Image: A Comprehensive Dataset for Advanced Image Generation and Editing",
+          "arxivId": "2509.24900",
+          "year": 2025,
+          "relevance": "Comprehensive editing/generation dataset distilling OpenAI image-gen behavior — anchor for gpt-image-2 fine-tuning research"
+        },
+        {
+          "title": "Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation",
+          "arxivId": "2410.13848",
+          "year": 2024,
+          "relevance": "DeepSeek architecture paper widely cited as the closest open analog to GPT Image 2's unified gen-understanding stack"
+        }
+      ],
+      "agencies": [
+        {
+          "name": "Maison Meta",
+          "url": "https://maisonmeta.io/",
+          "specialty": "World's first Gen AI agency — fashion, beauty, luxury",
+          "notable": "AI Fashion Week (Season 1+2 with Revolve), campaigns for Pangaia, Norma Kamali, Dolce & Gabbana, H&M Home, Pandora"
+        },
+        {
+          "name": "Promise Studios",
+          "url": "https://www.promise.ai/",
+          "specialty": "AI entertainment studio (backed by Google, Andreessen Horowitz, Ovitz's Crossbeam)",
+          "notable": "Acquired Curious Refuge in 2025; The Generation Company VFX division serving traditional studios"
+        },
+        {
+          "name": "Curious Refuge",
+          "url": "https://curiousrefuge.com/",
+          "specialty": "World's first AI filmmaking school (Promise subsidiary)",
+          "notable": "4,000+ students from 171 countries; B2B AI training programs for studios + brands"
+        },
+        {
+          "name": "Wonder Studios",
+          "url": "https://wonderstudios.com/",
+          "specialty": "AI-native creative studio for films, music videos, branded content",
+          "notable": "$12M raised 2025 led by Atomico + Adobe Ventures + Sidemen's Upside; AI VFX automation pipeline"
+        },
+        {
+          "name": "Asteria (Moonvalley)",
+          "url": "https://moonvalley.ai/",
+          "specialty": "AI film studio with proprietary clean-trained model 'Morey'",
+          "notable": "Paul Trillo leads creative; clean-licensed training data positioning [unverified specific GPT-Image-2 use]"
         }
       ]
     },
@@ -201,26 +541,10 @@
       "color": "#fbbc05",
       "repos": [
         {
-          "name": "kingbootoshi/nano-banana-2-skill",
-          "url": "https://github.com/kingbootoshi/nano-banana-2-skill",
-          "stars": 381,
-          "description": "AI image generation CLI powered by Gemini 3 Pro — green-screen, reference images, style transfer",
-          "language": "TypeScript",
-          "topic": "cli"
-        },
-        {
-          "name": "ZizheRuan/awesome-nanobanana2",
-          "url": "https://github.com/ZizheRuan/awesome-nanobanana2",
-          "stars": 174,
-          "description": "Curated collection of Nano Banana 2 prompts and image examples",
-          "language": "Python",
-          "topic": "awesome-list"
-        },
-        {
           "name": "PicoTrex/Awesome-Nano-Banana-images",
           "url": "https://github.com/PicoTrex/Awesome-Nano-Banana-images",
-          "stars": 22878,
-          "description": "Curated examples generated with Nano Banana & Nano Banana Pro (Gemini-2.5-flash-image) plus Nano-consistent-150K dataset",
+          "stars": 22880,
+          "description": "Curated examples generated with Nano Banana & Nano Banana Pro + Nano-consistent-150K open dataset",
           "topic": "gallery"
         },
         {
@@ -232,6 +556,21 @@
           "topic": "prompt-library"
         },
         {
+          "name": "ZHO-ZHO-ZHO/ZHO-nano-banana-Creation",
+          "url": "https://github.com/ZHO-ZHO-ZHO/ZHO-nano-banana-Creation",
+          "stars": 3711,
+          "description": "Nano-banana creative playthroughs collection (continuously updated)",
+          "topic": "gallery"
+        },
+        {
+          "name": "wiltodelta/remove-ai-watermarks",
+          "url": "https://github.com/wiltodelta/remove-ai-watermarks",
+          "stars": 2619,
+          "description": "CLI + Python library to strip SynthID + C2PA + EXIF watermarks from Nano Banana outputs",
+          "language": "Python",
+          "topic": "post-process"
+        },
+        {
           "name": "glidea/banana-prompt-quicker",
           "url": "https://github.com/glidea/banana-prompt-quicker",
           "stars": 2371,
@@ -240,18 +579,122 @@
           "topic": "prompt-library"
         },
         {
-          "name": "ZHO-ZHO-ZHO/ZHO-nano-banana-Creation",
-          "url": "https://github.com/ZHO-ZHO-ZHO/ZHO-nano-banana-Creation",
-          "stars": 3711,
-          "description": "Nano-banana creative playthroughs collection (continuously updated)",
-          "topic": "gallery"
+          "name": "GoogleCloudPlatform/vertex-ai-creative-studio",
+          "url": "https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio",
+          "stars": 1111,
+          "description": "Official Vertex AI creative-media UX — Gemini Image, Veo, Lyria, TTS on Google Cloud",
+          "language": "Jupyter Notebook",
+          "topic": "reference-app"
+        },
+        {
+          "name": "markfulton/NanoBananaEditor",
+          "url": "https://github.com/markfulton/NanoBananaEditor",
+          "stars": 683,
+          "description": "Most-advanced Nano Banana image generator/editor app — reference images, masks, version history",
+          "language": "TypeScript",
+          "topic": "application"
+        },
+        {
+          "name": "kingbootoshi/nano-banana-2-skill",
+          "url": "https://github.com/kingbootoshi/nano-banana-2-skill",
+          "stars": 381,
+          "description": "AI image generation CLI powered by Gemini 3 Pro — green-screen, reference images, style transfer (also Claude Code plugin)",
+          "language": "TypeScript",
+          "topic": "cli"
+        },
+        {
+          "name": "minimaxir/gemimg",
+          "url": "https://github.com/minimaxir/gemimg",
+          "stars": 357,
+          "description": "Lightweight Python wrapper for generating/editing images via Gemini 2.5 Flash Image (Nano Banana)",
+          "language": "Python",
+          "topic": "sdk"
+        },
+        {
+          "name": "devanshug2307/Awesome-AI-Image-Prompts",
+          "url": "https://github.com/devanshug2307/Awesome-AI-Image-Prompts",
+          "stars": 184,
+          "description": "1000+ curated prompts for Nano Banana + DALL-E + Midjourney + Flux + ChatGPT — JSON copy-ready",
+          "topic": "prompt-library"
+        },
+        {
+          "name": "dearabhin/gemini-watermark-remover",
+          "url": "https://github.com/dearabhin/gemini-watermark-remover",
+          "stars": 175,
+          "description": "100% client-side watermark remover for Gemini AI images — Reverse Alpha Blending, zero quality loss",
+          "language": "HTML",
+          "topic": "post-process"
+        },
+        {
+          "name": "ZizheRuan/awesome-nanobanana2",
+          "url": "https://github.com/ZizheRuan/awesome-nanobanana2",
+          "stars": 174,
+          "description": "Curated collection of Nano Banana 2 prompts and image examples",
+          "language": "Python",
+          "topic": "awesome-list"
+        },
+        {
+          "name": "ShellMonster/Nano_Banana_Pro_Web",
+          "url": "https://github.com/ShellMonster/Nano_Banana_Pro_Web",
+          "stars": 132,
+          "description": "Banana AI — high-performance image generator for creators, native desktop performance, 4K text-to-image",
+          "language": "TypeScript",
+          "topic": "application"
+        },
+        {
+          "name": "shinpr/mcp-image",
+          "url": "https://github.com/shinpr/mcp-image",
+          "stars": 115,
+          "description": "MCP server for AI image generation/editing — Gemini Nano Banana 2 & Pro with auto prompt optimization",
+          "language": "TypeScript",
+          "topic": "mcp"
         },
         {
           "name": "treylom/prompt-engineering-skills",
           "url": "https://github.com/treylom/prompt-engineering-skills",
           "stars": 105,
-          "description": "Prompt engineering skills with explicit Nano Banana 2 patterns",
+          "description": "Prompt engineering skills with explicit Nano Banana 2 patterns + Gemini 3.1 templates",
           "topic": "skills"
+        },
+        {
+          "name": "ShmuelRonen/ComfyUI-NanoBanano",
+          "url": "https://github.com/ShmuelRonen/ComfyUI-NanoBanano",
+          "stars": 80,
+          "description": "ComfyUI custom node for Gemini 2.5 Flash Image (Nano Banana) generation + editing",
+          "language": "Python",
+          "topic": "comfyui"
+        },
+        {
+          "name": "Hainrixz/claude-banana",
+          "url": "https://github.com/Hainrixz/claude-banana",
+          "stars": 76,
+          "description": "AI agent that turns rough ideas into Nano Banana prompts — 7-component formula, 70+ techniques",
+          "language": "Python",
+          "topic": "agent"
+        },
+        {
+          "name": "if-ai/ComfyUI-IF_Gemini",
+          "url": "https://github.com/if-ai/ComfyUI-IF_Gemini",
+          "stars": 71,
+          "description": "ComfyUI Gemini node — image generation + audio transcribe + video summarization",
+          "language": "Python",
+          "topic": "comfyui"
+        },
+        {
+          "name": "pixegami/nano-banana-python",
+          "url": "https://github.com/pixegami/nano-banana-python",
+          "stars": 63,
+          "description": "Clean Python tutorial example for Nano Banana (Gemini 2.5 Flash Image) API",
+          "language": "Python",
+          "topic": "sdk-example"
+        },
+        {
+          "name": "ru4ls/ComfyUI_Nano_Banana",
+          "url": "https://github.com/ru4ls/ComfyUI_Nano_Banana",
+          "stars": 54,
+          "description": "ComfyUI Nano Banana 2 / Pro nodes — Text2Img, Img2Img, Image Fusion (Gemini API + VertexAI)",
+          "language": "Python",
+          "topic": "comfyui"
         }
       ],
       "videos": [
@@ -310,6 +753,83 @@
           "channel": "Tasia Custode",
           "durationMin": 9,
           "topic": "tutorial"
+        },
+        {
+          "title": "I Found 21 SECRET Nano Banana 2 Prompts — FREE AI Image Tricks",
+          "url": "https://www.youtube.com/watch?v=cMlf6u0CdjQ",
+          "channel": "AI Andy",
+          "durationMin": 6,
+          "topic": "showcase"
+        },
+        {
+          "title": "Gemini 2.5 Nano Banana: Complex Photoshop Edits in ONE Prompt",
+          "url": "https://www.youtube.com/watch?v=dYB6Y1NVBWI",
+          "channel": "PhotoshopCAFE",
+          "durationMin": 11,
+          "topic": "tutorial"
+        },
+        {
+          "title": "Nano Banana Tutorial — Generate And Refine Images With Google Gemini",
+          "url": "https://www.youtube.com/watch?v=hmb2ggarw2M",
+          "channel": "Tasia Custode",
+          "durationMin": 9,
+          "topic": "tutorial"
+        },
+        {
+          "title": "NANO BANANA (Gemini 2.5 Flash Image) — Challenging Examples, 7 Ways to Access",
+          "url": "https://www.youtube.com/watch?v=SoS93Yrq9uI",
+          "channel": "AI Search",
+          "durationMin": 22,
+          "topic": "deep-dive"
+        },
+        {
+          "title": "Gemini 2.5 Flash Image is Nano Banana!! (Conversational Edit Showcase)",
+          "url": "https://www.youtube.com/watch?v=_uKlfWiFXdM",
+          "channel": "Sam Witteveen",
+          "durationMin": 11,
+          "topic": "deep-dive"
+        },
+        {
+          "title": "Nano Banana AI Tutorial — How to Use Google's Free Tool (Step-by-Step)",
+          "url": "https://www.youtube.com/watch?v=lfE-csUyPF4",
+          "channel": "Cutting Edge School",
+          "durationMin": 7,
+          "topic": "tutorial"
+        },
+        {
+          "title": "Full Control AI Image Editing with JSON Prompting (Gemini Nano Banana 2)",
+          "url": "https://www.youtube.com/watch?v=gbnmDRcKM0Q",
+          "channel": "AI Foundations",
+          "durationMin": 8,
+          "topic": "tutorial"
+        },
+        {
+          "title": "7 Things Nano Banana 2 Can Do (Selling Products with AI)",
+          "url": "https://www.youtube.com/watch?v=_beumuBGfsU",
+          "channel": "CreateUGC",
+          "durationMin": 11,
+          "topic": "showcase"
+        },
+        {
+          "title": "The Only 2 AIs You Need for Complete Creative Camera Control",
+          "url": "https://www.youtube.com/watch?v=s1TpIcM8ZrA",
+          "channel": "AISamson",
+          "durationMin": 19,
+          "topic": "workflow"
+        },
+        {
+          "title": "Nano Banana Pro in Firefly Boards is Insane!",
+          "url": "https://www.youtube.com/watch?v=agLrfw2VRr0",
+          "channel": "PhotoshopCAFE",
+          "durationMin": 6,
+          "topic": "tutorial"
+        },
+        {
+          "title": "Meet Nano Banana Pro: Next-Level AI Image Generation & Editing (Google official)",
+          "url": "https://www.youtube.com/watch?v=AeBOzler4nE",
+          "channel": "Google",
+          "durationMin": 1,
+          "topic": "announcement"
         }
       ],
       "courses": [
@@ -317,6 +837,7 @@
           "title": "Nano Banana Masterclass: A Pro Guide to AI Image Mastery (Gemini 2.5 Flash + 3.1)",
           "url": "https://www.udemy.com/course/nano-banana-a-pro-guide-to-ai-image-generation-and-editing-mastery/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "beginner",
           "topic": "conversational image art + character consistency"
         },
@@ -324,6 +845,7 @@
           "title": "Nano Banana Masterclass: AI Photo Editing & Design 2026",
           "url": "https://www.udemy.com/course/nano-banana-ai-masterclass/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "beginner",
           "topic": "photo editing + design with Nano Banana"
         },
@@ -331,8 +853,49 @@
           "title": "Gemini 3 + Nano Banana 2 + VEO 3.1: Master AI Video Creation",
           "url": "https://www.udemy.com/course/nano-banana-veo-3-masterclass-ai-creation-like-a-pro/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "intermediate",
           "topic": "Nano Banana 2 + Veo 3.1 cinematic workflow"
+        },
+        {
+          "title": "Google Cloud Skills Boost — Generative AI on Vertex AI",
+          "url": "https://www.cloudskillsboost.google/paths/118",
+          "provider": "Google Cloud",
+          "price": "free",
+          "level": "intermediate",
+          "topic": "official Vertex AI image generation path including Gemini 3 Flash Image"
+        },
+        {
+          "title": "Coursera — Introduction to Generative AI (Google Cloud)",
+          "url": "https://www.coursera.org/learn/introduction-to-generative-ai",
+          "provider": "Coursera (Google Cloud)",
+          "price": "free",
+          "level": "beginner",
+          "topic": "Google generative AI foundations + Gemini models"
+        },
+        {
+          "title": "Google AI Studio Quickstart",
+          "url": "https://aistudio.google.com/welcome",
+          "provider": "Google",
+          "price": "free",
+          "level": "beginner",
+          "topic": "free official quickstart for Gemini API + Nano Banana 2"
+        },
+        {
+          "title": "DeepLearning.AI — Multimodal AI with Gemini",
+          "url": "https://learn.deeplearning.ai/",
+          "provider": "DeepLearning.AI",
+          "price": "free",
+          "level": "intermediate",
+          "topic": "multimodal Gemini fundamentals applicable to Nano Banana 2"
+        },
+        {
+          "title": "Cutting Edge School — Nano Banana 2 & Gemini 3.1 Pro Beginner Bootcamp",
+          "url": "https://cuttingedge.school/agentic-ai-for-daily-work",
+          "provider": "Cutting Edge School",
+          "price": "paid",
+          "level": "beginner",
+          "topic": "1-year academy with Nano Banana 2 + agentic workflows"
         }
       ],
       "tools": [
@@ -377,6 +940,112 @@
           "kind": "API gateway",
           "description": "Unified gateway to Gemini family with fallback routing",
           "free": false
+        },
+        {
+          "name": "fal.ai — Nano Banana",
+          "url": "https://fal.ai/models/fal-ai/gemini-flash-image",
+          "kind": "API gateway",
+          "description": "Low-latency Nano Banana endpoint with pay-per-image pricing",
+          "free": false
+        },
+        {
+          "name": "Replicate — Gemini Flash Image",
+          "url": "https://replicate.com/google",
+          "kind": "API gateway",
+          "description": "Hosted Gemini Flash Image endpoints via cog/HTTP API",
+          "free": false
+        },
+        {
+          "name": "Adobe Firefly Boards",
+          "url": "https://firefly.adobe.com/",
+          "kind": "SaaS",
+          "description": "Adobe canvas with Nano Banana Pro/2 partner-model integration",
+          "free": false
+        },
+        {
+          "name": "Photoshop — Generative Fill (Gemini partner model)",
+          "url": "https://www.adobe.com/products/photoshop/generative-fill.html",
+          "kind": "SaaS",
+          "description": "Adobe Photoshop Generative Fill with Gemini 2.5 / Nano Banana partner model",
+          "free": false
+        },
+        {
+          "name": "Krea AI",
+          "url": "https://www.krea.ai/",
+          "kind": "SaaS",
+          "description": "Real-time creative suite — Nano Banana 2 supported via model routing",
+          "free": false
+        },
+        {
+          "name": "Higgsfield — Nano Banana 2",
+          "url": "https://higgsfield.ai/",
+          "kind": "SaaS",
+          "description": "Marketing-studio creative platform with Nano Banana 2",
+          "free": false
+        }
+      ],
+      "papers": [
+        {
+          "title": "Gemini: A Family of Highly Capable Multimodal Models",
+          "arxivId": "2312.11805",
+          "year": 2023,
+          "relevance": "Foundational Google DeepMind Gemini technical report — image/audio/video/text base for Nano Banana lineage"
+        },
+        {
+          "title": "Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities",
+          "arxivId": "2507.06261",
+          "year": 2025,
+          "relevance": "Official DeepMind 2.5 tech report — direct backbone for Gemini 2.5 Flash Image (Nano Banana 2)"
+        },
+        {
+          "title": "Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling",
+          "arxivId": "2501.17811",
+          "year": 2025,
+          "relevance": "DeepSeek scaling study for unified gen-understanding — open-source proxy to Nano Banana architecture"
+        },
+        {
+          "title": "Chameleon: Mixed-Modal Early-Fusion Foundation Models",
+          "arxivId": "2405.09818",
+          "year": 2024,
+          "relevance": "Meta's early-fusion mixed-modal paper — foundational reference for native multimodal models like Gemini Flash Image"
+        },
+        {
+          "title": "Seedream 2.0: A Native Chinese-English Bilingual Image Generation Foundation Model",
+          "arxivId": "2503.07703",
+          "year": 2025,
+          "relevance": "ByteDance bilingual image-gen reference — direct competitive benchmark for Nano Banana 2's text-rendering capability"
+        }
+      ],
+      "agencies": [
+        {
+          "name": "Maison Meta",
+          "url": "https://maisonmeta.io/",
+          "specialty": "World's first Gen AI agency — fashion, beauty, luxury",
+          "notable": "AI Fashion Week with Revolve; uses Gemini/Nano Banana stack for character-consistent fashion editorials"
+        },
+        {
+          "name": "Promise Studios",
+          "url": "https://www.promise.ai/",
+          "specialty": "AI entertainment studio (backed by Google + Andreessen Horowitz)",
+          "notable": "Google-funded studio with deep Gemini/Nano Banana integration via The Generation Company VFX division"
+        },
+        {
+          "name": "Wonder Studios",
+          "url": "https://wonderstudios.com/",
+          "specialty": "AI-native creative studio (London, $12M Atomico-led)",
+          "notable": "AI films + music videos + branded content; CG character workflows leveraging multimodal Gemini family"
+        },
+        {
+          "name": "Curious Refuge",
+          "url": "https://curiousrefuge.com/",
+          "specialty": "AI filmmaking school inside Promise (4,000+ students, 171 countries)",
+          "notable": "B2B AI training featuring Nano Banana 2 + Gemini 3.1 workflows"
+        },
+        {
+          "name": "Lovart",
+          "url": "https://www.lovart.ai/",
+          "specialty": "AI-native design canvas + creative agency",
+          "notable": "First-party Nano Banana Pro/2 integration as default image engine for design teams"
         }
       ]
     },
@@ -392,7 +1061,7 @@
         {
           "name": "PicoTrex/Awesome-Nano-Banana-images",
           "url": "https://github.com/PicoTrex/Awesome-Nano-Banana-images",
-          "stars": 22878,
+          "stars": 22880,
           "description": "Curated examples with Nano Banana & Nano Banana Pro + Nano-consistent-150K open dataset",
           "topic": "gallery"
         },
@@ -407,7 +1076,7 @@
         {
           "name": "YouMind-OpenLab/awesome-nano-banana-pro-prompts",
           "url": "https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts",
-          "stars": 12237,
+          "stars": 12249,
           "description": "World's largest Nano Banana Pro prompt library — 10,000+ curated prompts, 16 languages",
           "language": "TypeScript",
           "topic": "prompt-library"
@@ -415,7 +1084,7 @@
         {
           "name": "ZeroLu/awesome-nanobanana-pro",
           "url": "https://github.com/ZeroLu/awesome-nanobanana-pro",
-          "stars": 10003,
+          "stars": 10016,
           "description": "Curated Nano Banana Pro prompts and examples — prompt engineering deep-dive",
           "topic": "awesome-list"
         },
@@ -425,6 +1094,38 @@
           "stars": 5283,
           "description": "Xiaohongshu image-and-text generator built on Nano Banana Pro — one sentence, one image",
           "language": "Python",
+          "topic": "application"
+        },
+        {
+          "name": "wiltodelta/remove-ai-watermarks",
+          "url": "https://github.com/wiltodelta/remove-ai-watermarks",
+          "stars": 2619,
+          "description": "CLI + Python library to strip SynthID + C2PA from Nano Banana Pro outputs",
+          "language": "Python",
+          "topic": "post-process"
+        },
+        {
+          "name": "YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill",
+          "url": "https://github.com/YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill",
+          "stars": 1607,
+          "description": "AI skill for Claude Code/OpenClaw — recommends from 10,000+ Nano Banana Pro prompts, smart search by use case",
+          "language": "TypeScript",
+          "topic": "skill"
+        },
+        {
+          "name": "GoogleCloudPlatform/vertex-ai-creative-studio",
+          "url": "https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio",
+          "stars": 1111,
+          "description": "Official Vertex AI creative-media UX — Gemini Image (Nano Banana Pro), Veo, Lyria, TTS",
+          "language": "Jupyter Notebook",
+          "topic": "reference-app"
+        },
+        {
+          "name": "markfulton/NanoBananaEditor",
+          "url": "https://github.com/markfulton/NanoBananaEditor",
+          "stars": 683,
+          "description": "Most-advanced Nano Banana / Pro editor — reference images, masks, version history",
+          "language": "TypeScript",
           "topic": "application"
         },
         {
@@ -444,11 +1145,73 @@
           "topic": "prompt-library"
         },
         {
+          "name": "minimaxir/gemimg",
+          "url": "https://github.com/minimaxir/gemimg",
+          "stars": 357,
+          "description": "Lightweight Python wrapper — supports Gemini 3 Pro Image (Nano Banana Pro)",
+          "language": "Python",
+          "topic": "sdk"
+        },
+        {
+          "name": "dearabhin/gemini-watermark-remover",
+          "url": "https://github.com/dearabhin/gemini-watermark-remover",
+          "stars": 175,
+          "description": "Client-side watermark remover for Gemini AI images — works on Nano Banana Pro free-tier outputs",
+          "language": "HTML",
+          "topic": "post-process"
+        },
+        {
+          "name": "ShellMonster/Nano_Banana_Pro_Web",
+          "url": "https://github.com/ShellMonster/Nano_Banana_Pro_Web",
+          "stars": 132,
+          "description": "Banana AI — high-performance image generator combining Gemini with native desktop performance for 4K",
+          "language": "TypeScript",
+          "topic": "application"
+        },
+        {
+          "name": "shinpr/mcp-image",
+          "url": "https://github.com/shinpr/mcp-image",
+          "stars": 115,
+          "description": "MCP server for AI image generation/editing — Gemini Nano Banana Pro with quality presets",
+          "language": "TypeScript",
+          "topic": "mcp"
+        },
+        {
+          "name": "GeminiGenAI/Free-Nano-Banana-Pro-API-Ultimate-AI-Image-Generator",
+          "url": "https://github.com/GeminiGenAI/Free-Nano-Banana-Pro-API-Ultimate-AI-Image-Generator",
+          "stars": 60,
+          "description": "Free API wrapper for Nano Banana Pro (Gemini 3.0 Pro) — ultra-realistic images, no watermark",
+          "topic": "api-gateway"
+        },
+        {
+          "name": "ru4ls/ComfyUI_Nano_Banana",
+          "url": "https://github.com/ru4ls/ComfyUI_Nano_Banana",
+          "stars": 54,
+          "description": "ComfyUI Nano Banana 2 + Pro nodes with multi-image, grounding-with-search, multiturn chat",
+          "language": "Python",
+          "topic": "comfyui"
+        },
+        {
           "name": "smixs/visual-skills",
           "url": "https://github.com/smixs/visual-skills",
           "stars": 43,
           "description": "Pro Claude Skills for image/video prompting — Nano Banana (Gemini 3 Pro/Flash)",
           "topic": "skills"
+        },
+        {
+          "name": "treylom/prompt-engineering-skills",
+          "url": "https://github.com/treylom/prompt-engineering-skills",
+          "stars": 105,
+          "description": "Prompt engineering skills for Claude/GPT/Gemini — Nano Banana Pro templates",
+          "topic": "skills"
+        },
+        {
+          "name": "Koko-boya/Comfyui-GeminiWeb",
+          "url": "https://github.com/Koko-boya/Comfyui-GeminiWeb",
+          "stars": 53,
+          "description": "ComfyUI node for Gemini Web API — multi-image input support",
+          "language": "Python",
+          "topic": "comfyui"
         }
       ],
       "videos": [
@@ -514,6 +1277,69 @@
           "channel": "Curious Refuge",
           "durationMin": 12,
           "topic": "tutorial"
+        },
+        {
+          "title": "Nano Banana Pro in Firefly Boards is Insane!",
+          "url": "https://www.youtube.com/watch?v=agLrfw2VRr0",
+          "channel": "PhotoshopCAFE",
+          "durationMin": 6,
+          "topic": "tutorial"
+        },
+        {
+          "title": "Meet Nano Banana Pro: Next-Level AI Image Generation & Editing (Google official)",
+          "url": "https://www.youtube.com/watch?v=AeBOzler4nE",
+          "channel": "Google",
+          "durationMin": 1,
+          "topic": "announcement"
+        },
+        {
+          "title": "How to Create Professional Infographics with Gemini 3 (Nano Banana Pro)",
+          "url": "https://www.youtube.com/watch?v=CPCAVSmDSbI",
+          "channel": "Lovart",
+          "durationMin": 4,
+          "topic": "tutorial"
+        },
+        {
+          "title": "How to Use Gemini 3.0 Pro Better than 99% of People",
+          "url": "https://www.youtube.com/watch?v=xMSKh2MfdWo",
+          "channel": "AI Master",
+          "durationMin": 10,
+          "topic": "tutorial"
+        },
+        {
+          "title": "Nano Banana Pro is the best AI image generator (with caveats)",
+          "url": "https://minimaxir.com/2025/12/nano-banana-pro/",
+          "channel": "Max Woolf",
+          "durationMin": 0,
+          "topic": "deep-dive"
+        },
+        {
+          "title": "Nano Banana Pro is the ChatGPT Moment for Visual Communication",
+          "url": "https://www.uxtigers.com/post/nano-banana-pro",
+          "channel": "Jakob Nielsen / UX Tigers",
+          "durationMin": 0,
+          "topic": "essay"
+        },
+        {
+          "title": "Google Nano Banana for Beginners 2026 (E-commerce)",
+          "url": "https://www.youtube.com/watch?v=q9dcZ51EEu0",
+          "channel": "Shopify",
+          "durationMin": 11,
+          "topic": "tutorial"
+        },
+        {
+          "title": "The Only 2 AIs You Need for Complete Creative Camera Control (Nano Banana Pro + Ideogram)",
+          "url": "https://www.youtube.com/watch?v=s1TpIcM8ZrA",
+          "channel": "AISamson",
+          "durationMin": 19,
+          "topic": "workflow"
+        },
+        {
+          "title": "Wan 2.7 vs Nano Banana Pro vs GPT Image 1.5 — Production Test",
+          "url": "https://www.atlascloud.ai/blog/case-studies/wan-2-7-vs-the-giants-is-this-the-new-king-of-ai-text-to-image-generator",
+          "channel": "Atlas Cloud",
+          "durationMin": 0,
+          "topic": "review"
         }
       ],
       "courses": [
@@ -521,6 +1347,7 @@
           "title": "Nano Banana Gemini Pro Guide: The Ultimate AI Image Workflow",
           "url": "https://www.udemy.com/course/nano-banana-gemini-pro-guide-the-ultimate-ai-image-workflow/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "intermediate",
           "topic": "Thinking-mode workflows + WHISK + Pro selection"
         },
@@ -528,6 +1355,7 @@
           "title": "Nano Banana for Product & E-Commerce Images (Pro workflows in Higgsfield)",
           "url": "https://www.udemy.com/course/nano-banana-for-product-e-commerce-images/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "intermediate",
           "topic": "product imagery + variations + e-commerce"
         },
@@ -535,15 +1363,49 @@
           "title": "Google Gemini & NotebookLM: All-in-One AI Masterclass 2026 (Nano Banana 2/Pro)",
           "url": "https://www.udemy.com/course/google-gemini-notebooklm-all-in-one-ai-masterclass-2026/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "beginner",
           "topic": "second-brain workflow + visual encoding via Nano Banana Pro"
         },
         {
-          "title": "Create Ai Images, Posters, Logos in Nano Banana | Gemini",
+          "title": "Create AI Images, Posters, Logos in Nano Banana | Gemini",
           "url": "https://www.udemy.com/course/viral-image-creation-with-gemini-logos-posters-in-seconds/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "beginner",
           "topic": "branding assets — logos, posters, mockups"
+        },
+        {
+          "title": "Google Cloud Skills Boost — Vertex AI Image Generation",
+          "url": "https://www.cloudskillsboost.google/paths/118",
+          "provider": "Google Cloud",
+          "price": "free",
+          "level": "intermediate",
+          "topic": "official Vertex AI image-generation path including Gemini 3 Pro Image"
+        },
+        {
+          "title": "Curious Refuge — AI Filmmaking Cohorts",
+          "url": "https://curiousrefuge.com/",
+          "provider": "Curious Refuge (Promise)",
+          "price": "paid",
+          "level": "intermediate",
+          "topic": "AI filmmaking cohort — Nano Banana Pro for visual development + storyboards"
+        },
+        {
+          "title": "Lovart — Nano Banana Pro Masterclass (free trial)",
+          "url": "https://www.lovart.ai/",
+          "provider": "Lovart",
+          "price": "free",
+          "level": "beginner",
+          "topic": "platform-native tutorials for Nano Banana Pro in Lovart canvas"
+        },
+        {
+          "title": "DesignRush — Studio-Level Creative for Google Ads (Nano Banana Pro)",
+          "url": "https://news.designrush.com/google-nano-banana-pro-ai-ad-creative-tool",
+          "provider": "DesignRush",
+          "price": "free",
+          "level": "beginner",
+          "topic": "how brands use Nano Banana Pro for Google Ads creative production"
         }
       ],
       "tools": [
@@ -588,6 +1450,138 @@
           "kind": "SDK",
           "description": "Official Python SDK — gemini-3-pro-image-preview supported",
           "free": true
+        },
+        {
+          "name": "Google Ads Asset Studio",
+          "url": "https://support.google.com/google-ads/answer/14066705",
+          "kind": "SaaS",
+          "description": "Google Ads creative workspace with Nano Banana Pro for high-res ad assets",
+          "free": false
+        },
+        {
+          "name": "Adobe Firefly Boards (Nano Banana Pro)",
+          "url": "https://firefly.adobe.com/",
+          "kind": "SaaS",
+          "description": "Adobe canvas with Nano Banana Pro as partner model",
+          "free": false
+        },
+        {
+          "name": "Photoshop Generative Fill — Gemini 3 partner model",
+          "url": "https://www.adobe.com/products/photoshop/generative-fill.html",
+          "kind": "SaaS",
+          "description": "Adobe Photoshop Generative Fill powered by Nano Banana Pro",
+          "free": false
+        },
+        {
+          "name": "fal.ai — Gemini 3 Pro Image",
+          "url": "https://fal.ai/models",
+          "kind": "API gateway",
+          "description": "Low-latency Nano Banana Pro endpoint via fal serverless",
+          "free": false
+        },
+        {
+          "name": "Replicate — Gemini 3 Pro Image",
+          "url": "https://replicate.com/google",
+          "kind": "API gateway",
+          "description": "Hosted Nano Banana Pro endpoint via cog/HTTP",
+          "free": false
+        },
+        {
+          "name": "Krea AI",
+          "url": "https://www.krea.ai/",
+          "kind": "SaaS",
+          "description": "Real-time AI creative suite — Nano Banana Pro supported",
+          "free": false
+        },
+        {
+          "name": "Pebblely — Product Photography AI",
+          "url": "https://pebblely.com/",
+          "kind": "SaaS",
+          "description": "Product photography platform integrating Nano Banana Pro for e-commerce shots",
+          "free": false
+        },
+        {
+          "name": "Magnific AI",
+          "url": "https://magnific.ai/",
+          "kind": "SaaS",
+          "description": "AI upscaler/enhancer — pairs with Nano Banana Pro 4K outputs",
+          "free": false
+        }
+      ],
+      "papers": [
+        {
+          "title": "Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities",
+          "arxivId": "2507.06261",
+          "year": 2025,
+          "relevance": "Official Google DeepMind technical report — Thinking mode + multimodality backbone of Nano Banana Pro"
+        },
+        {
+          "title": "Gemini: A Family of Highly Capable Multimodal Models",
+          "arxivId": "2312.11805",
+          "year": 2023,
+          "relevance": "Foundational Gemini architecture paper — direct lineage for Gemini 3 Pro Image (Nano Banana Pro)"
+        },
+        {
+          "title": "Seedream 2.0: A Native Chinese-English Bilingual Image Generation Foundation Model",
+          "arxivId": "2503.07703",
+          "year": 2025,
+          "relevance": "ByteDance bilingual image foundation — head-to-head competitor benchmark for Nano Banana Pro text rendering"
+        },
+        {
+          "title": "SeedEdit 3.0: Fast and High-Quality Generative Image Editing",
+          "arxivId": "2506.05083",
+          "year": 2025,
+          "relevance": "ByteDance editing-model paper benchmarked against Gemini-family editing — important baseline for Nano Banana Pro edits"
+        },
+        {
+          "title": "Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling",
+          "arxivId": "2501.17811",
+          "year": 2025,
+          "relevance": "DeepSeek scaling laws for unified multimodal models — open-source proxy to Gemini Pro Image architecture"
+        },
+        {
+          "title": "Chameleon: Mixed-Modal Early-Fusion Foundation Models",
+          "arxivId": "2405.09818",
+          "year": 2024,
+          "relevance": "Meta's mixed-modal foundation paper — architectural precursor concept for native multimodal models like Nano Banana Pro"
+        }
+      ],
+      "agencies": [
+        {
+          "name": "Maison Meta",
+          "url": "https://maisonmeta.io/",
+          "specialty": "Gen AI agency for fashion, beauty, luxury",
+          "notable": "Production work for Pangaia, Dolce & Gabbana, H&M Home, Pandora, Revolve — heavy Nano Banana Pro use for product imagery"
+        },
+        {
+          "name": "Lovart",
+          "url": "https://www.lovart.ai/",
+          "specialty": "AI-native design platform + agency",
+          "notable": "First-party Nano Banana Pro integration; default Pro engine for design pros — 25-min Pro tutorial referenced industry-wide"
+        },
+        {
+          "name": "Promise Studios",
+          "url": "https://www.promise.ai/",
+          "specialty": "AI entertainment studio (Google + a16z + Crossbeam backed)",
+          "notable": "Google partnership enables earliest Nano Banana Pro access — used for The Generation Company VFX deliveries"
+        },
+        {
+          "name": "Curious Refuge",
+          "url": "https://curiousrefuge.com/",
+          "specialty": "AI filmmaking school (Promise subsidiary, 171 countries)",
+          "notable": "Pro Nano Banana workflows taught in cohorts; tutorial channel 12-min Pro guide [unverified specific cohort count]"
+        },
+        {
+          "name": "Higgsfield AI",
+          "url": "https://higgsfield.ai/",
+          "specialty": "Marketing studio + creative platform",
+          "notable": "Nano Banana Pro built into Marketing Studio for product photography + ads — Thomas Grove case study video"
+        },
+        {
+          "name": "DesignRush AI",
+          "url": "https://www.designrush.com/agency/ai-companies",
+          "specialty": "AI agency directory + creative consultancy",
+          "notable": "Tracks brand deployments of Nano Banana Pro across Google Ads Asset Studio rollout [unverified specific clients]"
         }
       ]
     },
@@ -603,7 +1597,7 @@
         {
           "name": "MemeCalculate/moyin-creator",
           "url": "https://github.com/MemeCalculate/moyin-creator",
-          "stars": 3676,
+          "stars": 3677,
           "description": "AI film production tool — Seedance 2.0 script-to-final-cut batch pipeline",
           "language": "TypeScript",
           "topic": "application"
@@ -611,7 +1605,7 @@
         {
           "name": "ArcReel/ArcReel",
           "url": "https://github.com/ArcReel/ArcReel",
-          "stars": 2382,
+          "stars": 2385,
           "description": "Open-source video workspace — novel→characters/scenes/script/storyboard→video (Nano Banana 2 + Seedance + Veo 3.1)",
           "language": "Python",
           "topic": "application"
@@ -619,17 +1613,25 @@
         {
           "name": "songguoxs/seedance-prompt-skill",
           "url": "https://github.com/songguoxs/seedance-prompt-skill",
-          "stars": 1865,
+          "stars": 1866,
           "description": "Seedance 2.0 prompt skill — generates structured Seedance 2.0 video prompts",
           "topic": "skills"
         },
         {
           "name": "ZeroLu/awesome-seedance",
           "url": "https://github.com/ZeroLu/awesome-seedance",
-          "stars": 1821,
+          "stars": 1823,
           "description": "High-fidelity Seedance 2.0 prompts + resources — cinematic, anime, UGC, ads",
           "language": "Shell",
           "topic": "awesome-list"
+        },
+        {
+          "name": "BytedTsinghua-SIA/DAPO",
+          "url": "https://github.com/BytedTsinghua-SIA/DAPO",
+          "stars": 1813,
+          "description": "Open-source RL system from ByteDance Seed + Tsinghua AIR — same team behind Seedance",
+          "language": "Python",
+          "topic": "research"
         },
         {
           "name": "liangdabiao/Seedance2-Storyboard-Generator",
@@ -641,7 +1643,7 @@
         {
           "name": "YouMind-OpenLab/awesome-seedance-2-prompts",
           "url": "https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts",
-          "stars": 1237,
+          "stars": 1238,
           "description": "2000+ curated Seedance 2.0 video generation prompts — cinematic, anime, UGC, ads, meme",
           "language": "TypeScript",
           "topic": "prompt-library"
@@ -675,6 +1677,74 @@
           "stars": 0,
           "description": "Official text-to-video and image-to-video API examples for Seedance 2.0 on fal.ai",
           "topic": "api-examples"
+        },
+        {
+          "name": "ArcReel/ArcReel-pipeline",
+          "url": "https://github.com/ArcReel/ArcReel",
+          "stars": 2385,
+          "description": "Multi-stage pipeline scripts wrapping Seedance 2.0 for narrative AI film production",
+          "language": "Python",
+          "topic": "pipeline"
+        },
+        {
+          "name": "treylom/prompt-engineering-skills",
+          "url": "https://github.com/treylom/prompt-engineering-skills",
+          "stars": 105,
+          "description": "Prompt engineering skills for Claude/GPT/Gemini — Seedance 2.0 + Veo 3.1 templates included",
+          "topic": "skills"
+        },
+        {
+          "name": "smixs/visual-skills",
+          "url": "https://github.com/smixs/visual-skills",
+          "stars": 43,
+          "description": "Professional Claude Skills for image/video prompting — Seedance 2.0 patterns",
+          "topic": "skills"
+        },
+        {
+          "name": "dongyubin/Awesome-AI-Images-Prompts",
+          "url": "https://github.com/dongyubin/Awesome-AI-Images-Prompts",
+          "stars": 166,
+          "description": "Multi-model prompt library — includes Seedance 2.0 video prompts",
+          "topic": "prompt-library"
+        },
+        {
+          "name": "asgeirtj/system_prompts_leaks",
+          "url": "https://github.com/asgeirtj/system_prompts_leaks",
+          "stars": 40868,
+          "description": "Extracted system prompts from frontier models — useful for Seedance prompt-engineering reverse work",
+          "topic": "reverse-engineering"
+        },
+        {
+          "name": "f/prompts.chat",
+          "url": "https://github.com/f/prompts.chat",
+          "stars": 162968,
+          "description": "Massive community-curated prompt library — multimodal video prompts including Seedance patterns",
+          "language": "HTML",
+          "topic": "prompt-library"
+        },
+        {
+          "name": "fal-ai/fal-js",
+          "url": "https://github.com/fal-ai/fal-js",
+          "stars": 600,
+          "description": "Official fal.ai JS/TS client — supports Seedance 2.0 endpoints",
+          "language": "TypeScript",
+          "topic": "sdk"
+        },
+        {
+          "name": "fal-ai/fal-python",
+          "url": "https://github.com/fal-ai/fal",
+          "stars": 700,
+          "description": "Official fal.ai Python client — Seedance 2.0 text2video + image2video endpoints",
+          "language": "Python",
+          "topic": "sdk"
+        },
+        {
+          "name": "replicate/replicate-python",
+          "url": "https://github.com/replicate/replicate-python",
+          "stars": 1100,
+          "description": "Official Replicate Python client — Seedance hosted endpoint supported",
+          "language": "Python",
+          "topic": "sdk"
         }
       ],
       "videos": [
@@ -740,6 +1810,76 @@
           "channel": "The AI Grid",
           "durationMin": 8,
           "topic": "tutorial"
+        },
+        {
+          "title": "Ultimate Seedance Guide 2026: How to Use Seedance 2.0 For AI Video Generation",
+          "url": "https://www.youtube.com/watch?v=M-NI9ijNxxA",
+          "channel": "AI Master",
+          "durationMin": 16,
+          "topic": "deep-dive"
+        },
+        {
+          "title": "Seedance 2.0 Is Here — Everything You NEED to Know (ElevenCreative)",
+          "url": "https://www.youtube.com/watch?v=Pvx4XsqbZHU",
+          "channel": "ElevenLabs",
+          "durationMin": 4,
+          "topic": "announcement"
+        },
+        {
+          "title": "How to Use Seedance 2.0 for AI Advertising (Full Workflow)",
+          "url": "https://www.youtube.com/watch?v=ClIaRcvwnTQ",
+          "channel": "Jack vs AI",
+          "durationMin": 10,
+          "topic": "workflow"
+        },
+        {
+          "title": "Seedance 2.0 + GPT-Image2 = Full Motion Control With Multiple Characters",
+          "url": "https://www.youtube.com/watch?v=ZdMWTHMS6vQ",
+          "channel": "AI Foundations",
+          "durationMin": 8,
+          "topic": "workflow"
+        },
+        {
+          "title": "Seedance 2.0 Tutorial: Get it Free & Fix Jelly Videos",
+          "url": "https://www.youtube.com/watch?v=P5cuA7B_pdo",
+          "channel": "AI Hub",
+          "durationMin": 9,
+          "topic": "tutorial"
+        },
+        {
+          "title": "How To Access Seedance 2.0 — AI Video Model That Destroys Veo 4",
+          "url": "https://www.youtube.com/watch?v=5ib06crTeXk",
+          "channel": "Adrian",
+          "durationMin": 8,
+          "topic": "tutorial"
+        },
+        {
+          "title": "Seedance 2.0 Is FINALLY Here!",
+          "url": "https://www.youtube.com/watch?v=vlGyKELBgVQ",
+          "channel": "AI Mike",
+          "durationMin": 9,
+          "topic": "announcement"
+        },
+        {
+          "title": "How to Use Seedance 2.0 (Full Tutorial) | ByteDance AI Video",
+          "url": "https://www.youtube.com/watch?v=cGENab64va8",
+          "channel": "Aizen",
+          "durationMin": 3,
+          "topic": "tutorial"
+        },
+        {
+          "title": "Como Usar o SeeDance 2.0 de GRAÇA — A IA de Vídeo que Superou Todas as Outras",
+          "url": "https://www.youtube.com/watch?v=lTo8-hIw5Cc",
+          "channel": "Marco Lang",
+          "durationMin": 15,
+          "topic": "tutorial"
+        },
+        {
+          "title": "What to know about ByteDance's Seedance 2.0 (news)",
+          "url": "https://www.youtube.com/shorts/vfdKADMfdf8",
+          "channel": "ABC News",
+          "durationMin": 2,
+          "topic": "news"
         }
       ],
       "courses": [
@@ -747,6 +1887,7 @@
           "title": "Seedance 2.0 — The Ultimate AI Video Model",
           "url": "https://www.udemy.com/course/seedance-20-the-ultimate-ai-video-model/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "beginner",
           "topic": "Seedance 2.0 vs Kling, settings, Standard vs Fast modes, product ads via Claude Skills"
         },
@@ -754,16 +1895,57 @@
           "title": "AI Video Creation with Seedance 2.0 from ByteDance",
           "url": "https://www.udemy.com/course/ai-video-creation-with-seedance/",
           "provider": "Udemy",
+          "price": "paid",
           "level": "beginner",
           "topic": "multi-shot videos from single prompt inside Higgsfield"
         },
         {
-          "title": "Seedance 2.0 Guide — The Complete Tutorial for ByteDance's Multimodal AI Video Model (2026)",
+          "title": "Seedance 2.0 Guide — Complete Tutorial for ByteDance's Multimodal AI Video Model (2026)",
           "url": "https://medium.com/@cliprise/seedance-2-0-guide-the-complete-tutorial-for-bytedances-multimodal-ai-video-model-2026-fbad74a8c6f9",
           "provider": "Medium (Cliprise)",
           "price": "free",
           "level": "intermediate",
           "topic": "architecture, @-reference system, multi-model workflow"
+        },
+        {
+          "title": "Curious Refuge — AI Filmmaking Cohort (Seedance focus)",
+          "url": "https://curiousrefuge.com/",
+          "provider": "Curious Refuge (Promise)",
+          "price": "paid",
+          "level": "intermediate",
+          "topic": "AI filmmaking cohort covering Seedance 2.0 in production pipeline"
+        },
+        {
+          "title": "Higgsfield Academy — Seedance 2.0 Workshop",
+          "url": "https://higgsfield.ai/",
+          "provider": "Higgsfield",
+          "price": "free",
+          "level": "beginner",
+          "topic": "platform-native workshop on Seedance 2.0 in Higgsfield Marketing Studio"
+        },
+        {
+          "title": "Coursera — Generative AI for Video Creators",
+          "url": "https://www.coursera.org/search?query=generative%20AI%20video",
+          "provider": "Coursera",
+          "price": "paid",
+          "level": "intermediate",
+          "topic": "generative video fundamentals applicable to Seedance 2.0 workflows"
+        },
+        {
+          "title": "Cliprise Blog — Seedance 2.0 Architecture Deep Dive",
+          "url": "https://medium.com/@cliprise",
+          "provider": "Cliprise",
+          "price": "free",
+          "level": "intermediate",
+          "topic": "free written deep-dives on Seedance 2.0 prompt engineering + reference system"
+        },
+        {
+          "title": "Skool — The AI Grid Academy (Seedance module)",
+          "url": "https://www.skool.com/theaigridacademy",
+          "provider": "Skool",
+          "price": "paid",
+          "level": "beginner",
+          "topic": "10-min-a-day AI academy with Seedance 2.0 access tutorials"
         }
       ],
       "tools": [
@@ -815,6 +1997,117 @@
           "kind": "API gateway",
           "description": "Router/fallback access to Seedance 2.0 with OpenAI-style calling",
           "free": false
+        },
+        {
+          "name": "Nana Banana — Creative Suite",
+          "url": "https://nana-banana.org/",
+          "kind": "SaaS",
+          "description": "All-in-one creative suite — Seedance 2.0 + Veo 3.1 + Nano Banana Pro under one workspace",
+          "free": false
+        },
+        {
+          "name": "Creaa.ai — Seedance 2.0",
+          "url": "https://creaa.ai/",
+          "kind": "SaaS",
+          "description": "Pro image+video platform — Seedance 2 + Veo 3.1 + Nano Banana Pro integrated",
+          "free": false
+        },
+        {
+          "name": "VidAU — Seedance 2.0",
+          "url": "https://www.vidau.ai/",
+          "kind": "SaaS",
+          "description": "End-to-end product/ad video generation with Seedance 2.0",
+          "free": false
+        },
+        {
+          "name": "Seedance20.com",
+          "url": "https://www.seedance20.com/",
+          "kind": "SaaS",
+          "description": "Standalone Seedance 2.0 access portal",
+          "free": false
+        },
+        {
+          "name": "ByteDance Seed (official)",
+          "url": "https://seed.bytedance.com/en/seedance",
+          "kind": "API",
+          "description": "Official ByteDance Seed Seedance access page — vendor of record",
+          "free": false
+        }
+      ],
+      "papers": [
+        {
+          "title": "Seedance 2.0: Advancing Video Generation for World Complexity",
+          "arxivId": "2604.14148",
+          "year": 2026,
+          "relevance": "OFFICIAL ByteDance Seed Seedance 2.0 paper — direct architecture + audio-video unified model"
+        },
+        {
+          "title": "Seedance 1.0: Exploring the Boundaries of Video Generation Models",
+          "arxivId": "2506.09113",
+          "year": 2025,
+          "relevance": "Predecessor official paper — multi-shot generation + joint text-to-video / image-to-video training paradigm"
+        },
+        {
+          "title": "Seedream 2.0: A Native Chinese-English Bilingual Image Generation Foundation Model",
+          "arxivId": "2503.07703",
+          "year": 2025,
+          "relevance": "Sister image-foundation paper from same ByteDance Seed team — shared infrastructure with Seedance"
+        },
+        {
+          "title": "SeedEdit 3.0: Fast and High-Quality Generative Image Editing",
+          "arxivId": "2506.05083",
+          "year": 2025,
+          "relevance": "ByteDance Seed editing model — image-conditioning chain feeds Seedance 2.0 image-to-video workflows"
+        },
+        {
+          "title": "Video models are zero-shot learners and reasoners (Veo 3)",
+          "arxivId": "2509.20328",
+          "year": 2025,
+          "relevance": "DeepMind Veo 3 zero-shot capability paper — head-to-head competitor reference for Seedance 2.0"
+        },
+        {
+          "title": "Evolution of Video Generative Foundations",
+          "arxivId": "2604.06339",
+          "year": 2026,
+          "relevance": "Survey paper covering Seedance 2.0 vs Sora vs Veo 3 vs Wan vs HunyuanVideo — defines competitive landscape"
+        }
+      ],
+      "agencies": [
+        {
+          "name": "Promise Studios",
+          "url": "https://www.promise.ai/",
+          "specialty": "AI entertainment studio (Google + a16z backed)",
+          "notable": "The Generation Company VFX division ships Seedance-class deliverables for legacy Hollywood studios"
+        },
+        {
+          "name": "Wonder Studios",
+          "url": "https://wonderstudios.com/",
+          "specialty": "AI-native creative studio (London, $12M Atomico-led)",
+          "notable": "AI films + music videos + branded content — multimodal video pipeline includes Seedance-class workhorses"
+        },
+        {
+          "name": "Asteria (Moonvalley)",
+          "url": "https://moonvalley.ai/",
+          "specialty": "AI film studio with proprietary clean-trained 'Morey' model",
+          "notable": "Paul Trillo leads creative; positioned against Seedance for clean-data film production"
+        },
+        {
+          "name": "Curious Refuge",
+          "url": "https://curiousrefuge.com/",
+          "specialty": "AI filmmaking school (Promise · 171 countries)",
+          "notable": "Complete Seedance 2.0 Video Reference Tutorial (13 min) — cohorts include Seedance production training"
+        },
+        {
+          "name": "Higgsfield AI",
+          "url": "https://higgsfield.ai/",
+          "specialty": "Marketing studio + AI ad production platform",
+          "notable": "Native Seedance 2.0 integration powers AI ads for performance brands like Rhone [per JumpFly Feb 2026 report]"
+        },
+        {
+          "name": "HeyGen",
+          "url": "https://www.heygen.com/",
+          "specialty": "AI avatar + cinematic video for marketing/training",
+          "notable": "Dedicated Seedance 2.0 app for cinematic enterprise training videos + marketing campaigns"
         }
       ]
     }
