@@ -1,0 +1,233 @@
+[
+  {
+    "kind": "reject",
+    "reason": "prompt-too-long",
+    "title": "Social Media Post - 2D to 3D Surreal Street Photography"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Infographic / Edu Visual - LLM Crash Course Visualizer"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-long",
+    "title": "Comic / Storyboard - Cute Bird Emerald Mine Adventure"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-long",
+    "title": "Comic / Storyboard - 90s Mecha Anime Key Visual"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Watercolor map of Germany with labeled states"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Profile / Avatar - Old Photo Restoration 4K"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Profile / Avatar - Anime Style Madoka Kaname Portrait"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Social Media Post - Luxury Fruit Aesthetic Fashion Portrait"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Social Media Post - Luxury Hotel Raypunk Lobby"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Infographic / Edu Visual - Sushi Roll Instruction Diagram"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "YouTube Thumbnail - Song-to-Image Visualization"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Comic / Storyboard - Cyberpunk Horror Mashup"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Comic / Storyboard - Horse Racing Winner Illustration"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Comic / Storyboard - Yoshiwara Hall Fire Scene"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Comic / Storyboard - Manga Inspired Horse Racing"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-long",
+    "title": "Gothic Anime Reaper Battle Sequence"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Mountain Cliff Jump Action"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-long",
+    "title": "Giant Anaconda Houseboat Attack Horror"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Japanese pachinko rainbow flyer"
+  },
+  {
+    "kind": "reject",
+    "reason": "prompt-too-short",
+    "title": "Chongqing rainy-night city promo poster"
+  },
+  {
+    "kind": "reject",
+    "reason": "image-too-small",
+    "title": "Music app + webcam preview"
+  },
+  {
+    "kind": "reject",
+    "reason": "image-too-small",
+    "title": "Notes + FaceTime work screen"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Elven archer sketchbook concept sheet"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "VHS grocery-store chaos still"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Retro Japanese town pixel RPG"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Cyberpunk Europe action HUD"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Anime open-world adventure HUD"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Low-poly samurai strategy village"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Weekend Seoul travel guide poster"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Modular encyclopedia infographic card"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Xiaohongshu cooking tutorial card"
+  },
+  {
+    "kind": "reject",
+    "reason": "image-too-small",
+    "title": "Isometric fantasy village map"
+  },
+  {
+    "kind": "reject",
+    "reason": "image-too-small",
+    "title": "Pixel art breakfast still life"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Universal commercial poster template"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "ICLR-style method figure"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Minimal research illustration prompt"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Epic silhouette worldbuilding poster"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Dual-exposure narrative poster"
+  },
+  {
+    "kind": "reject",
+    "reason": "duplicate-prompt",
+    "title": "Journey to the West silhouette epic poster"
+  },
+  {
+    "kind": "bucket-filled",
+    "useCase": "visual",
+    "kept": 60,
+    "quota": 60
+  },
+  {
+    "kind": "bucket-filled",
+    "useCase": "ads",
+    "kept": 50,
+    "quota": 50
+  },
+  {
+    "kind": "bucket-filled",
+    "useCase": "ugc",
+    "kept": 40,
+    "quota": 40
+  },
+  {
+    "kind": "bucket-filled",
+    "useCase": "architecture",
+    "kept": 42,
+    "quota": 50
+  },
+  {
+    "kind": "bucket-filled",
+    "useCase": "broll",
+    "kept": 60,
+    "quota": 60
+  },
+  {
+    "kind": "bucket-filled",
+    "useCase": "experimental",
+    "kept": 30,
+    "quota": 30
+  }
+]

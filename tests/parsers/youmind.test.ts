@@ -37,4 +37,41 @@ describe('parseYouMind', () => {
     });
     expect(items[0].kind).toBe('video');
   });
+
+  describe('real YouMind README format (Schema B)', () => {
+    const real = readFileSync('scripts/fixtures/youmind-real-image.md', 'utf-8');
+
+    it('extracts both real-format items', () => {
+      const items = parseYouMind(real, {
+        model: 'gpt-image-2',
+        sourceRepo: 'YouMind-OpenLab/awesome-gpt-image-2',
+        sourceLicense: 'NOASSERTION',
+      });
+      expect(items).toHaveLength(2);
+    });
+
+    it('parses real-format image (HTML <img>) item', () => {
+      const items = parseYouMind(real, {
+        model: 'gpt-image-2',
+        sourceRepo: 'YouMind-OpenLab/awesome-gpt-image-2',
+        sourceLicense: 'NOASSERTION',
+      });
+      expect(items[0].title).toContain('Profile / Avatar');
+      expect(items[0].kind).toBe('image');
+      expect(items[0].mediaUrl).toContain('cms-assets.youmind.com');
+      expect(items[0].prompt).toContain('studio portrait photograph');
+      expect(items[0].hints).toContain('visual');
+    });
+
+    it('parses real-format video (anchor href) item with poster', () => {
+      const items = parseYouMind(real, {
+        model: 'seedance-2',
+        sourceRepo: 'YouMind-OpenLab/awesome-seedance-2-prompts',
+        sourceLicense: 'NOASSERTION',
+      });
+      expect(items[1].kind).toBe('video');
+      expect(items[1].mediaUrl).toMatch(/\.mp4$/);
+      expect(items[1].posterUrl).toContain('thumbnail.jpg');
+    });
+  });
 });
