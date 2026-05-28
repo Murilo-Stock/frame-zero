@@ -1,5 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { AmberCursor } from '@/components/AmberCursor';
+import { PageTransition } from '@/components/PageTransition';
 
 export const metadata: Metadata = {
   title: 'Frame Zero — Curated AI cinema · 2026',
@@ -14,7 +16,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className="dark">
-      <body className="grain">{children}</body>
+      <body className="grain">
+        <AmberCursor />
+        <PageTransition>{children}</PageTransition>
+      </body>
     </html>
   );
 }

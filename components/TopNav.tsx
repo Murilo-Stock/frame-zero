@@ -14,6 +14,7 @@ export function TopNav() {
       <div className="max-w-7xl mx-auto px-6 md:px-10 h-14 flex items-center justify-between">
         <Link
           href="/"
+          data-cursor="amber"
           className="font-display text-xl tracking-tight text-ink hover:text-amber transition-colors"
         >
           Frame Zero
@@ -23,6 +24,7 @@ export function TopNav() {
             <li key={item.href}>
               <Link
                 href={item.href as never}
+                data-cursor="amber"
                 className="font-mono text-[11px] uppercase tracking-caps text-ink-mute hover:text-amber transition-colors"
               >
                 {item.label}

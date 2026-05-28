@@ -116,6 +116,7 @@ export function Lightbox({ item, onClose }: { item: Item | null; onClose: () => 
                 <button
                   onClick={onClose}
                   aria-label="Close dialog"
+                  data-cursor="amber"
                   className="ml-auto text-ink-mute hover:text-ink text-2xl leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas rounded"
                 >
                   ×

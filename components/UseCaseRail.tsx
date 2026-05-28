@@ -34,6 +34,7 @@ export function UseCaseRail({
             key={uc}
             onClick={() => onChange({ useCase: useCase === uc ? null : uc })}
             aria-pressed={useCase === uc}
+            data-cursor="amber"
             className={clsx(
               'px-3 py-1.5 rounded-full font-mono text-xs uppercase tracking-caps border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas',
               useCase === uc
@@ -51,6 +52,7 @@ export function UseCaseRail({
             key={m.id}
             onClick={() => onChange({ model: model === m.id ? null : m.id })}
             aria-pressed={model === m.id}
+            data-cursor="amber"
             className={clsx(
               'px-3 py-1.5 rounded-full font-mono text-xs uppercase tracking-caps border transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas',
               model === m.id

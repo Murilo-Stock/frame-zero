@@ -24,6 +24,7 @@ export function Card({ item, onOpen }: { item: Item; onOpen: () => void }) {
       onClick={handleClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      data-cursor="amber"
       aria-label={isExternalVideo ? `${item.title} · Video preview · opens in new tab` : `Open ${item.title}`}
       className="group block w-full mb-4 relative overflow-hidden bg-canvas-2 border border-rule hover:border-amber transition rounded-sm text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
       style={{ aspectRatio: ratio }}

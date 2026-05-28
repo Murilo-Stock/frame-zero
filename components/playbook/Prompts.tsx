@@ -65,6 +65,7 @@ function PromptCard({ p, item }: { p: PromptEntry; item?: Item }) {
         )}
         <button
           onClick={copy}
+          data-cursor="amber"
           className="ml-auto font-mono text-[10px] uppercase tracking-caps text-amber hover:text-amber-hot transition border border-amber/40 hover:border-amber px-3 py-1.5 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas-2"
         >
           {copied ? '✓ Copied' : 'Copy prompt'}

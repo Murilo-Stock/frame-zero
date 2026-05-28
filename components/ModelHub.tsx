@@ -37,6 +37,7 @@ export function ModelHub({
             <a
               key={m.id}
               href={`#model-${m.id}`}
+              data-cursor="amber"
               className="font-mono text-[11px] uppercase tracking-caps text-ink-mute hover:text-amber border border-rule hover:border-amber px-3 py-1.5 rounded-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas whitespace-nowrap"
             >
               {m.name}
