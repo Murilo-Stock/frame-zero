@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { TopNavCmdK } from './TopNavCmdK';
 
 type NavItem = { label: string; href: string };
 
@@ -19,7 +20,7 @@ export function TopNav() {
         >
           Frame Zero
         </Link>
-        <ul className="flex items-center gap-8">
+        <ul className="flex items-center gap-6 md:gap-8">
           {ITEMS.map((item) => (
             <li key={item.href}>
               <Link
@@ -31,6 +32,9 @@ export function TopNav() {
               </Link>
             </li>
           ))}
+          <li>
+            <TopNavCmdK />
+          </li>
         </ul>
       </div>
     </nav>
