@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #0a0a0a;
+  --color-canvas-2: #131311;
+  --color-ink: #f4ede0;
+  --color-ink-mute: #8a8276;
+  --color-amber: #d4a574;
+  --color-amber-hot: #e8b87a;
+  --color-rule: rgba(244, 237, 224, 0.08);
+  --font-display: "PP Editorial Old", Georgia, serif;
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html, body { background: var(--color-canvas); color: var(--color-ink); }
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* SVG grain overlay */
+.grain::after {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.35'/></svg>");
+  mix-blend-mode: overlay;
+  opacity: 0.12;
+  z-index: 9999;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
