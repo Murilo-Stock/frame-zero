@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { AmberCursor } from '@/components/AmberCursor';
 import { PageTransition } from '@/components/PageTransition';
 import { CommandPaletteProvider } from '@/components/CommandPalette';
+import { ScrollProgress } from '@/components/ScrollProgress';
 import { buildSearchIndex } from '@/lib/build-search-index';
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className="dark">
       <body className="grain">
         <CommandPaletteProvider items={searchItems}>
+          <ScrollProgress />
           <AmberCursor />
           <PageTransition>{children}</PageTransition>
         </CommandPaletteProvider>
