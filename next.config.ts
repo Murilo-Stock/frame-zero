@@ -2,6 +2,7 @@ import type { NextConfig } from 'next';
 
 const config: NextConfig = {
   output: 'export',
+  typedRoutes: true,
   images: {
     unoptimized: false,
     remotePatterns: [
@@ -10,7 +11,6 @@ const config: NextConfig = {
     ],
     formats: ['image/avif', 'image/webp'],
   },
-  experimental: { typedRoutes: true },
 };
 
 export default config;
