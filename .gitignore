@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+.env.local
+.env*.local
+cache/
+public/data/*.json.bak
+.DS_Store
+*.log
