@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://frame-zero-phi.vercel.app'),
   title: 'Frame Zero — Curated AI cinema · 2026',
   description: 'Eleven verticals. Four models. 282 frames. 283 resources. One arsenal.',
+  icons: { icon: '/favicon.svg' },
   openGraph: {
     title: 'Frame Zero',
     description: 'Curated AI cinema · GPT Image 2 · Nano Banana Pro · Seedance 2',
