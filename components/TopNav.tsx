@@ -8,6 +8,7 @@ const ITEMS: NavItem[] = [
   { label: 'Models', href: '/#models' },
   { label: 'Playbooks', href: '/playbooks' },
   { label: 'Gallery', href: '/#gallery' },
+  { label: 'About', href: '/about' },
 ];
 
 export function TopNav() {
