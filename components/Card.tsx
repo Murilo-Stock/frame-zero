@@ -2,6 +2,7 @@
 import type { Item } from '@/lib/types';
 import { useState } from 'react';
 import { ScriptCard } from './ScriptCard';
+import { playerStore } from '@/lib/usePlayerStore';
 
 export function Card({ item, onOpen }: { item: Item; onOpen: () => void }) {
   const [hover, setHover] = useState(false);
@@ -9,6 +10,7 @@ export function Card({ item, onOpen }: { item: Item; onOpen: () => void }) {
   const isMurilo = item.model === 'murilo';
   const isDirectVideo = /\.(mp4|webm|mov)(\?|$)/i.test(item.mediaUrl);
   const isExternalVideo = item.kind === 'video' && !isDirectVideo;
+  const isAnyVideo = item.kind === 'video';
 
   const handleClick = (e: React.MouseEvent) => {
     if (isExternalVideo) {
@@ -22,7 +24,10 @@ export function Card({ item, onOpen }: { item: Item; onOpen: () => void }) {
   return (
     <button
       onClick={handleClick}
-      onMouseEnter={() => setHover(true)}
+      onMouseEnter={() => {
+        setHover(true);
+        if (isAnyVideo) playerStore.show(item);
+      }}
       onMouseLeave={() => setHover(false)}
       data-cursor="amber"
       aria-label={isExternalVideo ? `${item.title} · Video preview · opens in new tab` : `Open ${item.title}`}
