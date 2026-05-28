@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import type { Item } from '@/lib/types';
 
 export function Hero({ featured, total }: { featured: Item[]; total: number }) {
-  const hero = featured[0]; // first featured video for background
+  // Hero only renders direct-playable videos as background; watch-page URLs would silently fail.
+  const playable = featured.filter((f) => f.kind !== 'video' || /\.(mp4|webm|mov)(\?|$)/i.test(f.mediaUrl));
+  const hero = playable[0] ?? featured[0]; // first playable, fallback to any
   return (
     <section className="relative h-screen overflow-hidden">
       {hero?.kind === 'video' ? (

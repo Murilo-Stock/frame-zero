@@ -16,6 +16,7 @@ export function Lightbox({ item, onClose }: { item: Item | null; onClose: () => 
   }, [onClose]);
 
   const isMurilo = item?.model === 'murilo';
+  const isDirectVideo = item ? /\.(mp4|webm|mov)(\?|$)/i.test(item.mediaUrl) : false;
 
   return (
     <AnimatePresence>
@@ -40,7 +41,7 @@ export function Lightbox({ item, onClose }: { item: Item | null; onClose: () => 
                 <div className="w-full h-full max-h-[80vh] overflow-auto">
                   <ScriptCard item={item} />
                 </div>
-              ) : item.kind === 'video' ? (
+              ) : item.kind === 'video' && isDirectVideo ? (
                 <video
                   src={item.mediaUrl}
                   aria-label={item.title}
@@ -49,6 +50,38 @@ export function Lightbox({ item, onClose }: { item: Item | null; onClose: () => 
                   height={item.height}
                   className="w-full h-full object-contain max-h-[80vh]"
                 />
+              ) : item.kind === 'video' && !isDirectVideo ? (
+                <div className="relative w-full h-full flex items-center justify-center max-h-[80vh]">
+                  {item.posterUrl ? (
+                    <img
+                      src={item.posterUrl}
+                      alt={item.title}
+                      width={item.width}
+                      height={item.height}
+                      className="w-full h-full object-contain max-h-[80vh] opacity-90"
+                    />
+                  ) : (
+                    <div className="w-full aspect-video bg-canvas-2 flex items-center justify-center">
+                      <span className="font-mono text-sm text-ink-mute uppercase tracking-caps">video preview unavailable</span>
+                    </div>
+                  )}
+                  <a
+                    href={item.mediaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${item.title} · Video preview · opens in new tab`}
+                    className="absolute inset-0 flex items-center justify-center group focus-visible:outline-none"
+                  >
+                    <div className="flex items-center gap-3 px-6 py-4 bg-canvas/80 backdrop-blur-md border border-amber rounded-sm group-hover:bg-amber transition-colors focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-canvas">
+                      <svg viewBox="0 0 24 24" className="w-6 h-6 fill-amber group-hover:fill-canvas transition-colors" aria-hidden="true">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                      <span className="font-mono text-xs uppercase tracking-caps text-amber group-hover:text-canvas transition-colors">
+                        Watch on source ↗
+                      </span>
+                    </div>
+                  </a>
+                </div>
               ) : (
                 <img
                   src={item.mediaUrl}
