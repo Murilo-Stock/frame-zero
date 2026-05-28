@@ -1,0 +1,9 @@
+# ╔══════════════════════════════════════════╗
+# ║   F R A M E   Z E R O                    ║
+# ║   Curated AI cinema · 2026               ║
+# ║   github.com/Murilo-Stock/frame-zero     ║
+# ╚══════════════════════════════════════════╝
+
+User-agent: *
+Allow: /
+Sitemap: https://frame-zero-phi.vercel.app/sitemap.xml
