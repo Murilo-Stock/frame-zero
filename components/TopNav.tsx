@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { TopNavCmdK } from './TopNavCmdK';
+import { ShareButton } from './ShareButton';
 
 type NavItem = { label: string; href: string };
 
@@ -34,6 +35,9 @@ export function TopNav() {
           ))}
           <li>
             <TopNavCmdK />
+          </li>
+          <li>
+            <ShareButton />
           </li>
         </ul>
       </div>
