@@ -1,0 +1,27 @@
+{
+  "version": "1.0-stub",
+  "generatedAt": "2026-05-28",
+  "playbooks": [
+    {
+      "id": "real-estate",
+      "name": "Real Estate (fixture)",
+      "tagline": "Stub for build",
+      "icon": "🏛",
+      "color": "#d4a574",
+      "icp": "Stub ICP",
+      "math": { "ticketMedio": 8000, "timeToDeliver": "72h", "costPerAsset": 280, "suggestedMargin": 65 },
+      "stack": [{ "moment": "stub", "model": "gpt-image-2", "rationale": "stub" }],
+      "workflow": { "mermaid": "graph LR; A-->B" },
+      "prompts": [{ "title": "Stub", "body": "Stub body 20 words minimum for placeholder text content to render in UI smoke testing without any issues.", "model": "gpt-image-2", "kind": "image", "aspect": "4:5", "tags": ["stub"] }],
+      "cases": [{ "brand": "Stub", "url": "https://example.com", "credit": "stub", "whatsBrilliant": "stub" }],
+      "resources": { "repos": [], "videos": [], "courses": [], "tools": [], "papers": [], "agencies": [] },
+      "behindTheLens": [{ "step": 1, "title": "Stub step", "body": "Stub body" }],
+      "roi": {
+        "inputs": [{ "id": "tickets_per_month", "label": "Tickets/month", "type": "number", "default": 4 }],
+        "formula": "revenue = tickets_per_month * 8000;",
+        "outputs": [{ "id": "revenue", "label": "Revenue", "format": "BRL" }]
+      }
+    },
+    { "id": "arquitetura", "name": "Arquitetura", "tagline": "Coming Phase γ", "icon": "🏗", "color": "#8a8276", "icp": "Stub", "status": "stub", "comingPhase": "γ" }
+  ]
+}
