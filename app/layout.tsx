@@ -5,6 +5,7 @@ import { PageTransition } from '@/components/PageTransition';
 import { CommandPaletteProvider } from '@/components/CommandPalette';
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { PersistentPlayer } from '@/components/PersistentPlayer';
+import { LoadingSequence } from '@/components/LoadingSequence';
 import { buildSearchIndex } from '@/lib/build-search-index';
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className="dark">
       <body className="grain">
+        <LoadingSequence />
         <CommandPaletteProvider items={searchItems}>
           <ScrollProgress />
           <AmberCursor />
