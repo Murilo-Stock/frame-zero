@@ -100,3 +100,80 @@ export type ModelResource = {
 };
 
 export type ResourcesIndex = { models: ModelResource[]; generated?: string };
+
+// ===== Playbooks (Frame Zero v2 Phase α) =====
+
+export type PromptEntry = {
+  title: string;
+  body: string;
+  model: Model | 'kling-3' | 'veo-3' | 'ffmpeg' | 'higgsfield';
+  kind: Kind;
+  aspect: Aspect;
+  expectedOutputItemId?: string;
+  tags?: string[];
+};
+
+export type CaseEntry = {
+  brand: string;
+  url: string;
+  thumbnail?: string;
+  credit: string;
+  whatsBrilliant: string;
+  metric?: string;
+};
+
+export type Paper = { title: string; arxivId: string; year: number; relevance: string };
+export type Agency = { name: string; url: string; specialty: string; notable: string };
+
+export type StackEntry = { moment: string; model: string; rationale: string };
+export type WorkflowSpec = { mermaid: string };
+export type BehindLensStep = { step: number; title: string; body: string; screenshot?: string };
+
+export type ROIInput = {
+  id: string;
+  label: string;
+  type: 'number' | 'select';
+  default: number | string;
+  options?: string[];
+};
+export type ROIOutput = { id: string; label: string; format: 'BRL' | '%' | 'hours' };
+export type ROISpec = { inputs: ROIInput[]; formula: string; outputs: ROIOutput[] };
+
+export type PlaybookResources = {
+  repos: Repo[];
+  videos: Video[];
+  courses: Course[];
+  tools: Tool[];
+  papers?: Paper[];
+  agencies?: Agency[];
+};
+
+export type Playbook = {
+  id: string;
+  name: string;
+  tagline: string;
+  icon: string;
+  color: string;
+  icp?: string;
+  status?: 'stub' | 'ready';
+  comingPhase?: string;
+  math?: {
+    ticketMedio: number;
+    timeToDeliver: string;
+    costPerAsset: number;
+    suggestedMargin: number;
+  };
+  stack?: StackEntry[];
+  workflow?: WorkflowSpec;
+  prompts?: PromptEntry[];
+  cases?: CaseEntry[];
+  resources?: PlaybookResources;
+  behindTheLens?: BehindLensStep[];
+  roi?: ROISpec;
+};
+
+export type PlaybooksIndex = {
+  version: string;
+  generatedAt: string;
+  playbooks: Playbook[];
+};
