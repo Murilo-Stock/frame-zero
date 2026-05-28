@@ -9,3 +9,5 @@ cache/
 public/data/*.json.bak
 .DS_Store
 *.log
+
+.vercel
