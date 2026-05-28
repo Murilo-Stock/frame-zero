@@ -1,8 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import type { Item } from '@/lib/types';
+import type { Item, ResourcesIndex } from '@/lib/types';
 import { Hero } from '@/components/Hero';
 import { ManifestoStrip } from '@/components/ManifestoStrip';
+import { ModelHub } from '@/components/ModelHub';
 import { Gallery } from '@/components/Gallery';
 import { BehindLens } from '@/components/BehindLens';
 import { Credits } from '@/components/Credits';
@@ -29,13 +30,19 @@ function curateMurilo(items: Item[]): Item[] {
 
 export default function Page() {
   const itemsPath = resolve(process.cwd(), 'public/data/items.json');
+  const resourcesPath = resolve(process.cwd(), 'public/data/resources.json');
   const items: Item[] = JSON.parse(readFileSync(itemsPath, 'utf-8'));
-  const featured = items.filter((i) => i.kind === 'video').slice(0, 5);
+  const resources: ResourcesIndex = JSON.parse(readFileSync(resourcesPath, 'utf-8'));
+  // Hero background needs a directly-playable video file (.mp4/.webm/.mov) — watch-page URLs would fail silently.
+  const featured = items
+    .filter((i) => i.kind === 'video' && /\.(mp4|webm|mov)(\?|$)/i.test(i.mediaUrl))
+    .slice(0, 5);
   const muriloItems = curateMurilo(items);
   return (
     <main>
       <Hero featured={featured} total={items.length} />
       <ManifestoStrip total={items.length} />
+      <ModelHub resources={resources.models} items={items} />
       <Gallery items={items} />
       <BehindLens items={muriloItems} />
       <Credits />
