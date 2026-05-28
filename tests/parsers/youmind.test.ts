@@ -74,4 +74,63 @@ describe('parseYouMind', () => {
       expect(items[1].posterUrl).toContain('thumbnail.jpg');
     });
   });
+
+  describe('real Seedance README format · video detection', () => {
+    const seedance = readFileSync('scripts/fixtures/youmind-seedance-real.md', 'utf-8');
+    const ctx = {
+      model: 'seedance-2' as const,
+      sourceRepo: 'YouMind-OpenLab/awesome-seedance-2-prompts',
+      sourceLicense: 'NOASSERTION',
+    };
+
+    it('extracts all three items from real Seedance fixture', () => {
+      const items = parseYouMind(seedance, ctx);
+      expect(items).toHaveLength(3);
+    });
+
+    it('detects video via direct .mp4 href (Featured entry) + poster from thumbnail', () => {
+      const items = parseYouMind(seedance, ctx);
+      const featured = items[0];
+      expect(featured.title).toContain('Japanese Romance');
+      expect(featured.kind).toBe('video');
+      expect(featured.mediaUrl).toMatch(/\.mp4$/);
+      expect(featured.mediaUrl).toBe('https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts/releases/download/videos/1402.mp4');
+      expect(featured.posterUrl).toContain('cloudflarestream');
+      expect(featured.posterUrl).toContain('thumbnail.jpg');
+    });
+
+    it('detects video via Cloudflare Stream thumbnail + Watch Video link (All Prompts entry)', () => {
+      const items = parseYouMind(seedance, ctx);
+      const reaper = items[1];
+      expect(reaper.title).toContain('Gothic Anime Reaper');
+      expect(reaper.kind).toBe('video');
+      // mediaUrl should be the Watch Video link target (no direct .mp4 in block)
+      expect(reaper.mediaUrl).toContain('youmind.com');
+      expect(reaper.mediaUrl).not.toMatch(/\.mp4$/);
+      // posterUrl should be the cloudflarestream thumbnail
+      expect(reaper.posterUrl).toContain('cloudflarestream');
+      expect(reaper.posterUrl).toContain('thumbnail.jpg');
+    });
+
+    it('detects video via Cloudflare Stream thumbnail · second sample (regression for >1 entry)', () => {
+      const items = parseYouMind(seedance, ctx);
+      const stealth = items[2];
+      expect(stealth.title).toContain('AAA Stealth');
+      expect(stealth.kind).toBe('video');
+      expect(stealth.posterUrl).toContain('cloudflarestream');
+    });
+
+    it('does NOT promote plain images to video for non-video-CDN thumbnails (regression for image models)', () => {
+      // Re-use the existing real-image fixture (gpt-image-2 / nano-banana style)
+      const realImg = readFileSync('scripts/fixtures/youmind-real-image.md', 'utf-8');
+      const items = parseYouMind(realImg, {
+        model: 'gpt-image-2',
+        sourceRepo: 'YouMind-OpenLab/awesome-gpt-image-2',
+        sourceLicense: 'NOASSERTION',
+      });
+      // First entry is a cms-assets.youmind.com image, NOT a video-CDN thumbnail
+      expect(items[0].kind).toBe('image');
+      expect(items[0].mediaUrl).toContain('cms-assets.youmind.com');
+    });
+  });
 });

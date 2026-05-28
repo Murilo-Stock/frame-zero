@@ -44,12 +44,23 @@ export function parseYouMind(markdown, ctx) {
     // Schema A: markdown image ![alt](url) — but skip shields.io / badge URLs
     // Schema B-video: <a href="...mp4"> wrapping <img src=thumb>
     // Schema B-image: <img src="url">
+    // Schema B-video-2 (YouMind seedance "All Prompts"): cloudflarestream thumbnail .jpg
+    //   + "[🎬 Watch Video →](https://youmind.com/...)" link · NO direct .mp4
     const isBadgeUrl = (u) => /img\.shields\.io|badge\.svg|awesome\.re\/badge/i.test(u);
     const mdImgAll = [...block.matchAll(/!\[[^\]]*\]\((https?:\/\/[^\s)]+)\)/g)];
     const mdImgMatch = mdImgAll.map((m) => m[1]).find((u) => !isBadgeUrl(u));
-    const videoHrefMatch = block.match(/<a\s+href="(https?:\/\/[^"]+\.(?:mp4|webm|mov)(?:\?[^"]*)?)"/i);
+    // Direct video URL anywhere in the block (per fix spec) — covers <a href=mp4>,
+    // <video src=mp4>, or a bare https://...mp4 reference.
+    const videoUrlMatch = block.match(/(https?:\/\/[^\s"')]+\.(?:mp4|webm|mov))(\?[^\s"')]*)?/i);
     const htmlImgAll = [...block.matchAll(/<img[^>]+src="(https?:\/\/[^"]+)"/gi)];
     const htmlImgMatch = htmlImgAll.map((m) => m[1]).find((u) => !isBadgeUrl(u));
+    // Heuristic for video-CDN thumbnails (Cloudflare Stream) which always represent
+    // an embedded video, even when no direct .mp4 URL is exposed in the README.
+    const isVideoCdnThumb = (u) =>
+      typeof u === 'string' &&
+      /(?:cloudflarestream\.com|videodelivery\.net|customer-[a-z0-9]+\.cloudflarestream)/i.test(u) &&
+      /thumbnail/i.test(u);
+    const watchVideoLinkMatch = block.match(/\[(?:[^\]]*?Watch Video[^\]]*?)\]\((https?:\/\/[^)\s]+)\)/i);
 
     // --- PROMPT ---
     // Schema A: **Prompt:** then fenced code
@@ -71,14 +82,24 @@ export function parseYouMind(markdown, ctx) {
 
     if (!titleMatch || !promptMatch) continue;
 
-    // Decide media: prefer video href if present (Schema B-video), else non-badge markdown img, else non-badge html img
+    // Decide media:
+    //   1. PRIMARY (per fix spec): any direct .mp4/.webm/.mov URL → kind=video,
+    //      mediaUrl=that video URL, posterUrl=first non-badge image in block.
+    //   2. SECONDARY: video-CDN thumbnail (Cloudflare Stream) + "Watch Video" link
+    //      → kind=video, mediaUrl=the Watch Video link target, posterUrl=thumbnail.
+    //   3. Fallback to existing image logic (non-badge md img, then non-badge html img).
     let mediaUrl = null;
     let posterUrl;
     let kind = 'image';
-    if (videoHrefMatch) {
-      mediaUrl = videoHrefMatch[1];
+    const firstImage = mdImgMatch || htmlImgMatch;
+    if (videoUrlMatch) {
+      mediaUrl = videoUrlMatch[0];
       kind = 'video';
-      if (htmlImgMatch) posterUrl = htmlImgMatch;
+      if (firstImage && !/\.(mp4|webm|mov)(\?|$)/i.test(firstImage)) posterUrl = firstImage;
+    } else if (htmlImgMatch && isVideoCdnThumb(htmlImgMatch) && watchVideoLinkMatch) {
+      mediaUrl = watchVideoLinkMatch[1];
+      posterUrl = htmlImgMatch;
+      kind = 'video';
     } else if (mdImgMatch) {
       mediaUrl = mdImgMatch;
       kind = /\.(mp4|webm|mov)(\?|$)/i.test(mediaUrl) ? 'video' : 'image';
