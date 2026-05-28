@@ -61,6 +61,7 @@ export function AmberCursor() {
     <div
       ref={dotRef}
       aria-hidden="true"
+      data-print="hide"
       style={{
         position: 'fixed',
         top: 0,

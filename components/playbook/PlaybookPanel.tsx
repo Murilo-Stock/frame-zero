@@ -10,6 +10,7 @@ import { ResourcesBlock } from './ResourcesBlock';
 import { BehindLensSection } from './BehindLensSection';
 import { ROICalculator } from './ROICalculator';
 import { RevealOnScroll } from '../RevealOnScroll';
+import { PrintButton } from './PrintButton';
 
 export function PlaybookPanel({
   playbook,
@@ -49,15 +50,20 @@ export function PlaybookPanel({
   return (
     <main>
       <Hero playbook={playbook} />
+      <section className="px-6 md:px-10 pt-6" data-print="hide">
+        <div className="max-w-7xl mx-auto flex justify-end">
+          <PrintButton />
+        </div>
+      </section>
       <RevealOnScroll><MathBlock playbook={playbook} /></RevealOnScroll>
-      <Stack playbook={playbook} />
-      <RevealOnScroll><Workflow playbook={playbook} /></RevealOnScroll>
-      <Prompts playbook={playbook} itemsById={itemsById} />
-      <RevealOnScroll><Cases playbook={playbook} /></RevealOnScroll>
-      <RevealOnScroll><ResourcesBlock playbook={playbook} /></RevealOnScroll>
-      <BehindLensSection playbook={playbook} />
-      <ROICalculator playbook={playbook} />
-      <section className="px-6 md:px-10 py-16">
+      <div className="print-page-break"><Stack playbook={playbook} /></div>
+      <div className="print-page-break"><RevealOnScroll><Workflow playbook={playbook} /></RevealOnScroll></div>
+      <div className="print-page-break"><Prompts playbook={playbook} itemsById={itemsById} /></div>
+      <div className="print-page-break"><RevealOnScroll><Cases playbook={playbook} /></RevealOnScroll></div>
+      <div className="print-page-break"><RevealOnScroll><ResourcesBlock playbook={playbook} /></RevealOnScroll></div>
+      <div className="print-page-break"><BehindLensSection playbook={playbook} /></div>
+      <div className="print-page-break"><ROICalculator playbook={playbook} /></div>
+      <section className="px-6 md:px-10 py-16" data-print="hide">
         <div className="max-w-7xl mx-auto">
           <Link
             href={'/playbooks' as never}

@@ -12,7 +12,10 @@ const ITEMS: NavItem[] = [
 
 export function TopNav() {
   return (
-    <nav className="sticky top-0 z-40 backdrop-blur-md bg-canvas/80 border-b border-rule">
+    <nav
+      className="sticky top-0 z-40 backdrop-blur-md bg-canvas/80 border-b border-rule"
+      data-print="hide"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-10 h-14 flex items-center justify-between">
         <Link
           href="/"

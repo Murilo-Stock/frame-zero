@@ -34,3 +34,43 @@ body {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* ===== Print: ink-on-paper rendering ===== */
+@media print {
+  /* Hide all chrome / non-essential overlays */
+  [data-print="hide"] { display: none !important; }
+  .grain::after { display: none !important; }
+
+  /* Black ink on white background — override Hollywood Noir */
+  html, body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  * {
+    color: #111 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border-color: #ccc !important;
+  }
+  a { color: #111 !important; text-decoration: underline; }
+
+  /* Background videos do not print — replace with poster via posterUrl src */
+  video { display: none !important; }
+  img.print-poster { display: block !important; max-width: 100%; height: auto; }
+
+  /* Force page breaks at section boundaries */
+  .print-page-break { page-break-before: always; break-before: page; }
+  section { break-inside: avoid; }
+  h1, h2, h3 { break-after: avoid; }
+
+  /* Tighten layout for paper */
+  main { display: block !important; }
+  .max-w-7xl { max-width: 100% !important; }
+
+  /* Hide cursor halo overlay (id-less, AmberCursor renders fixed div w/ zIndex 10000) */
+  div[aria-hidden="true"][style*="z-index: 10000"] { display: none !important; }
+  div[aria-hidden="true"][style*="zIndex: 10000"] { display: none !important; }
+
+  @page { margin: 18mm 16mm; }
+}
