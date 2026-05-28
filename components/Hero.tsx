@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import type { Item } from '@/lib/types';
 
-export function Hero({ featured }: { featured: Item[] }) {
+export function Hero({ featured, total }: { featured: Item[]; total: number }) {
   const hero = featured[0]; // first featured video for background
   return (
     <section className="relative h-screen overflow-hidden">
@@ -40,7 +40,7 @@ export function Hero({ featured }: { featured: Item[] }) {
           initial={{ opacity: 0 }} animate={{ opacity: 0.8 }} transition={{ delay: 1.0, duration: 0.8 }}
           className="mt-8 max-w-2xl text-ink-mute text-lg"
         >
-          The moment before the first frame. Two hundred and ninety prompts across three frontier models.
+          The moment before the first frame. <span className="font-mono text-amber">{total}</span> prompts across three frontier models.
         </motion.p>
       </div>
     </section>

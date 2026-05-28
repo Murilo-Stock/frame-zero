@@ -14,8 +14,8 @@ export default function Page() {
   const muriloItems = items.filter((i) => i.model === 'murilo');
   return (
     <main>
-      <Hero featured={featured} />
-      <ManifestoStrip />
+      <Hero featured={featured} total={items.length} />
+      <ManifestoStrip total={items.length} />
       <Gallery items={items} />
       <BehindLens items={muriloItems} />
       <Credits />
