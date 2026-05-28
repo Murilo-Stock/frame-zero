@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": "P1-jp-living-control",
+      "title": "Japandi Living Room — Control Shot",
+      "prompt": "A minimalist Japandi living room with travertine walls, low oak coffee table, linen sofa, soft afternoon light, architectural digest style.",
+      "category": "architecture",
+      "aspect": "16:9"
+    },
+    {
+      "id": "FC-01-mirror-room",
+      "title": "Recursive Mirror Hallway",
+      "prompt": "An impossible hallway of mirrors recursing into amber haze, surreal, Andrei Tarkovsky composition.",
+      "category": "fora-da-caixa",
+      "aspect": "21:9"
+    }
+  ]
+}
