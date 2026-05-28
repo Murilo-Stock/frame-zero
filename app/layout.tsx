@@ -9,6 +9,7 @@ import { LoadingSequence } from '@/components/LoadingSequence';
 import { ConsoleEgg } from '@/components/ConsoleEgg';
 import { AudioToggle } from '@/components/AudioToggle';
 import { ShortcutsOverlay } from '@/components/ShortcutsOverlay';
+import { KonamiListener } from '@/components/KonamiListener';
 import { buildSearchIndex } from '@/lib/build-search-index';
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="grain">
         <LoadingSequence />
         <ConsoleEgg />
+        <KonamiListener />
         <ShortcutsOverlay />
         <CommandPaletteProvider items={searchItems}>
           <ScrollProgress />
