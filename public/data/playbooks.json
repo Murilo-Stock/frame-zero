@@ -618,22 +618,413 @@
     {
       "id": "arquitetura",
       "name": "Arquitetura",
-      "tagline": "Render-grade interiors + exteriors sem renderfarm",
+      "tagline": "Render-grade interiors + exteriors sem renderfarm · concept-to-final em 1 tarde",
       "icon": "🏗",
       "color": "#8a8276",
-      "icp": "Escritórios arquitetura + studios design + students apresentando projeto",
-      "status": "stub",
-      "comingPhase": "γ"
+      "icp": "Escritórios arquitetura pré-pitch · interior designers · studios fazendo concept boards · students montando portfolio · self-build clients DIY visualization (NOT real estate sales — arch viz craft genérica)",
+      "math": {
+        "ticketMedio": 3800,
+        "timeToDeliver": "5 dias",
+        "costPerAsset": 180,
+        "suggestedMargin": 68
+      },
+      "stack": [
+        { "moment": "Hero render still — interior + exterior fotorrealista", "model": "gpt-image-2", "rationale": "Bate render-farm tradicional em 99% dos casos pré-pitch. Image-to-image preserva planta/proporção real. Materiais (concreto · madeira · vidro · travertino) hyper-detalhados. Text-rendering perfeito para overlays de área/uso." },
+        { "moment": "Plan/section/elevation overlay + variantes", "model": "nano-banana-pro", "rationale": "Gemini 3 Pro Image edita planta/elevação com text-on-image nativo. Útil para múltiplas iterações de fachada/materiais sem regerar tudo. Variation batch barato." },
+        { "moment": "Mood + concept frame inicial", "model": "gpt-image-2", "rationale": "Geração do moodboard primário · estética/atmosfera antes da geometria. Best controle de composição arquitetônica complexa." },
+        { "moment": "Walkthrough cinematográfico 8-12s", "model": "seedance-2", "rationale": "Image-to-video direto do hero render. Multi-shot continuity para flyovers + interior walks. Sweet spot 8-12s 1080p · zero motion artifacts em ambientes estáticos." },
+        { "moment": "Composite refinement + cleanup", "model": "higgsfield", "rationale": "Cinema Studio para refinement final · LUT cinematográfico · sombra/luz consistency entre stills. Use para portfolio-grade output." }
+      ],
+      "workflow": {
+        "mermaid": "graph LR;\n A[Sketch + plant<br/>+ reference photo<br/>+ moodboard] --> B[gpt-image-2<br/>concept frames];\n B --> C[nano-banana-pro<br/>plan overlay + variants];\n B --> D[gpt-image-2<br/>hero render 6x];\n D --> E[seedance-2<br/>walkthrough 8-12s];\n D --> F[higgsfield<br/>composite refine];\n E --> G[ffmpeg<br/>concat + LUT];\n F --> G;\n G --> H[Deliverable<br/>portfolio PDF + reel + stills];"
+      },
+      "prompts": [
+        {
+          "title": "Scandinavian Interior — Hero Render Golden Hour",
+          "body": "Architectural visualization render of a scandinavian-minimalist living room interior. White-oak floor planks, full-height white plaster walls, single black-steel pendant lamp center-frame, oversized sectional sofa in oat-linen, ceramic vase with single eucalyptus branch on low travertine coffee table. Floor-to-ceiling windows on the right reveal a snowy nordic landscape with diffused golden hour light. No people. Render-grade hyper-detail, V-Ray quality, soft global illumination, 24mm wide-angle, dezeen/divisare editorial style. 16:9.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["interior", "render", "scandinavian", "hero"]
+        },
+        {
+          "title": "Brutalist Exterior — Dawn Concrete Facade",
+          "body": "Architectural render of a brutalist concrete museum facade at dawn. Massive board-formed concrete monoliths arranged in offset rhythm, vertical slit windows revealing warm interior glow, reflecting pool at base mirroring the structure. Cold blue-gray dawn sky with a single pink cloud horizon. Manicured native grass landscape at base. 3/4 angle low position emphasizing scale, 35mm lens. No people, no cars. Tadao Ando reference, hyper-real materials. 16:9.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["exterior", "render", "brutalist", "concrete"]
+        },
+        {
+          "title": "BIM-Derived Facade — Parametric Mesh",
+          "body": "Photorealistic architectural render of a parametric façade for a 12-story residential tower. Diagonal aluminum-fin mesh with varying density (denser at sun-exposed faces), reveals partial views of balconies and interior. Warm golden hour sun grazing the mesh creating dappled shadows on the concrete base. Surrounding context: modern São Paulo neighborhood, low-rise around. Eye-level pedestrian view. Hyper-real, suitable for client pitch deck cover. 16:9.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["exterior", "parametric", "residential", "facade"]
+        },
+        {
+          "title": "Sectional Cut Perspective — Mixed-Use Tower",
+          "body": "Architectural sectional cut illustration of a 6-story mixed-use building, dollhouse-section style. Visible: parking garage at base, retail ground floor with cafe, 4 floors of apartments with varied interior styling, rooftop garden. Each floor shows scale figures (no faces) and furniture. Clean axonometric perspective, soft global lighting from above, hyper-real materials per floor, OMA / BIG presentation style. 4:5.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["section", "mixed-use", "axonometric", "pitch"]
+        },
+        {
+          "title": "Interior Axonometric — Apartment Plan View",
+          "body": "Architectural axonometric rendering of a 90m² apartment interior, viewed from above at 30-degree angle, walls cut at 1.2m for clarity. Living area front, kitchen back-left, bedroom + bathroom right, balcony front-left. Full furniture set realistically scaled. Warm wood floors, light fabric textiles, soft top lighting. No people. Style: ArchDaily Plans of the Day, suitable for portfolio + client presentation. 1:1.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "1:1",
+          "tags": ["axonometric", "interior", "plan", "portfolio"]
+        },
+        {
+          "title": "Master Plan Top-Down — Urban Block",
+          "body": "Top-down master plan rendering of a 5-hectare mixed-use urban block. Six buildings of varying heights arranged around a central public plaza with water feature. Tree-lined pedestrian paths, bike lanes, perimeter street with cars. Green roofs on lower buildings visible. Shadow study at 14:00 winter sun angle. Soft watercolor + render hybrid style, presentation-grade. Suitable for competition board. 1:1.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "1:1",
+          "tags": ["masterplan", "urban", "top-down", "competition"]
+        },
+        {
+          "title": "Material Study Close-Up — Concrete + Walnut Detail",
+          "body": "Hyper-realistic close-up render of an architectural material junction: board-formed concrete wall meeting a flush walnut cabinetry section, with a brushed brass linear shadow gap between. Warm raking light from above-left revealing concrete grain, walnut figure, and brass micro-reflections. Macro framing 100mm equivalent, ultra-shallow DOF on the joint. Portfolio detail page material study. 4:5.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["material", "detail", "macro", "portfolio"]
+        },
+        {
+          "title": "Landscape Integration — Golden Hour Villa",
+          "body": "Architectural exterior render of a single-story villa nestled into a coastal hillside at golden hour. Cor-Ten steel and rammed-earth walls, deep cantilevered roof creating shadow, infinity pool extending toward Atlantic ocean horizon. Native bushes and gravel landscape, no manicured lawn. Sun low from camera-left, long warm shadows. 3/4 angle from below. Bjarke Ingels / Studio MK27 reference. 16:9.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["exterior", "villa", "landscape", "golden-hour"]
+        },
+        {
+          "title": "Walkthrough — Interior Dolly Through Loft",
+          "body": "Cinematic 10-second architectural walkthrough video, 16:9. Slow dolly forward through an industrial loft conversion: exposed brick walls, polished concrete floor, steel mezzanine right, full-height windows left with afternoon light. Camera glides at 0.4 m/s, slight upward tilt revealing the timber ceiling beams at the end. No people. Cinematic warm grade, lens-flare on the windows. 1080p, sound-design ready.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["walkthrough", "interior", "loft", "cinematic"]
+        },
+        {
+          "title": "Exterior Reveal — Drone Pull-Back from Facade",
+          "body": "Cinematic 12-second drone-style architectural reveal, 16:9. Start tight on a single window detail of a modernist house facade at twilight. Camera pulls back smoothly and rises, revealing first the full facade, then the surrounding tropical landscape, then the distant skyline. Final beat: wide aerial 50m altitude, house centered, pool deck visible. Soft blue hour grade, warm interior lights glowing. 1080p, no people.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["exterior", "reveal", "aerial", "twilight"]
+        }
+      ],
+      "cases": [
+        {
+          "brand": "Zaha Hadid Architects · AI design pipeline",
+          "url": "https://www.dezeen.com/2023/04/26/zaha-hadid-architects-patrik-schumacher-ai-dalle-midjourney/",
+          "credit": "Dezeen · Apr 26, 2023 · Patrik Schumacher panel disclosure",
+          "whatsBrilliant": "Principal Patrik Schumacher publicly disclosed that ZHA generates 'most' project concepts via Midjourney + DALL-E + Stable Diffusion — 10-15% of AI images advance to 3D modeling. Set internal AI research team. Validates AI concepting at the top of the architecture pyramid.",
+          "metric": "63,103 Midjourney prompts mention 'Zaha Hadid' (Kapwing 2025 study) — #1 architect name"
+        },
+        {
+          "brand": "Tim Fu (ex-ZHA) · AI-first practice",
+          "url": "https://paacademy.com/blog/tim-fus-ai-driven-architecture-design-with-generative-ai",
+          "credit": "PA Academy + Azure Magazine 2024 profiles",
+          "whatsBrilliant": "Former ZHA computational designer started his own AI-first practice. Built a custom-trained Midjourney persona for his studio. Shipped a real Slovenian villa project (semicircular lake-facing) whose facades came out of Midjourney workflow. Proof that AI works through built work, not just renders.",
+          "metric": "Live built project · own AI-trained Midjourney studio profile"
+        },
+        {
+          "brand": "ZHA + NVIDIA · ZSPACE Kit collaboration",
+          "url": "https://www.wallpaper.com/architecture/zaha-hadid-architects-nvidia-ai-in-architecture",
+          "credit": "Wallpaper* · ZHA + NVIDIA collaboration on Nansha Stadium",
+          "whatsBrilliant": "Built repository unifying geometry + code on NVIDIA Kit App for the Nansha Stadium project. Explicit framing: AI = fast renders + viz, NOT design substitute. Sets the honest expectation for what AI delivers today vs the hype.",
+          "metric": "Used on Nansha Stadium project · honest 'pseudo-understanding of construction' admission"
+        },
+        {
+          "brand": "Adrian Hajdin · Roomify open-source platform",
+          "url": "https://github.com/adrianhajdin/roomify",
+          "credit": "GitHub · adrianhajdin/roomify · 123 stars",
+          "whatsBrilliant": "Open-source AI architectural visualization: 2D-to-3D photorealistic rendering, serverless workers, KV storage, community feed. Validates that the AI arch viz stack is now accessible to indie devs, not just enterprise studios.",
+          "metric": "123 stars · React + Puter stack · live community feed"
+        },
+        {
+          "brand": "DataDrivenConstruction · OpenConstructionERP",
+          "url": "https://github.com/datadrivenconstruction/OpenConstructionERP",
+          "credit": "GitHub · 281 stars · AGPL-3.0",
+          "whatsBrilliant": "End-to-end open BIM + cost takeoff with AI: PDF/CAD/BIM ingest, 42 regional catalogues, 21 languages, 71 modules. Shows arch viz is just the front end — full AI construction stack now exists open-source.",
+          "metric": "281 stars · 42 regional catalogues · 21 langs · 71 modules"
+        }
+      ],
+      "resources": {
+        "repos": [
+          { "name": "adrianhajdin/roomify", "url": "https://github.com/adrianhajdin/roomify", "stars": 123, "description": "AI architectural visualization platform · 2D-to-3D photorealistic rendering · React + Puter + serverless KV" },
+          { "name": "datadrivenconstruction/cad2data-Revit-IFC-DWG-DGN", "url": "https://github.com/datadrivenconstruction/cad2data-Revit-IFC-DWG-DGN", "stars": 385, "description": "AI Agent workflow for CAD conversion (.rvt, .ifc, .dwg) — feeds arch viz pipelines with raw BIM data" },
+          { "name": "datadrivenconstruction/OpenConstructionERP", "url": "https://github.com/datadrivenconstruction/OpenConstructionERP", "stars": 281, "description": "Open construction ERP — BOQ, PDF/CAD/BIM takeoff, AI cost matching · AGPL-3.0" },
+          { "name": "QuanZ827/zexus", "url": "https://github.com/QuanZ827/zexus", "stars": 101, "description": "In-process Revit AI agent with dynamic C# code execution + LLM support + guardrail system for BIM automation" },
+          { "name": "dseditor/AIStudioFloorPlan", "url": "https://github.com/dseditor/AIStudioFloorPlan", "stars": 24, "description": "Web app: 2D architectural floor plans → 3D photorealistic visualizations + interior scenes" },
+          { "name": "mcp-servers-for-revit/revit-mcp-commandset", "url": "https://github.com/mcp-servers-for-revit/revit-mcp-commandset", "stars": 53, "description": "Revit-MCP protocol implementation connecting LLMs with Revit · CRUD commands for BIM automation" }
+        ],
+        "videos": [
+          { "title": "Midjourney for Architects — Advanced Workflow Photorealistic", "url": "https://www.youtube.com/watch?v=JVifaUyHde4", "duration": "10:47", "channel": "Show It Better" },
+          { "title": "Midjourney for Architects — Ultimate Workflow Design + Renders", "url": "https://www.youtube.com/watch?v=UVNP-4U8jxY", "duration": "12:37", "channel": "Show It Better" },
+          { "title": "Midjourney AI Tutorial for Architecture (Complete Guide)", "url": "https://www.youtube.com/watch?v=v78IkclfOaI", "duration": "49:11", "channel": "altarch" },
+          { "title": "Midjourney V7 for ARCHITECTURE 2025 — Prompts · Render · Animate", "url": "https://www.youtube.com/watch?v=D9R-jmn2jAE", "duration": "10:58", "channel": "[verify]" },
+          { "title": "Ultimate AI Midjourney V6 Architecture Guide", "url": "https://www.youtube.com/watch?v=o_QKA3n5p2A", "duration": "16:21", "channel": "[verify]" },
+          { "title": "Midjourney 7 AI Beginner Tutorial for Architecture (2025 method)", "url": "https://www.youtube.com/watch?v=SbUJJzwQ0Zc", "duration": "11:00", "channel": "altarch" },
+          { "title": "Original Midjourney Tutorial for Architects (booklet ref)", "url": "https://www.youtube.com/watch?v=KxIrqNNw5y4", "duration": "4:46", "channel": "Architecture for Thought" }
+        ],
+        "courses": [
+          { "title": "Architecture rendering with AI — Udemy search", "url": "https://www.udemy.com/courses/search/?q=architecture+AI+rendering", "platform": "Udemy", "note": "Multiple instructors · filter reviews + 2025+ recency before buying" },
+          { "title": "AI for Architects — PA Academy bootcamps", "url": "https://paacademy.com/courses/", "platform": "PA Academy", "note": "Cohort-based bootcamps run by ex-ZHA designers · higher signal than self-paced" },
+          { "title": "Show It Better courses", "url": "https://showitbetter.co/courses/", "platform": "Show It Better", "note": "Architect-run, Midjourney-deep, V7 workflows · used by the YouTube author above" },
+          { "title": "altarch Midjourney Cheat Sheet (paid asset)", "url": "https://altarch.gumroad.com/l/midjourney_cheat_sheet", "platform": "Gumroad", "note": "Static prompt reference · pairs with the altarch YouTube tutorials" }
+        ],
+        "tools": [
+          { "name": "D5 Render", "url": "https://www.d5render.com", "category": "real-time-render", "note": "Real-time GPU render with AI texture + lighting · industry standard for fast V-Ray-quality output" },
+          { "name": "Lumion", "url": "https://lumion.com", "category": "real-time-render", "note": "Architect-favorite real-time render · AI sky/water/foliage · large project library" },
+          { "name": "Twinmotion", "url": "https://www.twinmotion.com", "category": "real-time-render", "note": "Epic Games / Unreal-based · free for personal · Datasmith link with Revit/ArchiCAD" },
+          { "name": "Enscape", "url": "https://enscape3d.com", "category": "real-time-render", "note": "Revit/Rhino/SketchUp plugin · live render in design tool · VR walkthroughs" },
+          { "name": "Magnific AI", "url": "https://magnific.ai", "category": "upscale-enhance", "note": "AI upscaler that adds plausible architectural detail · pairs with Midjourney/gpt-image output for portfolio-grade" },
+          { "name": "Krea AI", "url": "https://www.krea.ai", "category": "real-time-gen", "note": "Real-time generative canvas · architects use for live sketch-to-render iteration" },
+          { "name": "Higgsfield Cinema Studio", "url": "https://higgsfield.ai", "category": "video-gen", "note": "Walkthrough cinematic refinement · LUT + composite · Murilo stack" },
+          { "name": "ArchiSnap", "url": "https://archisnap.com", "category": "vertical-saas", "note": "Architecture-specific AI render SaaS · sketch-to-render pipeline" }
+        ],
+        "papers": [],
+        "agencies": [
+          { "name": "Zaha Hadid Architects · AI Research Group", "url": "https://www.zaha-hadid.com", "specialty": "AI-augmented parametric architecture", "notable": "Internal AI research team using Midjourney + DALL-E + Stable Diffusion + NVIDIA Kit collaboration on Nansha Stadium" },
+          { "name": "Tim Fu Studio", "url": "https://www.timfu.com", "specialty": "AI-first computational architecture", "notable": "Ex-ZHA founder · live built Slovenian villa project from Midjourney workflow · custom-trained MJ persona" },
+          { "name": "NAME Architecture", "url": "https://name-architecture.com", "specialty": "Generative-AI design references for client communication", "notable": "Cited in Politecnico di Torino thesis as case study for AI-augmented practice workflow" },
+          { "name": "Show It Better", "url": "https://showitbetter.co", "specialty": "Architecture education + AI rendering courses", "notable": "Architect-run training studio · benchmark for arch AI workflow content" }
+        ]
+      },
+      "behindTheLens": [
+        { "step": 1, "title": "Brief + sketch + reference photos", "body": "Client sends rough sketch, plan PDF, 2-3 reference photos of materiality they like (Pinterest screenshots are fine), and 1 sentence describing the mood. This anchors the prompt — without geometric truth, AI freelances on you." },
+        { "step": 2, "title": "gpt-image-2 concept frames (6x)", "body": "Generate 6 hero concept frames in different lighting (golden hour / blue hour / overcast / interior-lit / dawn / night). Pick the best 3 with client async (WhatsApp poll). These become the seeds for refinement + walkthrough." },
+        { "step": 3, "title": "nano-banana-pro variation batch + plan overlay", "body": "For the picked concept: generate 4-6 material variations (concrete vs travertine · walnut vs oak · brass vs steel) without regenerating geometry. Same model handles plan/section overlays with text. Cheaper than gpt-image-2 for iteration." },
+        { "step": 4, "title": "seedance-2 walkthrough + higgsfield composite", "body": "Image-to-video on the 2 strongest stills → 8-12s walkthrough each. Then higgsfield Cinema Studio for final composite + LUT consistency between stills and video. Output: 2 walkthroughs ready for portfolio." },
+        { "step": 5, "title": "Deliver portfolio bundle + plan presentation", "body": "ZIP with: 6 hero stills (PNG 2048px) · 2 walkthroughs (MP4 1080p) · 1 PDF portfolio page composing the project · 1 PDF with the plan + section overlays. Invoice R$3.8k. Optional: print-grade 4K assets +R$800." }
+      ],
+      "roi": {
+        "inputs": [
+          { "id": "projects_per_month", "label": "Projetos / mês", "type": "number", "default": 5 },
+          { "id": "avg_project_brl", "label": "Projeto médio (R$)", "type": "number", "default": 3800 },
+          { "id": "cost_per_project_brl", "label": "Custo por projeto (R$)", "type": "number", "default": 180 }
+        ],
+        "formula": "revenue = projects_per_month * avg_project_brl; cost = projects_per_month * cost_per_project_brl; margin_brl = revenue - cost; margin_pct = (margin_brl / revenue) * 100;",
+        "outputs": [
+          { "id": "revenue", "label": "Receita mensal", "format": "BRL" },
+          { "id": "cost", "label": "Custo mensal", "format": "BRL" },
+          { "id": "margin_brl", "label": "Margem mensal", "format": "BRL" },
+          { "id": "margin_pct", "label": "Margem %", "format": "%" }
+        ]
+      }
     },
     {
       "id": "drones",
       "name": "Drones · Aerial",
-      "tagline": "FPV cinematic sem piloto sem licença",
+      "tagline": "FPV cinematográfico + flyover arquitetônico sem piloto sem licença ANAC",
       "icon": "🚁",
       "color": "#7fb0a8",
-      "icp": "Eventos · arquitetura · real estate · construction · brand films",
-      "status": "stub",
-      "comingPhase": "γ"
+      "icp": "Event agencies · arch studios · real estate (cross-sell) · wedding planners · construction monitoring · adventure tourism brands — ICP que precisa hero aerial mas não justifica DJI Inspire R$60k + piloto R$1.5k/dia",
+      "math": {
+        "ticketMedio": 2800,
+        "timeToDeliver": "48h",
+        "costPerAsset": 110,
+        "suggestedMargin": 74
+      },
+      "stack": [
+        { "moment": "FPV cinematic aerial loop 8-15s", "model": "seedance-2", "rationale": "Best-in-class para FPV drone shots — multimodal aceita reference image + motion prompt. Tested no Himalayan flight, mountain reveals, valley dives. Sweet spot 15s 1080p." },
+        { "moment": "Multi-shot orbit + flyover continuity", "model": "kling-3", "rationale": "Multi-shot continuity superior para drone orbit + reveal sequences. Keyframe control deixa amarrar trajetória precisa quando há referência terrestre (casa, prédio, evento)." },
+        { "moment": "Concept frame / hero still aerial", "model": "gpt-image-2", "rationale": "Geração do hero still inicial pré-vídeo. Compose o terreno + luz + altitude antes de pedir movimento. Reusável standalone para thumbnail/poster." },
+        { "moment": "Variation batch + texture refine", "model": "nano-banana-pro", "rationale": "Para gerar 5-10 variações de uma cena aérea (golden hour / blue hour / overcast / dramatic sky) sem regerar tudo. Crítico para client picks." },
+        { "moment": "Final cut · LUT · stabilize · sound", "model": "ffmpeg", "rationale": "Local · zero custo · concat + LUT teal-orange + ambient drone sound + standalone exports. Reusável em batch." }
+      ],
+      "workflow": {
+        "mermaid": "graph LR;\n A[Brief + reference photos<br/>terrain · time of day] --> B[gpt-image-2<br/>hero aerial still];\n B --> C[seedance-2<br/>FPV loop 15s];\n B --> D[kling-3<br/>orbit 12s];\n B --> E[nano-banana-pro<br/>variants];\n C --> F[ffmpeg<br/>concat + LUT + sound];\n D --> F;\n E --> F;\n F --> G[Deliverable<br/>3-5 aerial clips + stills];"
+      },
+      "prompts": [
+        {
+          "title": "FPV Cinematic — Himalayan Mountain Flight",
+          "body": "Fast cinematic FPV drone flight through a majestic Himalayan mountain scene at golden hour, hyper-realistic, warm sunlight with long dramatic shadows. Rapid soar over towering snow-capped peaks and jagged ridges, sharp dive through deep glacial valleys and rocky gorges, weave past fluttering prayer flags on high passes, skim low over turquoise glacial lakes and terraced mountain slopes, dramatic endless Himalayan range backdrop with mist and distant summits, ultra-smooth stabilization, volumetric god rays piercing through clouds, intense cinematic motion blur, film-grade color grading, dynamic 15-second sequence.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "expectedOutputItemId": "fe38a7c2334f",
+          "tags": ["fpv", "drone", "mountain", "cinematic"]
+        },
+        {
+          "title": "Construction Time-Lapse Reveal — Tower Build",
+          "body": "Cinematic 12-second aerial reveal of a high-rise tower under construction. Camera starts at street level showing the foundation excavation, then pulls back and rises 100m, accelerating into time-lapse mode where the structure visibly grows floor-by-floor over the shot. Crane swings, workers move as motion blur. Golden hour São Paulo skyline behind. 16:9, 1080p, smooth gimbal feel, no jitter.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["construction", "time-lapse", "reveal", "aerial"]
+        },
+        {
+          "title": "Real Estate Drone Orbit — Luxury Villa",
+          "body": "Cinematic aerial drone shot orbiting a 3-story contemporary luxury villa in a tropical neighborhood at golden hour. Smooth 90-degree clockwise orbit, drone altitude 25m, camera locked on the house. Reveals pool deck and patio on the back half. Lush garden, palmeiras imperiais. No people, no cars. 12 seconds, 1080p, warm Hollywood grade, slight DOF on background. 16:9.",
+          "model": "kling-3",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["real-estate", "orbit", "villa", "drone"]
+        },
+        {
+          "title": "Wedding Venue Reveal — Aerial Establishing",
+          "body": "Cinematic aerial reveal of a hilltop vineyard wedding venue at golden hour. Camera starts low at the vineyard rows level, lifts smoothly to 40m altitude revealing the rustic stone chapel center-frame, then the ceremony setup with white chairs in arc formation, finally the panoramic valley behind. 15 seconds, 16:9, anamorphic feel, warm romantic grade. No people. Sound-design ready for romantic score.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["wedding", "venue", "aerial", "reveal"]
+        },
+        {
+          "title": "Event Highlight — Festival Aerial Sweep",
+          "body": "Dynamic aerial drone shot over a music festival at dusk. Drone at 30m altitude sweeps over the main stage during light show, crowd densely packed below in motion blur, stage lasers cutting through haze. 10 seconds, 16:9, 1080p. High-energy editorial grade, fast smooth motion. End frame: pull back wide showing the entire festival ground with city skyline behind.",
+          "model": "kling-3",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["event", "festival", "aerial", "highlight"]
+        },
+        {
+          "title": "Architectural Flyover — Modernist House Reveal",
+          "body": "Cinematic 12-second architectural flyover of a contemporary single-story modernist house at twilight. Drone starts behind the house at 30m altitude, glides forward and over the roof revealing the infinity pool deck and open glass facade. Continues forward over the pool, then orbits 90 degrees to face the main facade. Warm interior lights glowing against blue twilight sky. No people. 16:9, 1080p, cinematic grade.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["architecture", "flyover", "twilight", "house"]
+        },
+        {
+          "title": "Adventure Tourism — Waterfall Approach",
+          "body": "Cinematic FPV drone flight approaching a 200m tropical waterfall. Camera dives from the cliff edge, accelerates down following the water column, weaves close to the spray and rainbow at the base, pulls back to reveal the entire waterfall and surrounding jungle canopy. 15 seconds, 16:9, 1080p. Hyper-real water spray, lush jungle green, dramatic sun rays through canopy. Adventure-tourism brand vibe.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["adventure", "tourism", "waterfall", "fpv"]
+        },
+        {
+          "title": "Property Showcase — Wide Establishing",
+          "body": "Architectural aerial photograph of a luxury beachfront property at golden hour. Drone altitude 80m, camera tilted down 30 degrees, capturing the property in context: house, pool, garden, private beach access, ocean horizon. Long warm shadows from low sun. No people, no boats. Hyper-detailed, suitable for hero image of a luxury listing page. 16:9.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["property", "establishing", "aerial", "hero"]
+        },
+        {
+          "title": "Sunset Cinematic Orbit — Coastal Cliff House",
+          "body": "Cinematic aerial orbit around a modernist house perched on a coastal cliff at sunset. Drone at 50m altitude, full 360-degree clockwise orbit over 15 seconds. Camera locked on the house, sun visible in 2 frames creating natural lens flare. Cliff drop to ocean visible. Warm orange-pink sky gradient. No people. 16:9, 1080p, anamorphic LUT.",
+          "model": "kling-3",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["sunset", "orbit", "coastal", "cinematic"]
+        },
+        {
+          "title": "9:16 Vertical Aerial — Hilltop Reveal for Reels",
+          "body": "Vertical 9:16 aerial drone shot, 10 seconds. Camera ascends straight up from ground level at the base of a hilltop trail, revealing the trail snaking up the hill, then the summit with a small chapel, finally the panoramic mountain range horizon. Golden hour warm light. 1080x1920, smooth ascent at 1 m/s, no jitter. Ready for Instagram Reels / TikTok organic.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["vertical", "9:16", "reels", "aerial"]
+        }
+      ],
+      "cases": [
+        {
+          "brand": "Fourth Wall Production · LA real estate agency",
+          "url": "https://www.fourthwallproduction.com/post/recommended-drones-real-estate-photography-2025",
+          "credit": "Fourth Wall Production 2025 case study",
+          "whatsBrilliant": "LA agency documented +45% listing-views lift when aerial drone footage was integrated into marketing. Direct metric for justifying drone-as-a-service to real estate cross-sell.",
+          "metric": "+45% listing views with drone aerial · faster Miami luxury sales [unverified exact lift]"
+        },
+        {
+          "brand": "DJI Inspire 3 · cinematic professional benchmark",
+          "url": "https://enterprise.dji.com/inspire-3",
+          "credit": "DJI Enterprise · Inspire 3 product page + community case",
+          "whatsBrilliant": "Hardware benchmark for professional aerial cinematography. Sets the visual reference that AI-generated drone footage now competes with at R$60k+ acquisition cost — frame zero replaces the upfront capex with per-asset gen.",
+          "metric": "Industry-standard for Hollywood drone work · R$60k+ acquisition"
+        },
+        {
+          "brand": "Listings with drone — 68% faster sale benchmark",
+          "url": "https://www.styldod.com/blog/a-definitive-guide-to-real-estate-drone-photography",
+          "credit": "Styldod 2025 industry guide · MLS aggregated data",
+          "whatsBrilliant": "Hard data: properties with aerial photos get 68% more attention + close quicker than without. Floor case for any agent + arch studio considering AI drone gen instead of hiring R$150-600/shoot drone pilot.",
+          "metric": "+68% attention · faster close · vs R$150-600/shoot pilot"
+        },
+        {
+          "brand": "Seedance 2.0 on Runway · cinematic showcase",
+          "url": "https://www.youtube.com/watch?v=3gdgoC98nQ0",
+          "credit": "Runway / Seedance 2.0 launch · Nov 2025",
+          "whatsBrilliant": "First major hosted demo of Seedance 2.0 multi-shot capability. Showcased text-to-aerial + image-to-aerial workflows in 1080p with full sound design. Catalyst for arch + real estate verticals adopting AI drone gen.",
+          "metric": "Now available global in 1080p · Runway hosts unlimited plan"
+        },
+        {
+          "brand": "Tello + OpenCV autonomous flight (open-source)",
+          "url": "https://github.com/Akbonline/Autonomous-Drone-based-on-Facial-Recognition-and-Tracking",
+          "credit": "Akbonline open-source project · DJI Tello + Python + CNN",
+          "whatsBrilliant": "Proves the autonomous-flight + tracking stack is now open-source for cheap consumer drones. Frame zero positioning: when real flight is needed (live event), DJI Tello + this stack handles it for under R$2k hardware budget.",
+          "metric": "Open-source · DJI Tello R$1.5k · CNN-based face/object tracking"
+        }
+      ],
+      "resources": {
+        "repos": [
+          { "name": "tbs-trappy/source_one", "url": "https://github.com/tbs-trappy/source_one", "stars": 614, "description": "Open-source FPV drone frame — hardware reference for building real FPV rigs when needed alongside AI gen" },
+          { "name": "WE-are-FPV/JeNo-5.1", "url": "https://github.com/WE-are-FPV/JeNo-5.1", "stars": 68, "description": "5.1\" drone FPV frame for Freestyle/Freeride/Cinematic with DJI O3 air unit" },
+          { "name": "Akbonline/Autonomous-Drone-based-on-Facial-Recognition-and-Tracking", "url": "https://github.com/Akbonline/Autonomous-Drone-based-on-Facial-Recognition-and-Tracking", "stars": 9, "description": "DJI Tello virtual remote + face recognition CNN + autonomous mode + sports/flips/patrol/streaming" },
+          { "name": "yaroslava-tkachuk/tello_follow_me", "url": "https://github.com/yaroslava-tkachuk/tello_follow_me", "stars": 5, "description": "DJI Ryze Tello SDK 'follow-me' autonomous flight client" },
+          { "name": "feehcarvalho/drone", "url": "https://github.com/feehcarvalho/drone", "stars": 2, "description": "DJI Mini Pro 4 autonomous mission flights — BR developer reference" },
+          { "name": "EvoLinkAI/awesome-seedance-2-guide", "url": "https://github.com/EvoLinkAI/awesome-seedance-2-guide", "stars": 370, "description": "Seedance 2.0 complete guide — includes aerial + cinematic motion patterns" }
+        ],
+        "videos": [
+          { "title": "Seedance 2.0 Now Available in Runway", "url": "https://www.youtube.com/watch?v=3gdgoC98nQ0", "duration": "1:41", "channel": "Runway" },
+          { "title": "Seedance 2.0 in 1080p Now Available — Runway", "url": "https://www.youtube.com/watch?v=BN8hrs7crAc", "duration": "1:00", "channel": "Runway" },
+          { "title": "Seedance 2.0 outperforms Kling / Runway Aleph / Luma (Cinema 4D + AI)", "url": "https://www.youtube.com/watch?v=GqyohMi8Dvg", "duration": "5:52", "channel": "[verify]" },
+          { "title": "SeeDance 2.0 — MOST POWERFUL Video Model yet", "url": "https://www.youtube.com/watch?v=4wfoq7j6cKY", "duration": "15:20", "channel": "[verify]" },
+          { "title": "The IMPOSSIBLE Prompt Challenge — 4 AI Video Models (incl. aerial)", "url": "https://www.youtube.com/watch?v=RdpGkAOSC4g", "duration": "14:39", "channel": "Higgsfield comparison" },
+          { "title": "Best AI UGC Video Generators 2026 (Seedance 2.0 vs. Kling 3.0 vs. VEO 3.1)", "url": "https://www.youtube.com/watch?v=aRakxUzGsd8", "duration": "15:54", "channel": "Codingem" },
+          { "title": "Seedance 2.0 — Released & Unlimited US launch", "url": "https://www.youtube.com/watch?v=rwnHJ6qlbUA", "duration": "17:42", "channel": "[verify]" }
+        ],
+        "courses": [
+          { "title": "Drone cinematography — Udemy search", "url": "https://www.udemy.com/courses/search/?q=drone+cinematography+aerial", "platform": "Udemy", "note": "Multiple instructors · filter by reviews + 2025+ recency" },
+          { "title": "Pilot Institute — Real Estate Drone Photography", "url": "https://pilotinstitute.com/real-estate-drone-photography/", "platform": "Pilot Institute", "note": "Industry-respected drone training · covers licensing + real estate workflow" },
+          { "title": "DJI Academy", "url": "https://store.dji.com/academy", "platform": "DJI", "note": "Official DJI training for hardware-based aerial work · pair with AI gen for hybrid pipelines" }
+        ],
+        "tools": [
+          { "name": "Seedance 2.0 (via Runway / fal.ai)", "url": "https://fal.ai/models/fal-ai/seedance-pro", "category": "video-gen", "note": "Workhorse for FPV/aerial cinematic loops · 15s 1080p sweet spot" },
+          { "name": "Kling 3.0 (via fal.ai / KIE.AI)", "url": "https://fal.ai/models/fal-ai/kling-video", "category": "video-gen", "note": "Multi-shot continuity for orbit + reveal sequences · keyframe control" },
+          { "name": "Runway Gen-4 (with Seedance hosted)", "url": "https://runwayml.com", "category": "video-gen-platform", "note": "Unlimited plan hosts Seedance 2.0 generations + provides Aleph modify pipeline" },
+          { "name": "DaVinci Resolve", "url": "https://www.blackmagicdesign.com/products/davinciresolve", "category": "post-production", "note": "Industry-grade free color grading · LUT application + stabilization for AI aerial output" },
+          { "name": "LRTimelapse", "url": "https://lrtimelapse.com", "category": "time-lapse", "note": "When real footage is involved · de-flicker + edit aerial time-lapses" },
+          { "name": "DJI Fly (DJI Mini 4 Pro)", "url": "https://www.dji.com/fly", "category": "drone-hardware-app", "note": "When real drone needed · DJI Mini 4 Pro = R$5k entry-level cinematic compliant in BR" },
+          { "name": "Skydio Autonomy", "url": "https://www.skydio.com", "category": "drone-hardware", "note": "Best autonomous tracking for live action · enterprise-tier" },
+          { "name": "Higgsfield Cinema Studio", "url": "https://higgsfield.ai", "category": "video-gen", "note": "Cinematic compositing + LUT on top of Seedance/Kling output · Murilo stack" }
+        ],
+        "papers": [],
+        "agencies": [
+          { "name": "Fourth Wall Production", "url": "https://www.fourthwallproduction.com", "specialty": "Real estate aerial drone videography (LA)", "notable": "Documented +45% listing-views lift case study with drone integration" },
+          { "name": "Native Foreign", "url": "https://nativeforeign.com", "specialty": "Generative AI cinematic production", "notable": "Sora alpha partner · transferable workflow for AI aerial commercial production" },
+          { "name": "DJI Enterprise · solution partner network", "url": "https://enterprise-insights.dji.com/blog/drone-real-estate-photography", "specialty": "Professional drone services + AI-enhanced workflows", "notable": "Network of certified aerial videography studios — direct competition + benchmark for pricing" }
+        ]
+      },
+      "behindTheLens": [
+        { "step": 1, "title": "Brief + reference + altitude/light spec", "body": "Client describes terrain (house, vineyard, festival, construction site), desired altitude (low FPV 5m vs establishing 80m), time of day (golden hour / blue hour / overcast), and motion (orbit · reveal · flyover · dive). 1-2 reference photos of the actual location anchor everything." },
+        { "step": 2, "title": "gpt-image-2 hero aerial still", "body": "Generate the hero aerial frame first — composition + altitude + light. 3-5 variants. This is the visual contract with client AND the seed image for the video gen step. Get sign-off on the still before burning video credits." },
+        { "step": 3, "title": "seedance-2 + kling-3 parallel batch (3-5 clips)", "body": "From the picked hero: seedance-2 for FPV-style motion (dive, weave, low approach), kling-3 for orbit/reveal/multi-shot continuity. 15s clips at 1080p. Re-roll 1-2 on motion artifacts (camera glitches at the start frame are common)." },
+        { "step": 4, "title": "ffmpeg cut + LUT + drone sound + stabilize", "body": "Concat 3-5 clips into a 45-60s reel. Apply teal-orange LUT or natural-cinematic LUT. Layer ambient drone whoosh + wind sound. Optional stabilize if AI motion is too jerky. Export 16:9 master + 9:16 vertical cut + standalone aerial stills (PNG 2048px)." },
+        { "step": 5, "title": "Deliver bundle + iteration round", "body": "WhatsApp: ZIP with master reel (45s 16:9) · vertical cut (9:16) · 3-5 standalone clips · 3 stills (PNG). Invoice R$2.8k. Offer 1 iteration round bundled (typically used for music/grade change or 1 clip re-gen). Optional add-on: real DJI Mini 4 Pro pass on-location for ground-truth integration +R$1.5k." }
+      ],
+      "roi": {
+        "inputs": [
+          { "id": "projects_per_month", "label": "Projetos / mês", "type": "number", "default": 8 },
+          { "id": "avg_project_brl", "label": "Projeto médio (R$)", "type": "number", "default": 2800 },
+          { "id": "cost_per_project_brl", "label": "Custo por projeto (R$)", "type": "number", "default": 110 }
+        ],
+        "formula": "revenue = projects_per_month * avg_project_brl; cost = projects_per_month * cost_per_project_brl; margin_brl = revenue - cost; margin_pct = (margin_brl / revenue) * 100;",
+        "outputs": [
+          { "id": "revenue", "label": "Receita mensal", "format": "BRL" },
+          { "id": "cost", "label": "Custo mensal", "format": "BRL" },
+          { "id": "margin_brl", "label": "Margem mensal", "format": "BRL" },
+          { "id": "margin_pct", "label": "Margem %", "format": "%" }
+        ]
+      }
     },
     {
       "id": "empresa-junior",
@@ -688,12 +1079,223 @@
     {
       "id": "tiktok",
       "name": "TikTok-native",
-      "tagline": "Vertical hooks + UGC + viral formats native to feed",
+      "tagline": "Vertical 9:16 hooks · UGC · 100 variantes em 1 tarde · custo de teste sub-R$5/asset",
       "icon": "📱",
       "color": "#fe2c55",
-      "icp": "Creators + brands testing organic + agencies running short-form",
-      "status": "stub",
-      "comingPhase": "γ"
+      "icp": "Creators rampando organic · ecom brands testando organic-first antes de paid · agencies rodando TikTok orgânico de clientes · BR creators competindo no algoritmo PT-BR sem budget de filmagem",
+      "math": {
+        "ticketMedio": 3200,
+        "timeToDeliver": "48h",
+        "costPerAsset": 95,
+        "suggestedMargin": 73
+      },
+      "stack": [
+        { "moment": "Hook frame 3s pattern interrupt 9:16", "model": "gpt-image-2", "rationale": "Melhor controle de composição vertical 9:16 + text-rendering nativo no frame. Geração de pattern-interrupt opening (mais crítico do video pro algoritmo TikTok)." },
+        { "moment": "Vertical 9:16 video gen 6-9s", "model": "seedance-2", "rationale": "Workhorse para vertical 9:16 nativo · sweet spot 6-9s que bate o algorithm-favored format. Multimodal aceita hook still + script de motion." },
+        { "moment": "UGC selfie / talking-head", "model": "higgsfield", "rationale": "Marketing Studio UGC presets · phone-aesthetic-grade · 1000+ avatares preconfigurados para feed-native authenticity. Bate Sora em UGC realism." },
+        { "moment": "Static product hooks + text overlays", "model": "nano-banana-pro", "rationale": "Edit barato para gerar 20-30 thumbnails / static frames variantes (mudar copy overlay, cor, BG) por trocar zero do produto base. Crítico para A/B test de hooks." },
+        { "moment": "Cut + sticker + caption + auto-subtitle", "model": "ffmpeg", "rationale": "FFmpeg + Whisper para auto-subtitle PT-BR + sticker overlay + 9:16 export. Open-source · zero credit · scriptable batch. Alternative paid: CapCut auto-caption + auto-cut features." }
+      ],
+      "workflow": {
+        "mermaid": "graph LR;\n A[Brand brief<br/>+ winning TikToks<br/>+ product] --> B[Hook research<br/>TikTok Creative Center];\n B --> C[gpt-image-2<br/>10x hook stills 9:16];\n C --> D[seedance-2<br/>6-9s vertical video];\n C --> E[higgsfield<br/>UGC avatar];\n D --> F[ffmpeg / CapCut<br/>caption + sticker];\n E --> F;\n F --> G[20+ variants<br/>posted organic A/B];\n G --> H[Winners → remake<br/>at human scale];"
+      },
+      "prompts": [
+        {
+          "title": "3-Second Hook Frame — Skincare Pattern Interrupt",
+          "body": "Vertical 9:16 hook frame for a TikTok beauty ad. Macro shot of an amber dropper bottle suspended mid-air over a cracked-marble counter, single golden drop falling toward counter with motion blur. Soft beauty light from camera-left. Bold sans-serif text overlay top-third: 'STOP scrolling.' in white (Inter Bold). Subtle brand wordmark bottom. High-end editorial cosmetic style. Ultra-detailed glass refraction.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "9:16",
+          "expectedOutputItemId": "8db622c58e34",
+          "tags": ["hook", "9:16", "pattern-interrupt", "skincare"]
+        },
+        {
+          "title": "UGC Selfie Testimonial — Bathroom Mirror 9:16",
+          "body": "Vertical 9:16 mirror selfie of a stylish young Brazilian woman 25-30 in a softly-lit apartment bathroom, casual morning routine vibe, holding a skincare bottle slightly toward the mirror, natural smile, no makeup look. Phone visible in her hand. Light from a frosted window left side. iPhone-shot aesthetic with slight phone-grain. Reads as authentic UGC NOT polished commercial. Space top-left for hook copy overlay.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "9:16",
+          "expectedOutputItemId": "f5d6460f3800",
+          "tags": ["ugc", "selfie", "9:16", "authentic"]
+        },
+        {
+          "title": "Pattern-Interrupt Scroll-Stopper — Glitch Frame",
+          "body": "Vertical 9:16 scroll-stopping hook frame. Center: a sharply-lit product (perfume bottle) frozen mid-fall on a black void background. Top of frame: a glitch-style horizontal RGB displacement bar with text 'WAIT!' in jarring magenta. Bottom: subtle smoke wisp around bottle base. Cinematic high-contrast lighting, single warm rim. Designed for TikTok feed maximum scroll-stop in 0.3s.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "9:16",
+          "tags": ["pattern-interrupt", "hook", "glitch", "scroll-stopper"]
+        },
+        {
+          "title": "Product Reveal Vertical — Cosmetic Open 6s",
+          "body": "Cinematic 6-second vertical 9:16 video. Frame 1-2s: extreme close-up of a closed cosmetic jar on velvet. Frame 3-4s: unseen hand opens the jar with satisfying click, product texture revealed inside. Frame 5-6s: hand dips finger and pulls back creating perfect cream peak. Soft warm studio light, sharp macro. No people visible except the hand. Sound-design ready for ASMR mic pickup.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["reveal", "product", "cosmetic", "asmr"]
+        },
+        {
+          "title": "POV: You Format — Morning Routine Hook",
+          "body": "Vertical 9:16 POV hook frame, first-person perspective. Hands holding a phone in front of bathroom mirror — the mirror reflects a young Brazilian woman in pajamas, looking surprised at the camera, mid-laugh. Steam from a shower softly visible. Morning light. Top-left text overlay space: 'POV: when you finally...'. Authentic phone-aesthetic, no commercial polish. Perfect for 'POV:' caption format.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "9:16",
+          "tags": ["pov", "hook", "ugc", "morning-routine"]
+        },
+        {
+          "title": "Meme-Text Overlay — Bold Top-Caption",
+          "body": "Vertical 9:16 meme-style image. Center: a domestic cat staring directly at camera with judgmental expression, on a couch. Top half black bar with bold white Impact-font text: 'Me checking my bank account after testing 30 AI tools'. Authentic phone-shot quality, slight grain. Designed for high-shareability TikTok meme format. 9:16.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "9:16",
+          "tags": ["meme", "text-overlay", "viral", "shareable"]
+        },
+        {
+          "title": "Transformation Before/After — Split-Frame Hook",
+          "body": "Vertical 9:16 split-frame transformation hook. Top half: BEFORE — dim room, messy desk, person with sleepy face. Bottom half: AFTER — same room reorganized, golden hour light, same person smiling brightly. Center horizontal divider with text 'BEFORE | AFTER' in bold white. Phone-aesthetic, perfect for the 'transformation' TikTok format.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "9:16",
+          "tags": ["transformation", "before-after", "hook", "split"]
+        },
+        {
+          "title": "UGC Talking Head — 15s Pitch PT-BR",
+          "body": "Vertical 9:16 video of a young Brazilian woman 25-30 on a casual couch in natural daylight, holding a product, speaking directly to camera with engaged expression, natural hand gestures every 2-3 seconds. Phone-shot aesthetic (slight grain, handheld micro-shake). 15 seconds, lip-sync ready for ElevenLabs PT-BR voice over. Background: cozy living room, plants. Authentic UGC vibe.",
+          "model": "higgsfield",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["ugc", "talking-head", "pt-br", "pitch"]
+        },
+        {
+          "title": "Slo-Mo Product Close — Liquid Pour 6s",
+          "body": "Cinematic 6-second vertical 9:16 video of a craft cocktail being poured. Frame 1-2s: dark cinematic background, single coupe glass center. Frame 3-4s: amber cocktail pours from above in slow motion, perfect ribbon. Frame 5-6s: pour stops, small splash, garnish dropped in from above. Moody bar lighting, single warm rim light. No people. Audio cue: pour + ice clink.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["slo-mo", "product", "beverage", "close-up"]
+        },
+        {
+          "title": "Viral Aesthetic — Neon Mirror Selfie",
+          "body": "Vertical 9:16 mirror selfie in a glossy warm gold and rose-pink interior with rounded retro-futuristic architecture. Subject stands centered, holding black smartphone covering most of face, short dark wavy hair visible. Wears black varsity jacket, white tee, black joggers, white high-top sneakers, layered bracelets. Above mirror: neon sign 'CAPTURE YOUR MOMENT' in two lines. Two illuminated shelves left/right with books + perfume + flowers. Plush lounge chairs in lower corners, glossy reflective floor, soft bokeh sparkle. Cinematic photorealism, vertical 3:4 framing.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "9:16",
+          "expectedOutputItemId": "f5d6460f3800",
+          "tags": ["viral", "aesthetic", "selfie", "neon"]
+        }
+      ],
+      "cases": [
+        {
+          "brand": "Klarna · AI marketing transformation",
+          "url": "https://adage.com/article/best-2024/best-ai-marketing-activations-2024-coca-cola-klarna-kitkat-procreate-and-more/2590416/",
+          "credit": "Ad Age · Best AI Marketing Activations of 2024",
+          "whatsBrilliant": "Replaced majority of in-house creative with AI tooling — $10M+ marketing cost savings + 4x creative output. CEO publicly featured AI-clone deepfakes in earnings reports. Validates AI-first content operation including TikTok at fintech-scale.",
+          "metric": "$10M savings · 4x creative volume [unverified — Klarna self-reported]"
+        },
+        {
+          "brand": "MoneyPrinterTurbo · open-source viral video factory",
+          "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+          "credit": "GitHub · harry0703/MoneyPrinterTurbo · 65,760 stars",
+          "whatsBrilliant": "Open-source one-click short video generator — 65k stars proves massive demand for AI TikTok automation. LLM-driven scripts + TTS + footage match + auto-vertical export. Sets the open-source baseline that any indie creator can run locally.",
+          "metric": "65,760 GitHub stars · LLM-powered · one-click vertical export"
+        },
+        {
+          "brand": "SamurAIGPT · AI YouTube Shorts Generator",
+          "url": "https://github.com/SamurAIGPT/AI-Youtube-Shorts-Generator",
+          "credit": "GitHub · SamurAIGPT · 3,707 stars",
+          "whatsBrilliant": "Open-source alternative to Opus Clip / Vidyo.ai / Klap / SubMagic — LLM highlight detection + Whisper transcription + auto vertical cropping. Zero watermarks, zero per-clip credits. Sets the floor for what 'TikTok content factory' costs now (= $0).",
+          "metric": "3,707 stars · free vs Opus Clip $9.99-99/mo paid"
+        },
+        {
+          "brand": "ShortGPT · TikTok channel automation framework",
+          "url": "https://github.com/RayVentura/ShortGPT",
+          "credit": "GitHub · RayVentura/ShortGPT · 7,366 stars",
+          "whatsBrilliant": "Experimental AI framework purpose-built for YouTube Shorts + TikTok channel automation. Composable: script-gen → voice → footage → caption → vertical export. Influential reference architecture for any agency building TikTok content engines.",
+          "metric": "7,366 stars · channel-automation framework · framework not just tool"
+        },
+        {
+          "brand": "Whalar · creator agency AI-augmented",
+          "url": "https://www.whalar.com",
+          "credit": "Whalar agency · TikTok creator partnerships",
+          "whatsBrilliant": "Major global creator agency openly partnering with brands on AI-augmented TikTok content. Sets the benchmark for agency-tier offer that any freelancer can undercut with the same AI stack at 1/10th the cost.",
+          "metric": "Global creator agency · TikTok-native brand partnerships"
+        },
+        {
+          "brand": "Pearpop · creator management platform",
+          "url": "https://www.pearpop.com",
+          "credit": "Pearpop creator platform 2026",
+          "whatsBrilliant": "Comprehensive creator management with AI-augmented brand partnership matching. Validates AI's role in TikTok creator-brand pipeline at platform scale — frame zero replaces the creator with synthetic UGC for the testing phase.",
+          "metric": "Brand partnership matching at platform scale"
+        }
+      ],
+      "resources": {
+        "repos": [
+          { "name": "harry0703/MoneyPrinterTurbo", "url": "https://github.com/harry0703/MoneyPrinterTurbo", "stars": 65760, "description": "One-click AI short video generator · LLM scripts + TTS + footage match + auto-vertical · canonical reference" },
+          { "name": "krillinai/KrillinAI", "url": "https://github.com/krillinai/KrillinAI", "stars": 10147, "description": "Video translation + dubbing in 100 languages · TikTok/抖音/小红书 native output formats · BR-friendly PT-BR pipeline" },
+          { "name": "RayVentura/ShortGPT", "url": "https://github.com/RayVentura/ShortGPT", "stars": 7366, "description": "AI framework for YouTube Shorts + TikTok channel automation · composable script→voice→footage→caption pipeline" },
+          { "name": "SamurAIGPT/AI-Youtube-Shorts-Generator", "url": "https://github.com/SamurAIGPT/AI-Youtube-Shorts-Generator", "stars": 3707, "description": "Open-source alternative to Opus Clip / Vidyo.ai / Klap / SubMagic · free · no watermark" },
+          { "name": "YILS-LIN/short-video-factory", "url": "https://github.com/YILS-LIN/short-video-factory", "stars": 4009, "description": "Cross-platform desktop tool · one-click product marketing short videos · AI batch auto-clipping" },
+          { "name": "IgorShadurin/app.yumcut.com", "url": "https://github.com/IgorShadurin/app.yumcut.com", "stars": 717, "description": "YumCut · prompt-to-vertical-video for TikTok/Reels/Shorts · Next.js · FFmpeg-ready · self-hosted" },
+          { "name": "dansugc/reelclaw", "url": "https://github.com/dansugc/reelclaw", "stars": 89, "description": "UGC reel production engine for AI coding agents · scroll-stopping short-form at scale" },
+          { "name": "GabrielLaxy/TikTokAIVideoGenerator", "url": "https://github.com/GabrielLaxy/TikTokAIVideoGenerator", "stars": 60, "description": "Python tool automating vertical video creation for TikTok / Reels / Shorts · scripts + images + voiceover + captions" }
+        ],
+        "videos": [
+          { "title": "Create Viral Videos with CapCut AI Video Generator (Beginner's Guide)", "url": "https://www.youtube.com/watch?v=pKq0FsyLPkA", "duration": "11:21", "channel": "CapCut tutorial" },
+          { "title": "CapCut's AI Video Maker — From a simple idea to creative video", "url": "https://www.youtube.com/watch?v=BC9QAxHJmcM", "duration": "3:21", "channel": "CapCut" },
+          { "title": "Beginner Tutorial — CapCut's AI Video Maker", "url": "https://www.youtube.com/watch?v=aCAS5GGptFE", "duration": "15:04", "channel": "[verify]" },
+          { "title": "7 Mind-Blowing CapCut AI Features You NEED in 2026", "url": "https://www.youtube.com/watch?v=IEpMPBp4G-g", "duration": "9:14", "channel": "Joey Edits" },
+          { "title": "BYE VIDEO EDITING — CapCut AI Video Maker (2026 Full Guide)", "url": "https://www.youtube.com/watch?v=PObU8mK1vBw", "duration": "16:35", "channel": "AI Master" },
+          { "title": "Best AI UGC Video Generators 2026 (Seedance 2.0 vs Kling 3.0 vs VEO 3.1)", "url": "https://www.youtube.com/watch?v=aRakxUzGsd8", "duration": "15:54", "channel": "Codingem" },
+          { "title": "CapCut AI Video Maker is INSANE (and Free)", "url": "https://www.youtube.com/watch?v=blQhTK1pMr0", "duration": "10:08", "channel": "Online Film Academy" },
+          { "title": "How To Use CapCut AI Video Generator", "url": "https://www.youtube.com/watch?v=H3fYcSWS_oY", "duration": "2:47", "channel": "[verify]" }
+        ],
+        "courses": [
+          { "title": "TikTok Creator Mastery — Udemy search", "url": "https://www.udemy.com/courses/search/?q=tiktok+creator+ai", "platform": "Udemy", "note": "Multiple instructors · filter recency 2025+ before buying · prefer creator-led" },
+          { "title": "Skillshare TikTok creator series", "url": "https://www.skillshare.com/search?query=tiktok", "platform": "Skillshare", "note": "Creator-led short courses · subscription model · good for hook-pattern study" },
+          { "title": "TikTok Creator Academy (free)", "url": "https://www.tiktok.com/creators/creator-portal/en-us/", "platform": "TikTok official", "note": "Official creator education · algorithm insights · best practices · free" },
+          { "title": "Maven creator-economy cohorts", "url": "https://maven.com/topics/creator-economy", "platform": "Maven", "note": "Higher-signal cohort-based · check for AI-creative + TikTok workshops by ex-agency operators" }
+        ],
+        "tools": [
+          { "name": "CapCut", "url": "https://www.capcut.com", "category": "video-editor", "note": "ByteDance · free · TikTok-native · AI auto-caption + auto-cut + templates · standard mobile + desktop" },
+          { "name": "Submagic", "url": "https://www.submagic.co", "category": "auto-caption", "note": "AI auto-caption + animated subtitles for short-form · $13-49/mo" },
+          { "name": "Opus Clip", "url": "https://www.opus.pro", "category": "long-to-short", "note": "AI long-video-to-shorts · ranks clips by viral potential · $9.99-99/mo" },
+          { "name": "Higgsfield UGC (Marketing Studio)", "url": "https://higgsfield.ai", "category": "ugc-video-gen", "note": "Murilo stack · UGC presets · 1000+ avatars · best for selfie/talking-head TikToks" },
+          { "name": "Seedance 2.0 (via fal.ai)", "url": "https://fal.ai/models/fal-ai/seedance-pro", "category": "video-gen", "note": "Workhorse for 9:16 vertical 6-9s · pay-per-second · multimodal" },
+          { "name": "Runway Gen-4", "url": "https://runwayml.com", "category": "video-gen", "note": "Cinematic intros + transitions · pairs with Seedance for premium hooks" },
+          { "name": "Pika Labs", "url": "https://pika.art", "category": "video-gen", "note": "Cheap fast iteration · good for stylized non-photoreal TikTok content" },
+          { "name": "TikTok Creative Center", "url": "https://ads.tiktok.com/business/creativecenter/", "category": "research", "note": "MANDATORY — scrape top-performing TikToks by region BEFORE generating · hook patterns + sound trends + competitor analysis" },
+          { "name": "ElevenLabs PT-BR", "url": "https://elevenlabs.io", "category": "voice", "note": "Murilo stack · PT-BR voice cloning for UGC voiceover · pair with Higgsfield video for native BR creator-tier output" }
+        ],
+        "papers": [],
+        "agencies": [
+          { "name": "Whalar", "url": "https://www.whalar.com", "specialty": "Global creator agency · TikTok-native partnerships", "notable": "Top-tier creator agency openly running AI-augmented TikTok campaigns · benchmark for agency-tier pricing" },
+          { "name": "Pearpop", "url": "https://www.pearpop.com", "specialty": "Creator management + brand partnership platform", "notable": "AI-augmented brand-creator matching at platform scale" },
+          { "name": "Viral Nation", "url": "https://www.viralnation.com", "specialty": "Creator + AI Search visibility", "notable": "Ranked #1 in AI Search Visibility Index for creator agencies May 2026 (71%) · benchmark for SEO+AI-native agencies" },
+          { "name": "The Influencer Marketing Factory", "url": "https://theinfluencermarketingfactory.com", "specialty": "TikTok + short-form influencer marketing", "notable": "Strong consideration tier in 2026 AI Search Visibility Index (53%) · proven TikTok agency operator" },
+          { "name": "Captiv8", "url": "https://captiv8.io", "specialty": "Creator marketing + AI matching", "notable": "Enterprise creator platform · AI-augmented match + campaign analytics" }
+        ]
+      },
+      "behindTheLens": [
+        { "step": 1, "title": "Steal from winners (TikTok Creative Center)", "body": "Before generating anything: 30 min in TikTok Creative Center for the brand's region/category. Screenshot top 10 winning TikToks. Identify hook patterns (3s pattern interrupt · POV: format · transformation · UGC selfie). This is the prompt-seed — NEVER skip." },
+        { "step": 2, "title": "gpt-image-2 hook stills batch (10x)", "body": "Generate 10 vertical 9:16 hook still variants from the winning patterns. Different angles, lighting, text overlay positions. These are the A/B test universe for the visual hook — pick the 3 strongest with client (WhatsApp poll)." },
+        { "step": 3, "title": "seedance-2 + higgsfield parallel (5-8 videos)", "body": "Turn 3 picked stills into 6-9s vertical videos via seedance-2 (image-to-video, product + abstract hooks). In parallel: higgsfield Marketing Studio UGC for selfie/talking-head variants. End with 5-8 video assets ready for caption + export." },
+        { "step": 4, "title": "ffmpeg / CapCut variant explosion (20+ assets)", "body": "Single source 6-9s video × 5 caption-variants × 4 sound-overlays = 100 variants in 2 hours. Use ffmpeg scriptable batch OR CapCut auto-caption for hands-on polish. Export all as MP4 9:16 1080x1920 H.264 8Mbps · TikTok-friendly." },
+        { "step": 5, "title": "Ship + measure + remake winners with real humans", "body": "Upload 20 variants to TikTok organic (1 per 4 hours rate-limit). After 72h, identify hook-stop + completion-rate winners (typically 2-3 of 20). Brief a HUMAN creator to remake the winner concept at scale — AI did the testing-phase, humans scale the gold." }
+      ],
+      "roi": {
+        "inputs": [
+          { "id": "clients_per_month", "label": "Clients / mês", "type": "number", "default": 8 },
+          { "id": "retainer_brl", "label": "Retainer médio (R$)", "type": "number", "default": 3200 },
+          { "id": "cost_per_client_brl", "label": "Custo por client (R$)", "type": "number", "default": 95 }
+        ],
+        "formula": "revenue = clients_per_month * retainer_brl; cost = clients_per_month * cost_per_client_brl; margin_brl = revenue - cost; margin_pct = (margin_brl / revenue) * 100;",
+        "outputs": [
+          { "id": "revenue", "label": "Receita mensal", "format": "BRL" },
+          { "id": "cost", "label": "Custo mensal", "format": "BRL" },
+          { "id": "margin_brl", "label": "Margem mensal", "format": "BRL" },
+          { "id": "margin_pct", "label": "Margem %", "format": "%" }
+        ]
+      }
     }
   ]
 }
