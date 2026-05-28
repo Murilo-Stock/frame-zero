@@ -35,7 +35,7 @@ export function PlaybookPanel({
                 Models
               </Link>{' '}
               for foundation resources, or{' '}
-              <Link href="/playbooks" className="text-amber hover:text-amber-hot underline underline-offset-4">
+              <Link href={'/playbooks' as never} className="text-amber hover:text-amber-hot underline underline-offset-4">
                 browse all playbooks
               </Link>
               .
@@ -59,7 +59,7 @@ export function PlaybookPanel({
       <section className="px-6 md:px-10 py-16">
         <div className="max-w-7xl mx-auto">
           <Link
-            href="/playbooks"
+            href={'/playbooks' as never}
             className="font-mono text-[11px] uppercase tracking-caps text-amber hover:text-amber-hot transition"
           >
             ← All playbooks
