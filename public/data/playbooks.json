@@ -1,27 +1,699 @@
 {
-  "version": "1.0-stub",
+  "version": "1.0",
   "generatedAt": "2026-05-28",
   "playbooks": [
     {
       "id": "real-estate",
-      "name": "Real Estate (fixture)",
-      "tagline": "Stub for build",
+      "name": "Real Estate imobiliário",
+      "tagline": "Tour cinematográfico que vende R$1M+ sem filmagem",
       "icon": "🏛",
       "color": "#d4a574",
-      "icp": "Stub ICP",
-      "math": { "ticketMedio": 8000, "timeToDeliver": "72h", "costPerAsset": 280, "suggestedMargin": 65 },
-      "stack": [{ "moment": "stub", "model": "gpt-image-2", "rationale": "stub" }],
-      "workflow": { "mermaid": "graph LR; A-->B" },
-      "prompts": [{ "title": "Stub", "body": "Stub body 20 words minimum for placeholder text content to render in UI smoke testing without any issues.", "model": "gpt-image-2", "kind": "image", "aspect": "4:5", "tags": ["stub"] }],
-      "cases": [{ "brand": "Stub", "url": "https://example.com", "credit": "stub", "whatsBrilliant": "stub" }],
-      "resources": { "repos": [], "videos": [], "courses": [], "tools": [], "papers": [], "agencies": [] },
-      "behindTheLens": [{ "step": 1, "title": "Stub step", "body": "Stub body" }],
+      "icp": "Construtoras + corretores de alto-padrão BH/SP · ticket R$1M-10M · listing premium que precisa de hero visual ANTES de visita presencial",
+      "math": {
+        "ticketMedio": 8000,
+        "timeToDeliver": "72h",
+        "costPerAsset": 280,
+        "suggestedMargin": 65
+      },
+      "stack": [
+        { "moment": "Hero still interior — sala, suíte, cozinha", "model": "gpt-image-2", "rationale": "Melhor render fotorrealista de interiores em 4:5 / 16:9. Text-rendering perfeito para overlays do dossier (área m², features). Image-to-image preserva geometria real da planta." },
+        { "moment": "Walkthrough cinematográfico 8-12s entre cômodos", "model": "seedance-2", "rationale": "Multimodal (image + audio + text), melhor coerência de movimento para flyovers arquitetônicos. Suporta image-to-video direto do hero still gpt-image-2 sem perda de identidade do imóvel." },
+        { "moment": "Drone exterior aerial · orbit + reveal", "model": "kling-3", "rationale": "Continuidade multi-shot superior em órbita exterior + keyframe control. Útil quando há captura real de drone para guiar trajetória." },
+        { "moment": "Re-staging virtual (limpar imóvel ocupado / vazio)", "model": "nano-banana-pro", "rationale": "Gemini 3 Pro Image edita interior preservando geometria/janelas. Use para virtual staging instantâneo: empty → furnished em 1 prompt." },
+        { "moment": "Final edit · cut · LUT · trilha", "model": "ffmpeg", "rationale": "Local · zero custo · LUT teal-orange + concat reel 45s + standalone stills. Reusável em batch." }
+      ],
+      "workflow": {
+        "mermaid": "graph LR;\n A[Property photos<br/>+ floorplan<br/>+ drone footage] --> B[gpt-image-2<br/>hero stills 6x];\n B --> C[seedance-2<br/>walkthrough 8s x4];\n B --> D[kling-3<br/>drone orbit 12s];\n B --> E[nano-banana-pro<br/>virtual staging];\n C --> F[ffmpeg<br/>cut + LUT + music];\n D --> F;\n E --> F;\n F --> G[Deliverable<br/>45s reel + 6 stills + dossier PDF];"
+      },
+      "prompts": [
+        {
+          "title": "Japandi Living Room — Golden Hour Hero",
+          "body": "Cinematic interior photograph of a minimalist Japandi living room. Travertine walls, low oak coffee table, linen sofa in oat tone, woven jute rug. Floor-to-ceiling windows pouring golden hour light from camera-left, dust particles softly visible in the light beams. Architectural Digest editorial style, 35mm sensor, shallow depth of field f/2.0, ISO 200, no people. Warm color grade, teal shadows. Ultra-detailed materials.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "expectedOutputItemId": "b00105c37ac1",
+          "tags": ["interior", "luxury", "hero", "japandi"]
+        },
+        {
+          "title": "Master Suite — Twilight Mood",
+          "body": "Photorealistic master suite at blue hour. King-size bed with crisp white linen, two bedside Noguchi-style lamps glowing warm 2700K, dark walnut wardrobe wall behind. Floor-to-ceiling windows reveal a São Paulo skyline at twilight with bokeh city lights. Polished concrete floor, soft Persian rug. Camera at chest height, 24mm lens, slight wide-angle. No occupants. Cinematic teal-orange grade, architectural digest tone.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["interior", "luxury", "twilight", "bedroom"]
+        },
+        {
+          "title": "Chef Kitchen — Marble + Brass",
+          "body": "Editorial photograph of a chef's kitchen for a R$5M penthouse listing. Calacatta marble island center-frame, brass pendant lights overhead, integrated Sub-Zero fridge, induction cooktop. One window on the right with overcast soft light. Wide-angle 20mm, eye-level. Realistic reflections on marble. Hyper-detailed grain on countertop, water droplets in basin. Architectural digest cover style.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["interior", "luxury", "kitchen", "marble"]
+        },
+        {
+          "title": "Virtual Staging — Empty to Furnished",
+          "body": "Use uploaded reference image of an empty living room. Add furniture preserving exact wall positions, window frames, floor material, ceiling, and all architectural geometry. Insert: a 3-seat oat linen sofa parallel to the windows, a round travertine coffee table, a floor lamp left of sofa, a large neutral wool rug under the seating, and one abstract painting on the back wall. Lighting must match the existing window light direction. Photorealistic, no morphing of walls or floors.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "4:5",
+          "tags": ["staging", "interior", "edit", "reference"]
+        },
+        {
+          "title": "Façade Exterior — Golden Hour Front Elevation",
+          "body": "Architectural photograph of a contemporary 3-story luxury house façade in São Paulo. Cor-Ten steel cladding meets travertine base, large pivot front door in walnut. Manicured landscape with three palmeiras imperiais on the right. Camera at street level, slight 3/4 angle showing depth. Golden hour, long warm shadows. Ultra-sharp, 50mm equivalent. No people, no cars in frame. Architectural digest finish.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["exterior", "luxury", "facade"]
+        },
+        {
+          "title": "Penthouse Living — Skyline Reveal",
+          "body": "Photorealistic penthouse living area, double-height ceiling, full glass curtain wall revealing Belvedere skyline at blue hour. Sectional charcoal sofa, marble fireplace center-left, vintage Persian carpet. Soft warm interior lighting at 2700K vs cool exterior blue. Camera positioned wide-angle from the back of the room, capturing both interior and view. Architectural digest editorial, hyper-detailed materials.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["interior", "luxury", "penthouse", "view"]
+        },
+        {
+          "title": "Walkthrough — Slow Dolly Through Living Room",
+          "body": "Slow cinematic dolly-forward shot through a luxury Japandi living room at golden hour. Camera moves at constant 0.5 m/s forward, slight upward arc revealing high ceiling. No people. Soft golden light streams from left windows. Subtle dust particles in beams. Smooth gimbal feel, no motion blur. 8 seconds, 1080p, cinematic teal-orange grade. End frame holds on the window view.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["walkthrough", "interior", "dolly"]
+        },
+        {
+          "title": "Walkthrough — Reveal Through Doorway",
+          "body": "Cinematic shot starting in a hallway looking at a closed double door. Doors slowly open inward to reveal a luxurious master suite at twilight with skyline view behind the bed. Camera glides forward through the doorway at 0.4 m/s. No people. Practical lamps glowing warm, exterior blue hour through floor-to-ceiling windows. 10 seconds, 1080p, anamorphic feel with subtle lens flare on the lamps.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["walkthrough", "reveal", "bedroom"]
+        },
+        {
+          "title": "Drone — Exterior Orbit 360",
+          "body": "Cinematic aerial drone shot orbiting a 3-story contemporary luxury house in a tropical neighborhood at golden hour. Smooth 90-degree orbit clockwise, drone altitude 25m, camera locked on the house. Reveal pool deck on the back during second half. Lush garden, palmeiras. No people. 12 seconds, 1080p, warm Hollywood grade, slight depth-of-field on background.",
+          "model": "kling-3",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["drone", "exterior", "orbit"]
+        },
+        {
+          "title": "Pool Deck — Lifestyle Twilight",
+          "body": "Photorealistic infinity pool deck at twilight. Pool water glowing turquoise from underwater lights, deck with two teak sun loungers, low fire-pit center-frame with small flame. Background: lush tropical garden then city skyline bokeh. Camera at deck level, 24mm wide, slight slow-mo wave ripples in pool. No people. Cinematic warm-cool contrast.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["exterior", "pool", "lifestyle"]
+        }
+      ],
+      "cases": [
+        {
+          "brand": "Zillow Showcase · AI Virtual Staging",
+          "url": "https://zillow.mediaroom.com/2025-09-10-Zillow-brings-AI-powered-Virtual-Staging-to-Showcase-listings",
+          "credit": "Zillow Group press release · Sept 10, 2025",
+          "whatsBrilliant": "Built AI virtual staging directly into the Showcase listing tier — agents stage an empty room in seconds vs. days of physical staging. Validates AI staging as a default real-estate workflow at platform scale.",
+          "metric": "Industry-default since Sept 2025 · free to Aryeo subscribers"
+        },
+        {
+          "brand": "Compass · AI-powered agent platform",
+          "url": "https://www.compass.com",
+          "credit": "Compass platform · DigitalDefynd case study 2026",
+          "whatsBrilliant": "Pioneered combining traditional brokerage with AI tooling — agent-facing AI for listing copy, CMA, and visual asset generation. Sets the bar for tech-enabled luxury brokerages.",
+          "metric": "[unverified — see digitaldefynd.com/IQ/ai-in-real-estate-case-studies/]"
+        },
+        {
+          "brand": "BoxBrownie · virtual staging at scale",
+          "url": "https://www.boxbrownie.com/virtual-staging",
+          "credit": "BoxBrownie testimonials + Reddit r/realtors threads",
+          "whatsBrilliant": "Hybrid AI + human-editor pipeline at $24/image with 24h turnaround. Validated case: agent virtually staged a vacant 6-month-stale listing — sold in one day after re-listing.",
+          "metric": "$24/image · 24h SLA · multiple sold-in-1-day testimonials"
+        },
+        {
+          "brand": "Higgsfield Cinema Studio · real estate creators",
+          "url": "https://higgsfield.ai/blog/Top-10-viral-TikTok-Reels-Ideas-to-Generate-with-Higgsfield",
+          "credit": "Higgsfield blog + r/HiggsfieldAI community threads",
+          "whatsBrilliant": "Image-to-video presets purpose-built for real estate walkthroughs from a single hero still — bypasses gimbal/operator entirely. Workflow that Murilo's Fábrica de Vídeo stack already runs.",
+          "metric": "[unverified] community-reported · viral Reels traction"
+        },
+        {
+          "brand": "Virtual Staging AI · one-click pricing",
+          "url": "https://virtualstaging.ai/",
+          "credit": "virtualstaging.ai pricing page",
+          "whatsBrilliant": "Commodity-pricing the staging step — $0.28/image with unlimited revisions. Proves the floor: AI staging is now sub-dollar, premium positioning must compete on cinematic walkthrough + brand, not staging alone.",
+          "metric": "$0.28/image · unlimited revisions"
+        }
+      ],
+      "resources": {
+        "repos": [
+          { "name": "YouMind-OpenLab/awesome-nano-banana-pro-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts", "stars": 12248, "description": "10,000+ Nano Banana Pro prompts incl. interior + staging categories" },
+          { "name": "jamez-bondos/awesome-gpt4o-images", "url": "https://github.com/jamez-bondos/awesome-gpt4o-images", "stars": 8060, "description": "Curated gpt-image-1 / gpt-image-2 visuals with full prompts" },
+          { "name": "EvoLinkAI/awesome-seedance-2-guide", "url": "https://github.com/EvoLinkAI/awesome-seedance-2-guide", "stars": 370, "description": "Seedance 2.0 complete guide — walkthrough + cinematic motion patterns" },
+          { "name": "devanshug2307/Awesome-AI-Image-Prompts", "url": "https://github.com/devanshug2307/Awesome-AI-Image-Prompts", "stars": 184, "description": "1000+ copy-ready JSON prompts incl. interior + arch viz" },
+          { "name": "ImgEdify/Awesome-GPT4o-Image-Prompts", "url": "https://github.com/ImgEdify/Awesome-GPT4o-Image-Prompts", "stars": 561, "description": "GPT4o Prompts Dictionary — interior + product categories" }
+        ],
+        "videos": [
+          { "title": "How to Create a Cinematic AI Real Estate Video From Images Only", "url": "https://www.youtube.com/watch?v=TJPjbuhD75Y", "duration": "3:00", "channel": "[unverified author]" },
+          { "title": "How to Use Higgsfield AI for Real Estate (Step-by-Step Tutorial)", "url": "https://www.youtube.com/watch?v=SxLuelq_VRY", "duration": "3:04", "channel": "Higgsfield ecosystem creator" },
+          { "title": "How I Use AI in Real Estate Videos", "url": "https://www.youtube.com/watch?v=6m39JySFcHI", "duration": "16:00", "channel": "[verify on YouTube]" },
+          { "title": "Which AI Makes the BEST Real Estate Video? (AutoReel vs VideoTour.ai)", "url": "https://www.youtube.com/watch?v=InAVbzZnFck", "duration": "25:15", "channel": "Showing Austin / Scott" },
+          { "title": "How To Turn Raw Real Estate Photos Into Cinematic Videos! (Higgsfield AI)", "url": "https://www.youtube.com/watch?v=eQq1bKAcJV8", "duration": "5:07", "channel": "Higgsfield creator" },
+          { "title": "Turn AI Images Into Cinematic Real Estate Interior Walkthroughs! (Higgsfield + Nano Banana)", "url": "https://www.youtube.com/watch?v=I2np1Ds4Yh8", "duration": "2:35", "channel": "Higgsfield creator" },
+          { "title": "Real Estate Video Without Filming? I Gave Higgsfield.ai a Shot", "url": "https://www.youtube.com/watch?v=mfZvOcjQ0m0", "duration": "3:44", "channel": "[verify]" }
+        ],
+        "courses": [
+          { "title": "AI for Real Estate Marketing — Udemy [search term]", "url": "https://www.udemy.com/courses/search/?q=AI+real+estate+marketing", "platform": "Udemy", "note": "Use search filter · multiple instructors, verify reviews before buying" },
+          { "title": "Higgsfield AI Real Estate Workflows — community-shared prompt pack", "url": "https://docs.google.com/document/d/1LA1E3HK2STVMd3Jj2-fDnhFw", "platform": "Higgsfield community", "note": "[unverified] prompt pack linked from YouTube tutorial eQq1bKAcJV8" }
+        ],
+        "tools": [
+          { "name": "Higgsfield AI · Cinema Studio + Marketing Studio", "url": "https://higgsfield.ai", "category": "video-gen", "note": "Murilo's primary stack — image-to-video walkthroughs from single hero still" },
+          { "name": "Seedance 2.0 (via fal.ai or Replicate)", "url": "https://fal.ai/models/fal-ai/seedance-pro", "category": "video-gen", "note": "Workhorse for 8-12s walkthroughs · multimodal input" },
+          { "name": "Kling 3.0 (via fal.ai or KIE.AI)", "url": "https://fal.ai/models/fal-ai/kling-video", "category": "video-gen", "note": "Better for drone orbit + multi-shot continuity" },
+          { "name": "Zillow Showcase Virtual Staging", "url": "https://www.zillow.com/showcase/", "category": "platform-native", "note": "If listing goes on Zillow US, native AI staging is free with Aryeo subscription" },
+          { "name": "BoxBrownie", "url": "https://www.boxbrownie.com", "category": "staging-service", "note": "$24/image · 24h SLA · human-edited hybrid" },
+          { "name": "Virtual Staging AI", "url": "https://virtualstaging.ai/", "category": "staging-saas", "note": "$0.28/image · pure-AI · unlimited revisions" },
+          { "name": "Styldod", "url": "https://www.styldod.com/virtual-staging", "category": "staging-service", "note": "Predictable pricing · listing-ready turnaround" }
+        ],
+        "papers": [],
+        "agencies": [
+          { "name": "Native Foreign (Toys R Us · Sora ad agency)", "url": "https://nativeforeign.com", "specialty": "Generative AI commercial production", "notable": "First brand to ship a Sora-generated ad in 2024 — transferable workflow for cinematic real-estate films" },
+          { "name": "Fábrica de Vídeo (Murilo Stock)", "url": "https://murilostock.com", "specialty": "B2B luxury real estate cinematic tours BH/SP", "notable": "Pipeline-as-a-service — Higgsfield + Seedance + Kling + FFmpeg · 72h SLA · R$1M+ listings" }
+        ]
+      },
+      "behindTheLens": [
+        { "step": 1, "title": "Site visit / drone footage capture", "body": "iPhone Pro + DJI Mini 4 Pro. Capture 8-12 reference photos covering each room from corner positions + 1 exterior orbit (~3 min footage). Photograph the floorplan if available — even a printed PDF. This is the source of geometric truth that anchors every later prompt." },
+        { "step": 2, "title": "gpt-image-2 hero stills (3-5x per room)", "body": "Feed each reference photo + style-control prompt to gpt-image-2 in image-to-image mode (preserves geometry). Generate 3-5 hero variants per room (golden hour / blue hour / overcast / interior-lit). Pick the best 6 — these are the deliverable stills AND the seeds for video." },
+        { "step": 3, "title": "seedance-2 walkthroughs (image-to-video)", "body": "For each picked hero still: feed it to seedance-2 with a motion prompt ('slow dolly forward, soft golden hour light, 0.5 m/s'). Generate 8s clips at 1080p. 4 walkthroughs total. Re-roll any with morphing artifacts (usually 1 retry suffices)." },
+        { "step": 4, "title": "kling-3 drone orbit + ffmpeg edit", "body": "Generate one 12s drone orbit from the exterior hero still on kling-3. Then ffmpeg concat: 6 stills (1s holds with crossfade) + 4 walkthroughs + 1 drone orbit + ambient track. Apply teal-orange LUT. Export 45s reel + standalone stills (PNG 2048px) + 9:16 vertical cut for Instagram." },
+        { "step": 5, "title": "Deliver + receive feedback", "body": "WhatsApp deliverable to construtora + invoice R$8k. Include: 45s 16:9 reel · 45s 9:16 vertical · 6 stills · dossier PDF with property facts overlaid on hero. Offer 1 iteration round bundled (typically used for music change or one room re-staging)." }
+      ],
       "roi": {
-        "inputs": [{ "id": "tickets_per_month", "label": "Tickets/month", "type": "number", "default": 4 }],
-        "formula": "revenue = tickets_per_month * 8000;",
-        "outputs": [{ "id": "revenue", "label": "Revenue", "format": "BRL" }]
+        "inputs": [
+          { "id": "tickets_per_month", "label": "Tickets / mês", "type": "number", "default": 4 },
+          { "id": "avg_ticket_brl", "label": "Ticket médio (R$)", "type": "number", "default": 8000 },
+          { "id": "cost_per_ticket_brl", "label": "Custo por ticket (R$)", "type": "number", "default": 280 }
+        ],
+        "formula": "revenue = tickets_per_month * avg_ticket_brl; cost = tickets_per_month * cost_per_ticket_brl; margin_brl = revenue - cost; margin_pct = (margin_brl / revenue) * 100;",
+        "outputs": [
+          { "id": "revenue", "label": "Receita mensal", "format": "BRL" },
+          { "id": "cost", "label": "Custo mensal (APIs + tempo)", "format": "BRL" },
+          { "id": "margin_brl", "label": "Margem mensal", "format": "BRL" },
+          { "id": "margin_pct", "label": "Margem %", "format": "%" }
+        ]
       }
     },
-    { "id": "arquitetura", "name": "Arquitetura", "tagline": "Coming Phase γ", "icon": "🏗", "color": "#8a8276", "icp": "Stub", "status": "stub", "comingPhase": "γ" }
+    {
+      "id": "ads",
+      "name": "Ads · Paid Performance",
+      "tagline": "Hook 3s · 100 variantes em uma tarde · CPM em queda livre",
+      "icon": "📈",
+      "color": "#e85d5d",
+      "icp": "Performance marketers + DTC brands + agências boutique rodando Meta/TikTok com budget R$50k+/mês · sofrendo creative fatigue cada 7-14 dias",
+      "math": {
+        "ticketMedio": 4500,
+        "timeToDeliver": "48h",
+        "costPerAsset": 120,
+        "suggestedMargin": 72
+      },
+      "stack": [
+        { "moment": "Hook still — pattern interrupt 9:16 frame 1", "model": "gpt-image-2", "rationale": "Text-rendering nativo permite overlay de copy direto na imagem (CTA + número). Melhor controle de composição vertical 9:16 que Midjourney." },
+        { "moment": "UGC-style talking-head avatar", "model": "higgsfield", "rationale": "Marketing Studio do Higgsfield gera presenter videos com avatar consistente · workflow Murilo-validated. Para alternativa enterprise: Arcads ($110/mo · 1000+ atores · purpose-built para DR)." },
+        { "moment": "Product reveal video 6-9s", "model": "seedance-2", "rationale": "Hook + product reveal em 1 take · multimodal input (product still + script). 6-9s = sweet spot Meta/TikTok 9:16." },
+        { "moment": "Cinematic brand commercial 15-30s", "model": "kling-3", "rationale": "Multi-shot continuity para narrativas mais longas (Coca-Cola-style holiday spots). Use quando precisa story-arc, não só hook." },
+        { "moment": "Variant batch + thumbnail A/B", "model": "nano-banana-pro", "rationale": "Edit barato e rápido para gerar 20+ variantes de mesmo hook (mudar cor, BG, copy overlay) sem regerar do zero. Critical para hit-rate 8% → 15-20% testando 30-40 conceitos/mês." }
+      ],
+      "workflow": {
+        "mermaid": "graph LR;\n A[Product brief<br/>+ winning ads<br/>library] --> B[Hook research<br/>Meta Ad Library];\n B --> C[gpt-image-2<br/>10x hook stills];\n C --> D[seedance-2<br/>6s hook videos];\n C --> E[higgsfield<br/>UGC avatar];\n D --> F[ffmpeg<br/>caption + CTA];\n E --> F;\n F --> G[20+ variants<br/>A/B test Meta/TikTok];\n G --> H[Winner → human<br/>UGC remake at scale];"
+      },
+      "prompts": [
+        {
+          "title": "Hook Still — Skincare 9:16 Pattern Interrupt",
+          "body": "Vertical 9:16 ad creative for a serum bottle. Macro shot: amber glass dropper bottle suspended mid-air over a marble counter, single drop falling from dropper toward counter, motion blur on drop. Soft beauty light from camera-left, dewy ambient texture in background. Overlay bold text top-third: 'STOP scrolling.' in white sans-serif (Inter Bold). Subtle brand wordmark bottom. High-end editorial cosmetic photography. Ultra-detailed glass refraction.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "9:16",
+          "expectedOutputItemId": "8db622c58e34",
+          "tags": ["hook", "skincare", "9:16", "pattern-interrupt"]
+        },
+        {
+          "title": "Product Hero — Smartphone Launch",
+          "body": "Ultra-realistic premium smartphone advertisement, hero shot at 3/4 angle on a polished obsidian surface. Single warm rim light from upper-right creating bezel highlight. Screen displaying minimal abstract gradient blue-to-violet. Background gradient fade to black with one bokeh light bottom-left. Overlay caption space top: 'SHOT ON.' Apple-event style. Hyper-detailed materials, no logo placement except a discreet engraving on the side.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "expectedOutputItemId": "b7d95afc81ae",
+          "tags": ["product", "tech", "hero", "commercial"]
+        },
+        {
+          "title": "UGC Hook — Selfie Mirror Vertical",
+          "body": "Vertical 9:16 mirror selfie of a stylish young woman in a softly-lit Brazilian apartment bathroom, casual morning routine vibe, holding a skincare bottle slightly forward toward the mirror, natural smile, no makeup look. Phone visible in her hand. Light from a frosted window left side. iPhone-shot aesthetic, slight phone-grain. Reads as authentic UGC, NOT polished commercial. Overlay text space top-left for hook copy.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "9:16",
+          "expectedOutputItemId": "f5d6460f3800",
+          "tags": ["ugc", "hook", "selfie", "authentic"]
+        },
+        {
+          "title": "Atmospheric Product Ad — Nature Inspired",
+          "body": "Nature-inspired atmospheric product advertisement. A premium glass perfume bottle nested among wet moss, ferns, and a small forest creek with shallow water flow. Soft diffused morning light through canopy, dust beams. Macro lens 100mm, shallow DOF on bottle, soft bokeh on greenery. Overall mood: tranquil, organic, premium. Brand-agnostic — leave label area neutral for compositing.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "4:5",
+          "expectedOutputItemId": "5f713362730d",
+          "tags": ["product", "atmospheric", "perfume", "nature"]
+        },
+        {
+          "title": "Cosmetic Editorial Ad",
+          "body": "Professional advertisement for an indie cosmetics brand. A model's hand holding three lipstick tubes fanned out, hand entering from the right side of frame. Backdrop is a wash of soft pastel coral pink with slight gradient. Top-left area clear for copy overlay. Editorial beauty lighting, soft shadows under lipsticks, slight reflection on tube surfaces. Ultra-clean, modern direct-to-consumer aesthetic.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "4:5",
+          "expectedOutputItemId": "6be53062db16",
+          "tags": ["product", "beauty", "editorial", "dtc"]
+        },
+        {
+          "title": "Surreal Studio Product — Levitation",
+          "body": "Surrealist studio product photograph. A premium glass bottle of olive oil levitating diagonally at 30 degrees, frozen mid-spin, a perfect ribbon of golden oil flowing upward defying gravity, suspended olives in geometric pattern around it. Pure white seamless background, sharp soft shadow directly beneath. Studio strobe lighting, ultra-sharp focus across the whole bottle, no motion blur. Pinterest pin energy, commercial high-end.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "expectedOutputItemId": "2d561fd51f12",
+          "tags": ["product", "surreal", "levitation", "commercial"]
+        },
+        {
+          "title": "Hook Video — 3s Product Reveal",
+          "body": "Cinematic 6-second vertical 9:16 ad. Frame 1-2s: extreme close-up of a closed cosmetic jar on velvet. Frame 3-4s: an unseen hand opens the jar with a satisfying click, product texture revealed inside. Frame 5-6s: the hand dips finger and pulls back creating a perfect cream peak. Soft warm studio light, sharp close-up macro. No people visible except the hand. Sound-design ready (mic pickup space).",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["hook", "reveal", "product", "cosmetic"]
+        },
+        {
+          "title": "UGC Talking Head — 15s Pitch",
+          "body": "Vertical 9:16 video of a young Brazilian woman 25-30 sitting on a casual couch in natural daylight, holding a product, speaking directly to camera with engaged expression, natural hand gestures every few seconds. Phone-shot aesthetic (slight grain, handheld micro-shake). 15 seconds, lip-sync ready for ElevenLabs PT-BR voice over. Background: cozy living room, plants. Authentic UGC vibe, NOT polished commercial.",
+          "model": "higgsfield",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["ugc", "talking-head", "pitch", "marketing-studio"]
+        },
+        {
+          "title": "Cinematic Brand Commercial — Holiday Mood",
+          "body": "Cinematic 15-second brand commercial, 16:9, holiday season. Wide shot: snowy small town at dusk, warm window lights, family gathering visible through a bay window. Slow push-in toward the window, then cut to interior close-up of hot drink being poured into a mug branded with [BRAND]. Final beat: family smiles, mug raised. Coca-Cola-2025-holiday-spot quality. Animal characters acceptable to dodge uncanny-valley if needed.",
+          "model": "kling-3",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["commercial", "cinematic", "brand", "holiday"]
+        },
+        {
+          "title": "Apple-Event-Style Hero Reveal",
+          "body": "Ultra-cinematic 8-second product hero reveal. Frame 1-3s: pitch black, single soft spotlight pulses on. Frame 4-6s: a sleek product slowly rotates into the spotlight from below, refraction caustics dance across surface. Frame 7-8s: settles centered, brand wordmark fades in beneath. 16:9, 4K-grade, deep blacks, cinematic letterbox. No human elements. Designed for projection on big screen.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["hero", "reveal", "cinematic", "tech"]
+        }
+      ],
+      "cases": [
+        {
+          "brand": "Coca-Cola · 'Holidays Are Coming' 2025 (AI version)",
+          "url": "https://www.marketingdive.com/news/coca-cola-doubles-down-ai-new-holiday-campaign/804303/",
+          "credit": "Marketing Dive · Nov 3, 2025 · Silverside AI + Pereira O'Dell",
+          "whatsBrilliant": "Doubled down after 2024 backlash — used animals instead of humans to dodge uncanny valley. System1 scored it 5.9/5.9 (max). Proves AI ads at brand-flagship scale, with explicit estimated 60-70% production cost cut vs $1-3M traditional holiday spots.",
+          "metric": "5.9/5.9 System1 score · est. 60-70% cost reduction"
+        },
+        {
+          "brand": "Toys 'R' Us · 'The Origin of Toys R Us' (Sora)",
+          "url": "https://www.hollywoodreporter.com/business/digital/toys-r-us-ad-sora-openai-video-tool-reaction-1235932993/",
+          "credit": "Hollywood Reporter · June 2024 · Native Foreign agency",
+          "whatsBrilliant": "First brand film made with OpenAI Sora — premiered at Cannes Lions 2024. Mixed reception, but cemented generative video as a mainstream commercial tool. Catalyzed every agency to build an AI division.",
+          "metric": "Millions of views on X · Cannes Lions premiere"
+        },
+        {
+          "brand": "Arcads · UGC ad generation platform",
+          "url": "https://www.arcads.ai",
+          "credit": "Arcads benchmarks + adlibrary.com 2026 review",
+          "whatsBrilliant": "Purpose-built for direct response: 1000+ AI actors (43% more than HeyGen), hook-first templates, 9:16 native. Raised $16M Series A on the thesis that AI replaces the testing phase, humans scale the winners.",
+          "metric": "Hit rate 8% → 15-20% reported · $110/mo for 10 videos"
+        },
+        {
+          "brand": "Klarna · AI marketing transformation",
+          "url": "https://adage.com/article/best-2024/best-ai-marketing-activations-2024-coca-cola-klarna-kitkat-procreate-and-more/2590416/",
+          "credit": "Ad Age · Best AI Marketing Activations of 2024",
+          "whatsBrilliant": "Replaced majority of in-house creative with AI tooling — internal claim of $10M+ marketing cost savings while increasing creative output 4x. Validates the operating-model shift, not just tactical wins.",
+          "metric": "$10M savings · 4x creative volume [unverified — Klarna self-reported]"
+        },
+        {
+          "brand": "Heinz · 'Draw Ketchup' AI campaign",
+          "url": "https://www.heinz.com",
+          "credit": "Rethink Toronto agency · Cannes Lions Bronze 2022 (early gen-AI)",
+          "whatsBrilliant": "Asked DALL-E 'draw ketchup' — every variation looked like a Heinz bottle. Brilliant proof that AI bias toward category-leader = free brand reinforcement. Template that any category-leader can run again with Nano Banana Pro.",
+          "metric": "Cannes Bronze · 850M earned impressions [unverified exact figure]"
+        }
+      ],
+      "resources": {
+        "repos": [
+          { "name": "djcode0718/UGC-Ad-Studio", "url": "https://github.com/djcode0718/UGC-Ad-Studio", "stars": 2, "description": "AI UGC Ad Generator — hooks, 30s scripts, storyboards, captions, cinematic image prompts from product brief" },
+          { "name": "peters-lab/ai-ad-generator-pro", "url": "https://github.com/peters-lab/ai-ad-generator-pro", "stars": 1, "description": "Analyzes Meta/TikTok winning ads then generates production-ready AI video ads" },
+          { "name": "YouMind-OpenLab/awesome-nano-banana-pro-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts", "stars": 12248, "description": "Includes 'product photography' + 'ad creative' prompt categories" },
+          { "name": "jamez-bondos/awesome-gpt4o-images", "url": "https://github.com/jamez-bondos/awesome-gpt4o-images", "stars": 8060, "description": "Curated commercial/product visuals — gpt-image-2 hero-reveal patterns" },
+          { "name": "EvoLinkAI/awesome-seedance-2-guide", "url": "https://github.com/EvoLinkAI/awesome-seedance-2-guide", "stars": 370, "description": "Seedance 2.0 — commercial ad shot patterns" }
+        ],
+        "videos": [
+          { "title": "Create AI Movies & Ads in 1 Run with GPT Image 2 + Seedance 2.0 + Kling 3.0", "url": "https://www.youtube.com/watch?v=C_6FxHvEisg", "duration": "3:40", "channel": "[verify]" },
+          { "title": "Create 100 Winning Ads with AI in 10 Minutes (Fastest AI Ad Generator)", "url": "https://www.youtube.com/watch?v=abdlXFbJjrk", "duration": "8:30", "channel": "Arcads tutorial" },
+          { "title": "A $350,000 AI AD Using Only 1 Tool (Higgsfield Cinema Studio Perfume)", "url": "https://www.youtube.com/watch?v=em66Mvt8QLc", "duration": "27:09", "channel": "Higgsfield creator" },
+          { "title": "STOP Paying! Make AI Video Ads From Any Link (Marketing Studio)", "url": "https://www.youtube.com/watch?v=EsYi4nTlXjE", "duration": "8:54", "channel": "MalvaAI" },
+          { "title": "How To Create Realistic AI Video Ads in Minutes (2026 Guide)", "url": "https://www.youtube.com/watch?v=N5_R1vWU5Ek", "duration": "11:41", "channel": "TopView tutorial" },
+          { "title": "How To Create AI Video Ads That Look 100% Real (Dropshipping)", "url": "https://www.youtube.com/watch?v=Ezjy78zD8Wo", "duration": "21:20", "channel": "[verify]" },
+          { "title": "NEW Ai Creative Generator Creates Ads with One Prompt (Meta Andromeda)", "url": "https://www.youtube.com/watch?v=CErWd_rBtc4", "duration": "17:12", "channel": "Imaginetive" },
+          { "title": "The IMPOSSIBLE Prompt Challenge: 4 AI Video Models (Seedance vs Veo vs Kling)", "url": "https://www.youtube.com/watch?v=RdpGkAOSC4g", "duration": "14:39", "channel": "Higgsfield comparison" }
+        ],
+        "courses": [
+          { "title": "AI Video Ads for Performance Marketing — search Udemy", "url": "https://www.udemy.com/courses/search/?q=AI+video+ads+meta+tiktok", "platform": "Udemy", "note": "Multiple instructors · filter by reviews + recency before buying" },
+          { "title": "Foundations of Generative AI for Marketing — Coursera", "url": "https://www.coursera.org/search?query=generative%20AI%20marketing", "platform": "Coursera", "note": "Search 'generative AI marketing' · pick courses updated 2025+" },
+          { "title": "Maven AI Ads cohorts (live workshops)", "url": "https://maven.com/topics/marketing", "platform": "Maven", "note": "Higher signal cohort-based · check for AI-creative workshops by ex-agency operators" }
+        ],
+        "tools": [
+          { "name": "Arcads AI", "url": "https://www.arcads.ai", "category": "ugc-video", "note": "Purpose-built DR · 1000+ avatars · $110/mo for 10 videos · best for Meta/TikTok testing" },
+          { "name": "HeyGen", "url": "https://www.heygen.com", "category": "avatar-video", "note": "700+ avatars · multilingual 175+ langs · custom avatar cloning · better for explainer/spokesperson" },
+          { "name": "Higgsfield Marketing Studio", "url": "https://higgsfield.ai", "category": "ad-pipeline", "note": "Murilo's primary · URL-to-ad workflow · ad-creative presets · price varies by plan" },
+          { "name": "Creatify AI", "url": "https://creatify.ai", "category": "url-to-ad", "note": "$39/mo · URL-to-video speed · less polished than Arcads but faster turn" },
+          { "name": "fal.ai (Seedance, Kling, Veo gateway)", "url": "https://fal.ai", "category": "model-gateway", "note": "Pay-per-second · best for irregular volume vs subscriptions" },
+          { "name": "Meta Ads Library", "url": "https://www.facebook.com/ads/library/", "category": "research", "note": "Mandatory: scrape competitors' winning ads BEFORE generating · feeds the prompt pack" },
+          { "name": "TikTok Creative Center", "url": "https://ads.tiktok.com/business/creativecenter/", "category": "research", "note": "Top-performing TikTok ads by region · hook patterns + sound trends" }
+        ],
+        "papers": [],
+        "agencies": [
+          { "name": "Native Foreign", "url": "https://nativeforeign.com", "specialty": "Generative AI commercial production (Sora alpha partner)", "notable": "Directed Toys R Us · The Origin film — first Sora brand ad at Cannes Lions 2024" },
+          { "name": "Silverside AI (Pereira O'Dell lab)", "url": "https://pereiraodell.com", "specialty": "AI innovation lab for ad agencies", "notable": "Produced Coca-Cola 'Holidays Are Coming' 2025 AI spot · scored 5.9/5.9 System1" },
+          { "name": "Imaginetive", "url": "https://imaginetive.com", "specialty": "Meta Andromeda + AI ad creative platform", "notable": "Self-serve tool for marketers · single-prompt ad generation" }
+        ]
+      },
+      "behindTheLens": [
+        { "step": 1, "title": "Steal from winners (Meta Ad Library + TikTok CC)", "body": "Before any generation: 30 min in Meta Ad Library + TikTok Creative Center for the brand's category. Screenshot top 10 winners. Identify hook patterns (3s opening · pattern interrupt · UGC vs polished). This is the prompt-seed." },
+        { "step": 2, "title": "gpt-image-2 hook stills batch (10x)", "body": "Generate 10 hook still variants from the winning patterns. Different angles, lighting, copy positions. These are the A/B test universe — pick the 3 strongest by gut + send to client for vote." },
+        { "step": 3, "title": "seedance-2 + Higgsfield Marketing Studio (6-9s each)", "body": "Turn 3 picked stills into 6-9s vertical videos via seedance-2 (image-to-video). Parallel: run Higgsfield Marketing Studio with product URL → UGC avatar variant. End with 5-8 video assets ready for ffmpeg." },
+        { "step": 4, "title": "ffmpeg variant explosion (20+ assets)", "body": "Single source 6s video × 5 caption overlays × 4 CTA endings = 100 variants in 2 hours. Use ffmpeg scriptable batch: caption SRT + watermark + 9:16 crop. Export all as .mp4 H.264 8Mbps · Meta-friendly." },
+        { "step": 5, "title": "Ship + measure + scale winners with humans", "body": "Upload 20 variants to Meta/TikTok in 1 ad set. After 72h, identify CPM/CTR winners (typically 2-3 out of 20). Brief a HUMAN UGC creator to remake the winner concept at scale (Arcads/Creatify/real creator) — AI did the testing-phase work, humans scale the gold." }
+      ],
+      "roi": {
+        "inputs": [
+          { "id": "clients_per_month", "label": "Clients / mês", "type": "number", "default": 6 },
+          { "id": "retainer_brl", "label": "Retainer médio (R$)", "type": "number", "default": 4500 },
+          { "id": "cost_per_client_brl", "label": "Custo por client (APIs + tempo R$)", "type": "number", "default": 120 }
+        ],
+        "formula": "revenue = clients_per_month * retainer_brl; cost = clients_per_month * cost_per_client_brl; margin_brl = revenue - cost; margin_pct = (margin_brl / revenue) * 100;",
+        "outputs": [
+          { "id": "revenue", "label": "Receita mensal", "format": "BRL" },
+          { "id": "cost", "label": "Custo mensal", "format": "BRL" },
+          { "id": "margin_brl", "label": "Margem mensal", "format": "BRL" },
+          { "id": "margin_pct", "label": "Margem %", "format": "%" }
+        ]
+      }
+    },
+    {
+      "id": "restaurantes",
+      "name": "Restaurantes · F&B",
+      "tagline": "Cardápio que converte · prato que viraliza · sem foodphotog R$5k",
+      "icon": "🍽",
+      "color": "#c45a3a",
+      "icp": "Restaurantes mid-tier R$30-150 ticket · cardápios delivery (Uber Eats/iFood/Rappi) · cafés especialidade · brunch · novos chef-restaurants em BH/SP precisando social viral",
+      "math": {
+        "ticketMedio": 2200,
+        "timeToDeliver": "48h",
+        "costPerAsset": 80,
+        "suggestedMargin": 75
+      },
+      "stack": [
+        { "moment": "Hero prato cardápio (delivery-ready)", "model": "gpt-image-2", "rationale": "Melhor controle de top-down 5:4 (Uber Eats) e 16:9 (DoorDash header). Photorealistic plating · iluminação consistente entre items do menu inteiro." },
+        { "moment": "Enhance foto-de-celular do chef em pro-grade", "model": "nano-banana-pro", "rationale": "Edit reference: pega foto do chef no celular, mantém composição/prato real, enhance lighting + cleanup BG. Crítico p/ restaurantes que não querem reshoot." },
+        { "moment": "Ambiente / interior do restaurante", "model": "gpt-image-2", "rationale": "Interiores fotorrealistas · golden hour soft window light · sem perder identidade do espaço. Use para hero do Instagram + Google Maps." },
+        { "moment": "Video reveal / pratos em close-up motion", "model": "seedance-2", "rationale": "Sizzle reel 6-8s · steam rising, sauce drip, slow-zoom em close-up. Multimodal aceita still + script de motion." },
+        { "moment": "Reels / TikTok 9:16 chef pov", "model": "kling-3", "rationale": "Multi-shot continuity para sequências chef-prepping-prato em POV. Mais coerente que seedance em hand+food interactions." }
+      ],
+      "workflow": {
+        "mermaid": "graph LR;\n A[Phone photos<br/>+ menu list] --> B[gpt-image-2<br/>hero pratos];\n A --> C[nano-banana-pro<br/>enhance reais];\n B --> D[seedance-2<br/>sizzle reels];\n B --> E[ffmpeg<br/>5:4 + 16:9 crops];\n C --> E;\n D --> F[9:16 Reels<br/>kling-3];\n E --> G[Delivery apps<br/>Uber/iFood/Rappi];\n F --> H[Instagram<br/>+ TikTok];"
+      },
+      "prompts": [
+        {
+          "title": "Quesadilla Hero — Square Delivery Card",
+          "body": "Square 1:1 close-up food advertisement photo of a cheesy quesadilla cut in half showing molten cheese pull, served on a warm rustic wood board with a small bowl of red salsa and lime wedges on the side. Shot from a 30-degree angle, warm golden lighting from camera-left, soft shadow detail. Steam wisps subtly visible. Hyper-realistic food photography, sharp focus on cheese pull, slight bokeh on background props. Restaurant-menu-ready.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "1:1",
+          "expectedOutputItemId": "7031a3497d58",
+          "tags": ["food", "hero", "delivery", "menu"]
+        },
+        {
+          "title": "Mediterranean Salad — Editorial Top-Down",
+          "body": "Editorial top-down photograph of a vibrant Mediterranean salad in a white ceramic bowl: arugula, cherry tomatoes, kalamata olives, feta crumbles, cucumber rounds, red onion slivers, drizzled olive oil. Bowl center-frame on a textured beige linen surface. Camera dead-overhead. Natural daylight from window left. Sharp focus across bowl, slight DOF on linen. 4:5 aspect — works for Uber Eats catalog crop AND Instagram feed.",
+          "model": "nano-banana-pro",
+          "kind": "image",
+          "aspect": "4:5",
+          "expectedOutputItemId": "78039c6e7ca8",
+          "tags": ["food", "salad", "top-down", "editorial"]
+        },
+        {
+          "title": "Chocolate Wafer Product — Premium Pack",
+          "body": "Premium product render of a Chocolate Wafer Hazelnut Edition. Package centered, slight 3/4 angle, one wafer leaning casually against the package showing crisp cross-section with hazelnut spread layers. Studio seamless dark brown gradient background, dramatic side rim light, satin finish on package, ultra-detailed wafer texture. Commercial-grade, ready for Mercado Livre / Amazon listing. 8K resolution feel.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "4:5",
+          "expectedOutputItemId": "7eac4200f437",
+          "tags": ["product", "packaged-food", "premium", "ecommerce"]
+        },
+        {
+          "title": "Pizza Collab — Pop Saturated Poster",
+          "body": "Bright American pop-art style anime pizza collaboration advertisement for a [BRAND] x [PIZZERIA] crossover. Hyper-saturated red and yellow palette. Central image: a slice being pulled with infinite cheese stretch, sparkles around. Bold display text top: 'NEW DROP', bottom: 'LIMITED EDITION'. Halftone dots in background. Pop poster energy, screen-printed feel. 9:16 vertical for Instagram Story / TikTok.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "9:16",
+          "expectedOutputItemId": "71d2fe1e149b",
+          "tags": ["food", "collab", "poster", "pop"]
+        },
+        {
+          "title": "Korean Seafood Restaurant — Loud Hero Poster",
+          "body": "Loud, hyper-saturated Korean seafood restaurant advertising poster. Centered: a sizzling seafood platter (octopus, prawns, mussels) on a black hot stone, steam rising dramatically. Background: neon kanji-style typography in red and yellow. Text overlay top: '오픈 SALE'. Bold maximalist design, Seoul night-market vibe, kitsch & premium at once. Vertical 9:16 for Instagram / TikTok feed promo.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "9:16",
+          "expectedOutputItemId": "1ae04248ec43",
+          "tags": ["food", "poster", "korean", "viral"]
+        },
+        {
+          "title": "Cafe Interior — Lifestyle Brunch Mood",
+          "body": "Cinematic photograph of a Brazilian specialty cafe interior, mid-morning. Marble counter front-left with brass espresso machine, hanging Edison bulbs warm 2700K, exposed brick wall behind, two customer silhouettes blurred at a window table catching warm São Paulo light. Wood floor. Camera 35mm slight wide. Editorial brunch-magazine feel. Café-as-place vibe — for Google Business / Instagram bio header.",
+          "model": "gpt-image-2",
+          "kind": "image",
+          "aspect": "16:9",
+          "tags": ["interior", "cafe", "ambient", "lifestyle"]
+        },
+        {
+          "title": "Pasta Sizzle Reel — 8s Close-up",
+          "body": "Cinematic 8-second 9:16 vertical video. Frame 1-3s: extreme close-up of fresh pasta in a steaming bowl, steam rising in soft wisps. Frame 4-6s: a fork twirls strands with slow practiced motion, sauce coats glistening. Frame 7-8s: fork lifts upward out of frame, single strand of cheese stretches. Warm restaurant lighting, shallow DOF, no human face visible. Sound-design ready (sizzle + fork ASMR).",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["food", "sizzle", "pasta", "reel"]
+        },
+        {
+          "title": "Cocktail Pour — Slow-Mo Hero",
+          "body": "Cinematic 6-second 9:16 vertical video of a craft cocktail being poured. Frame 1-2s: dark cinematic background, single coupe glass center. Frame 3-4s: amber cocktail pours from above in slow motion, perfect ribbon, ice cubes already in glass. Frame 5-6s: pour stops, small splash, garnish (orange peel) dropped in from above. Moody bar lighting, single warm rim light. No people. Audio cue: pour + ice clink.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["beverage", "cocktail", "slow-mo", "reel"]
+        },
+        {
+          "title": "Chef POV — Plating Sequence",
+          "body": "9:16 vertical video, 10 seconds, chef's POV (first-person, hands visible from below frame). Sequence: chef's hands enter frame with tweezers, place 3 microgreens precisely on a plated dish. Then a hand drizzles olive oil from a small cruet. Plate centered on white marble counter. Soft overhead kitchen lighting, slightly warm. Authentic restaurant-kitchen feel, not staged. TikTok plating-video aesthetic.",
+          "model": "kling-3",
+          "kind": "video",
+          "aspect": "9:16",
+          "tags": ["chef-pov", "plating", "tiktok", "reel"]
+        },
+        {
+          "title": "Burger Hero — Drip + Steam",
+          "body": "Cinematic 6-second 16:9 video. Frame 1-2s: a perfect cheeseburger on a wooden board, center. Frame 3-4s: slow zoom in, cheese starts melting visibly, single drop of sauce begins to fall from edge. Frame 5-6s: drop hits the board with subtle splash, steam wisp rises behind. Warm golden lighting, shallow DOF on burger. Restaurant-quality hyper-real. No people. Audio: sizzle + steam.",
+          "model": "seedance-2",
+          "kind": "video",
+          "aspect": "16:9",
+          "tags": ["food", "burger", "hero", "delivery"]
+        }
+      ],
+      "cases": [
+        {
+          "brand": "DoorDash · AI photo enhancement",
+          "url": "https://www.today.com/food/news/food-delivery-ai-photos-rcna259748",
+          "credit": "TODAY.com · 2025 reporting on DoorDash AI photo enhancement",
+          "whatsBrilliant": "Platform-native AI photo enhancement: 'adjusts lighting, re-plates, or modifies background' on user-generated restaurant photos. Validates AI photo enhancement at platform scale — the floor is now AI-enhanced.",
+          "metric": "Platform-native since 2025 · 35% reduction in restaurant onboarding time (DoorDash internal)"
+        },
+        {
+          "brand": "Uber Eats · 2025 Merchant Impact Report",
+          "url": "https://www.today.com/food/news/food-delivery-ai-photos-rcna259748",
+          "credit": "Uber Eats 2025 Merchant Impact Report",
+          "whatsBrilliant": "Built AI photo tool directly into the merchant flow so restaurants can self-serve enhancement. Standardizes menu quality across thousands of merchants — sets the new baseline expectation.",
+          "metric": "Native in Uber Eats merchant app since 2025"
+        },
+        {
+          "brand": "DoorDash · photo-to-sales benchmark study",
+          "url": "https://www.tryotter.com/blog/restaurant-tips/best-ai-tools-for-food-photography",
+          "credit": "DoorDash 2020 menu design analysis · 15,000 small restaurants",
+          "whatsBrilliant": "Hard data: dishes WITH photos generated up to 44% more monthly sales than text-only menu items. Locks the business case for any restaurant — cost of AI photos is sub-1% of the lift.",
+          "metric": "+44% monthly sales for dishes with photos (DoorDash 2020)"
+        },
+        {
+          "brand": "FoodShot AI · cafe menu refresh playbook",
+          "url": "https://foodshot.ai/blog/90-second-cafe-menu-refresh-photography-guide",
+          "credit": "FoodShot AI blog · 2025 production case",
+          "whatsBrilliant": "Productized 90-second AI photo refresh for cafes — eliminates 4-6 hour shoot. Pricing $9/mo replaces $2-5k photographer engagements. The competitive floor for the freelance offer.",
+          "metric": "$9/mo · 90s per photo · vs traditional $2-5k shoot · +~25% menu conversion (Grubhub-cited)"
+        },
+        {
+          "brand": "Ethos ATX · the fake AI restaurant scandal",
+          "url": "https://www.aicerts.ai/news/ai-robotics-and-the-ethos-fake-restaurant-scandal/",
+          "credit": "AI CERTs News · 2024 case · X thread Oct 13 2024",
+          "whatsBrilliant": "Cautionary tale: 73k Instagram followers built on AI-generated menus + chefs + venue that DIDN'T EXIST. Authenticity rails matter — the Frame Zero positioning explicitly enhances real restaurants, never fabricates ghost ones.",
+          "metric": "73,000 followers before exposure"
+        }
+      ],
+      "resources": {
+        "repos": [
+          { "name": "royshopflo/dish-data-generation", "url": "https://github.com/royshopflo/dish-data-generation", "stars": 0, "description": "4,302+ AI-generated dishes with prompts (GPT-4o + SDXL pipeline) — direct prompt-pack reference" },
+          { "name": "YouMind-OpenLab/awesome-nano-banana-pro-prompts", "url": "https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts", "stars": 12248, "description": "Includes food photography prompt categories" },
+          { "name": "jamez-bondos/awesome-gpt4o-images", "url": "https://github.com/jamez-bondos/awesome-gpt4o-images", "stars": 8060, "description": "Curated food + product photography visuals + prompts" },
+          { "name": "devanshug2307/Awesome-AI-Image-Prompts", "url": "https://github.com/devanshug2307/Awesome-AI-Image-Prompts", "stars": 184, "description": "Includes food + product categories with copy-ready JSON" },
+          { "name": "EvoLinkAI/awesome-seedance-2-guide", "url": "https://github.com/EvoLinkAI/awesome-seedance-2-guide", "stars": 370, "description": "Seedance 2.0 video patterns — applicable to sizzle reels" }
+        ],
+        "videos": [
+          { "title": "How to Make Professional Food Photo in ChatGPT (DoorDash / GrabFood ready)", "url": "https://www.youtube.com/watch?v=GY2Zf9AsVH4", "duration": "2:44", "channel": "[verify]" },
+          { "title": "Turn Amateur Food Photo into POLISHED Marketing Posters with Gemini AI", "url": "https://www.youtube.com/watch?v=2lzdM4y892Q", "duration": "4:23", "channel": "[verify]" },
+          { "title": "MidJourney Prompts to create stunning realistic food photography", "url": "https://www.youtube.com/watch?v=6VlsMQ8LhvY", "duration": "2:50", "channel": "[verify]" },
+          { "title": "Midjourney V6 | Make Your Food Delicious ON SCREEN", "url": "https://www.youtube.com/watch?v=QL0MViqq0BQ", "duration": "14:10", "channel": "[verify]" },
+          { "title": "Use MidJourney to Create Stunning Food Photographs for FREE (Tutorial)", "url": "https://www.youtube.com/watch?v=HfbQgTjW14s", "duration": "7:32", "channel": "[verify]" },
+          { "title": "Best Food Photography Prompts for Midjourney", "url": "https://www.youtube.com/watch?v=fPV2zn1STY4", "duration": "1:54", "channel": "[verify]" }
+        ],
+        "courses": [
+          { "title": "Food Photography for Restaurants — search Udemy", "url": "https://www.udemy.com/courses/search/?q=food+photography+AI", "platform": "Udemy", "note": "Multiple instructors · filter by recency 2025+" },
+          { "title": "Apatero · 50+ Food Photography prompts (free reference)", "url": "https://www.apatero.com/blog/best-prompts-food-photography-restaurant-menus-2025", "platform": "Apatero (free)", "note": "59-min read · 50+ prompts categorized by platform (Instagram, TikTok, Pinterest, menu)" }
+        ],
+        "tools": [
+          { "name": "FoodShot AI", "url": "https://foodshot.ai", "category": "vertical-saas", "note": "Vertical food-photo AI · $9/mo · presets for Delivery / Restaurant / Lifestyle / Healthy · Uber Eats + DoorDash format presets" },
+          { "name": "AI Menu Photo", "url": "https://www.aimenuphoto.com", "category": "vertical-saas", "note": "Restaurant-specific AI food photography enhancement" },
+          { "name": "Higgsfield · Product Photoshoot mode", "url": "https://higgsfield.ai", "category": "video+image-gen", "note": "Murilo's stack · product_shot + lifestyle_scene + closeup_with_person modes for food" },
+          { "name": "fal.ai (Seedance, FLUX, Nano Banana gateway)", "url": "https://fal.ai", "category": "model-gateway", "note": "Pay-per-second · ideal for batch enhance of full menu" },
+          { "name": "Uber Eats Merchant AI Tool", "url": "https://merchants.ubereats.com", "category": "platform-native", "note": "If shipping to Uber Eats menus · use native enhancement first (free)" },
+          { "name": "DoorDash Merchant Portal · photo enhance", "url": "https://www.doordash.com/merchant", "category": "platform-native", "note": "DoorDash provides automatic background-enhanced updates · free in merchant portal" }
+        ],
+        "papers": [],
+        "agencies": [
+          { "name": "FoodShot AI (productized agency)", "url": "https://foodshot.ai", "specialty": "Vertical AI food photography SaaS", "notable": "Productized the agency offer — competitive floor for any freelancer pricing food-photo packages" },
+          { "name": "Local BR F&B specialists (Workana / 99Freelas)", "url": "https://workana.com/jobs/category/marketing-design", "specialty": "Freelance food photography + social", "notable": "Direct competition for the Murilo F&B offer — benchmark BR market pricing R$80-200/photo traditional" }
+        ]
+      },
+      "behindTheLens": [
+        { "step": 1, "title": "Phone photos + menu CSV from chef", "body": "Restaurant sends 8-15 phone photos of their actual signature dishes + plain-text menu (or PDF). No reshoot. The phone photos are the geometric truth — Murilo doesn't fabricate dishes, only enhances real ones (anti-Ethos-ATX rule)." },
+        { "step": 2, "title": "nano-banana-pro enhance batch (10-15 dishes)", "body": "Feed each phone photo + 'enhance lighting, neutralize background, preserve dish geometry' prompt. Batch via fal.ai (parallel runs). Output: each dish in 5:4 (Uber Eats catalog) + 16:9 (DoorDash header) + 4:5 (Instagram)." },
+        { "step": 3, "title": "gpt-image-2 hero shots for 3 signature dishes", "body": "For the 3 most-ordered items, generate ground-up hero shots in gpt-image-2 with full editorial prompt (steam, drip, golden hour, props). These are the Instagram-feed + menu-cover stars." },
+        { "step": 4, "title": "seedance-2 sizzle reels (3 × 6-8s) + kling-3 chef-POV", "body": "From the 3 hero stills, generate 3 sizzle reels (steam rise, sauce drip, fork twirl) via seedance-2. Plus 1 chef-POV plating sequence via kling-3 for TikTok. ffmpeg crops to 9:16 + 1:1." },
+        { "step": 5, "title": "Deliver bundle + upload assistance", "body": "WhatsApp: ZIP with all formats (5:4 / 16:9 / 4:5 / 9:16 / 1:1) + 4 video reels + 1 PDF mapping each asset to its target platform. Invoice R$2.2k. Optional add-on: upload to Uber Eats/iFood/Rappi for the restaurant (+R$400)." }
+      ],
+      "roi": {
+        "inputs": [
+          { "id": "restaurants_per_month", "label": "Restaurantes / mês", "type": "number", "default": 8 },
+          { "id": "avg_package_brl", "label": "Pacote médio (R$)", "type": "number", "default": 2200 },
+          { "id": "cost_per_restaurant_brl", "label": "Custo por restaurante (R$)", "type": "number", "default": 80 }
+        ],
+        "formula": "revenue = restaurants_per_month * avg_package_brl; cost = restaurants_per_month * cost_per_restaurant_brl; margin_brl = revenue - cost; margin_pct = (margin_brl / revenue) * 100;",
+        "outputs": [
+          { "id": "revenue", "label": "Receita mensal", "format": "BRL" },
+          { "id": "cost", "label": "Custo mensal", "format": "BRL" },
+          { "id": "margin_brl", "label": "Margem mensal", "format": "BRL" },
+          { "id": "margin_pct", "label": "Margem %", "format": "%" }
+        ]
+      }
+    },
+    {
+      "id": "arquitetura",
+      "name": "Arquitetura",
+      "tagline": "Render-grade interiors + exteriors sem renderfarm",
+      "icon": "🏗",
+      "color": "#8a8276",
+      "icp": "Escritórios arquitetura + studios design + students apresentando projeto",
+      "status": "stub",
+      "comingPhase": "γ"
+    },
+    {
+      "id": "drones",
+      "name": "Drones · Aerial",
+      "tagline": "FPV cinematic sem piloto sem licença",
+      "icon": "🚁",
+      "color": "#7fb0a8",
+      "icp": "Eventos · arquitetura · real estate · construction · brand films",
+      "status": "stub",
+      "comingPhase": "γ"
+    },
+    {
+      "id": "empresa-junior",
+      "name": "Empresa Junior",
+      "tagline": "Pitch decks + deliverables visuais consultoria de elite",
+      "icon": "🎓",
+      "color": "#9d8cbf",
+      "icp": "EJs federadas + Skema BBA + estudantes de consultoria (Murilo direct ICP)",
+      "status": "stub",
+      "comingPhase": "γ"
+    },
+    {
+      "id": "ecommerce-saas",
+      "name": "E-commerce · SaaS",
+      "tagline": "Founder content + product hero + landing visuals",
+      "icon": "🛒",
+      "color": "#cd6155",
+      "icp": "DTC brands + SaaS founders + indie hackers + Shopify stores",
+      "status": "stub",
+      "comingPhase": "γ"
+    },
+    {
+      "id": "fashion",
+      "name": "Fashion · Beleza",
+      "tagline": "Editorial AI lookbook + social viral",
+      "icon": "👗",
+      "color": "#e8b4b8",
+      "icp": "Indie fashion brands + beauty founders + photographers expanding",
+      "status": "stub",
+      "comingPhase": "γ"
+    },
+    {
+      "id": "eventos-hoteis",
+      "name": "Eventos · Hotéis",
+      "tagline": "Venue immersive + highlight reel + ambient bg",
+      "icon": "🏨",
+      "color": "#b8a380",
+      "icp": "Hotel managers + event agencies + wedding planners + venue marketing",
+      "status": "stub",
+      "comingPhase": "γ"
+    },
+    {
+      "id": "animation",
+      "name": "Animation",
+      "tagline": "Short film + character motion + multi-shot continuity",
+      "icon": "🎬",
+      "color": "#c4a574",
+      "icp": "Indie animators + storytellers + marketing teams + edu-content",
+      "status": "stub",
+      "comingPhase": "γ"
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok-native",
+      "tagline": "Vertical hooks + UGC + viral formats native to feed",
+      "icon": "📱",
+      "color": "#fe2c55",
+      "icp": "Creators + brands testing organic + agencies running short-form",
+      "status": "stub",
+      "comingPhase": "γ"
+    }
   ]
 }
