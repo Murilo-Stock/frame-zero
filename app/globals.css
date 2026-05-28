@@ -20,6 +20,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Director's Cut — Konami code unlocks the red palette via body[data-theme]. */
+body[data-theme="director"] {
+  --color-amber: #e63946;
+  --color-amber-hot: #ff5263;
+}
+
 /* SVG grain overlay */
 .grain::after {
   content: "";
